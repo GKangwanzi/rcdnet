@@ -18,3 +18,9 @@
 .sidebar-wrapper .sidebar-header img {
     height: 3.3rem !important;
 }
+#auth #auth-right {
+    background: url(../../assets/images/bg/login.jpg) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    height: 100%;
+}
