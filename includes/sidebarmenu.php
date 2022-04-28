@@ -1,10 +1,10 @@
 <div class="sidebar-menu">
         <ul class="menu">
-            <li class="sidebar-title">Menu</li>
+            <li class="sidebar-title">Welcome <?php echo $_SESSION['username']; ?></li>
             
             <li
                 class="sidebar-item active ">
-                <a href="index.html" class='sidebar-link'>
+                <a href="home.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>
                 </a>
@@ -18,10 +18,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">View Posts</a>
+                        <a href="./notice-board.php">View Posts</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">New Post</a>
+                        <a href="./new-post.php">New Post</a>
                     </li>
                 </ul>
             </li>
@@ -50,10 +50,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">New Project</a>
+                        <a href="./new-project.php">New Project</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">All Projects</a>
+                        <a href="./projects.php">All Projects</a>
                     </li>
                 </ul>
             </li>
@@ -74,5 +74,12 @@
                 </ul>
             </li>
             
+            <li
+                class="sidebar-item active ">
+                <a href="logout.php" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
