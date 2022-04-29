@@ -10,13 +10,15 @@
         $password = mysqli_real_escape_string($con, $password);  
       
         $sql = "SELECT * FROM users where username = '$username' and password = '$password'";  
-        $result = mysqli_query($con, $sql);  
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
+        $result = mysqli_query($con, $sql);
+        $data = mysqli_fetch_assoc($result);  
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC); 
+        $count = mysqli_num_rows($result); 
+        $fullname = $data['fullname'];
           
         if($count == 1){  
             session_start();
-            $_SESSION['username'] = $username;
+            $_SESSION['username'] = $fullname;
             header("Location: home.php"); 
         }  
         else{  
