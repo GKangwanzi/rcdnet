@@ -1,8 +1,8 @@
 <?php      
     $host = "localhost";  
-    $user = "root";  
-    $passw = '';  
-    $dbname = "rcdnet";  
+    $user = "admin";  
+    $passw = 'admin';  
+    $dbname = "mugisha";  
       
     $con = mysqli_connect($host, $user, $passw, $dbname);  
     if( mysqli_connect_errno()) {  

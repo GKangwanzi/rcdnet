@@ -73,7 +73,23 @@
                     </li>
                 </ul>
             </li>
-            
+             
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Users</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="./newuser.php">New User</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./users.php">Manage Users</a>
+                    </li>
+                </ul>
+            </li>
+
             <li
                 class="sidebar-item active ">
                 <a href="logout.php" class='sidebar-link'>
