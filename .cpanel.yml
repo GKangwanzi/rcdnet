@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/julyhost/mugisha.julyhost.net
+    - export DEPLOYPATH=/home/julyhost/mugisha.julyhost.net/
     - /bin/cp * $DEPLOYPATH
