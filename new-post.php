@@ -18,7 +18,41 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+<?php
+//Create new user
+if (isset($_POST['post'])){
+    $subject = $_POST['subject'];
+    $category = $_POST['category'];
+    $notice = $_POST['notice'];
+    $phone = $_POST['phone'];
+    $user = $_SESSION['name'];
 
+
+    include "includes/connection.php";
+
+    $sql = "INSERT INTO notice (category, title, message, user)
+    VALUES ('$category', '$subject', '$notice', '$user')";
+
+    if(mysqli_query($con, $sql)){
+        ?>
+<script type="text/javascript">
+alert("review your answer"); 
+window.location.href = "notice-board.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+    echo "Something went wrong";
+}
+
+?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -48,31 +82,25 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <form>
+                    <form method="POST" action="">
+                        
+                        <p>Select Category</p>
+                            <fieldset class="form-group">
+                                <select class="form-select" name="category">
+                                     <option>Select Category</option>
+                                    <option>Urgent Notice</option>
+                                    <option>General Annoucement</option>
+                                    <option>Opportunity</option>
+                                    <option>Upcoming Event</option>
+                                </select>
+                            </fieldset>
                         <div class="form-group">
                             <label for="basicInput">Subject</label>
-                            <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
+                            <input type="text" class="form-control" name="subject" placeholder="Enter email">
                         </div>
-                        <p>Select User Group</p>
-                            <fieldset class="form-group">
-                                <select class="form-select" id="basicSelect">
-                                     <option>Select Group</option>
-                                    <option>Board</option>
-                                    <option>Top Staff</option>
-                                    <option>General</option>
-                                </select>
-                            </fieldset>
-                        <p>Attention</p>
-                            <fieldset class="form-group">
-                                <select class="form-select" id="basicSelect">
-                                    <option>Urgent</option>
-                                    <option>Blade Runner</option>
-                                    <option>Thor Ragnarok</option>
-                                </select>
-                            </fieldset>
                         <div class="form-group mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Your Notice</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+                            <textarea class="form-control" name="notice" rows="6"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" name="post" value="Post Now">
                     </form>

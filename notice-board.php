@@ -44,38 +44,128 @@
 
     <section class="section">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                      <div class="card-body">
-                        <div class="alert alert-success">
-                            <h4 class="alert-heading">Second quarter report submission</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at mi in odio interdum cursus et eu velit. Nullam nec sagittis tortor. Fusce id placerat tellus. </p>
-                            <p> 12/05/2022  |  Posted By: John </p>
-                            <br>
-                            <a href="#" class="btn btn-success">View Post</a>
-                        </div>
-                        <div class="alert alert-success">
-                            <h4 class="alert-heading">Second quarter report submission</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at mi in odio interdum cursus et eu velit. Nullam nec sagittis tortor. Fusce id placerat tellus. </p>
-                            <p> 12/05/2022  |  Posted By: John </p>
-                            <br>
-                            <a href="#" class="btn btn-success">View Post</a>
-                        </div>
+
+                        <?php
+include "includes/connection.php";
+
+$sql = "SELECT * FROM notice ORDER BY noticeid DESC LIMIT 5 ";
+if($result = mysqli_query($con, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            echo "<a href='post.php?id=".$row['noticeid']."'".">";
+            echo "<div class='alert alert-success alert-dismissible show fade'>";
+                echo "<h4>".$row['title']."</h4>";
+                echo "<p style='color: #000;'>" ."Posted By ".$row['user']." | ".substr($row['date'], 0, -10);"</p>";
+                echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
+            echo "</div>";
+            echo "</a>";
+        } 
+        echo "</table>";
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+?>
 
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card">
                      <div class="card-body">
-                        <div class="alert alert-primary">
-                            <h4 class="alert-heading">Second quarter report submission</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at mi in odio interdum cursus et eu velit. Nullam nec sagittis tortor. Fusce id placerat tellus. </p>
-                            <p> 12/05/2022  |  Posted By: John </p>
-                            <br>
-                            <a href="#" class="btn btn-primary">View Post</a>
-                        </div>
+                        <ul class="list-group">
+                                <li class="list-group-item active">CATEGORIES</li>
+                                <li class="list-group-item">
+                                    <?php
+                                    include "includes/connection.php"; 
+                                    $sql = "SELECT COUNT(category) AS namba FROM notice  WHERE category='General Annoucement' ";
+                                    if($result = mysqli_query($con, $sql)){ 
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_array($result)){
+
+                                                    echo  "<namba class='namba'>".$row['namba']."</namba>"." General Annoucements";
+
+                                            } 
+                                            mysqli_free_result($result);
+                                        } else{
+                                            echo "No records matching your query were found.";
+                                        }
+                                    } else{
+                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                    }
+                                    ?>
+
+                              </li>
+                                <li class="list-group-item">
+                                    <?php
+                                    include "includes/connection.php"; 
+                                    $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Upcoming Event' ";
+                                    if($result = mysqli_query($con, $sql)){ 
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_array($result)){
+
+                                                    echo  "<namba class='namba'>".$row['namba']."</namba>"." Upcoming Events";
+
+                                            } 
+                                            mysqli_free_result($result);
+                                        } else{
+                                            echo "No records matching your query were found.";
+                                        }
+                                    } else{
+                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                    }
+                                    ?>
+                                </li> 
+                                <li class="list-group-item">
+                                    <?php
+                                    include "includes/connection.php"; 
+                                    $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Opportunity' ";
+                                    if($result = mysqli_query($con, $sql)){ 
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_array($result)){
+
+                                                    echo  "<namba class='namba'>".$row['namba']."</namba>"." Opportunities";
+
+                                            } 
+                                            mysqli_free_result($result);
+                                        } else{
+                                            echo "No records matching your query were found.";
+                                        }
+                                    } else{
+                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                    }
+                                    ?>
+                                </li>
+                                <li class="list-group-item">
+                                    <?php
+                                    include "includes/connection.php"; 
+                                    $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Urgent Notice' ";
+                                    if($result = mysqli_query($con, $sql)){ 
+                                        if(mysqli_num_rows($result) > 0){
+                                            while($row = mysqli_fetch_array($result)){
+
+                                                    echo  "<namba class='namba'>".$row['namba']."</namba>"." Urgent Notice";
+
+                                            } 
+                                            mysqli_free_result($result);
+                                        } else{
+                                            echo "No records matching your query were found.";
+                                        }
+                                    } else{
+                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                    }
+                                    ?>
+                                </li>
+
+                            </ul>
                     </div>
                 </div>
             </div>

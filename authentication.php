@@ -18,7 +18,7 @@
           
         if($count == 1){  
             session_start();
-            $_SESSION['username'] = $fullname;
+            $_SESSION['name'] = $fullname;
             header("Location: home.php"); 
         }  
         else{  

@@ -1,6 +1,6 @@
 <div class="sidebar-menu">
         <ul class="menu">
-            <li class="sidebar-title">Welcome <?php echo $_SESSION['username']; ?></li>
+            <li class="sidebar-title">Welcome <?php echo $_SESSION['name']; ?></li>
             
             <li
                 class="sidebar-item active ">

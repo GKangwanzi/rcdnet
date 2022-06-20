@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['name'])) {
     // code...
     header("Location: ./index.php");
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
