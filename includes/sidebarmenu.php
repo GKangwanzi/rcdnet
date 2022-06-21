@@ -23,6 +23,9 @@
                     <li class="submenu-item ">
                         <a href="./new-post.php">New Post</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./myposts.php">My Posts</a>
+                    </li>
                 </ul>
             </li>
             
