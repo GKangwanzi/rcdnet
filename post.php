@@ -23,13 +23,13 @@
 if (isset($_POST['comment'])){
     $message = $_POST['message'];
     $postid = $_GET['id'];
-    $user = $_SESSION['name'];
+    $member = $_SESSION['name'];
 
 
     include "includes/connection.php";
 
     $sql = "INSERT INTO comment (message, user, post)
-    VALUES ('$message', '$user', '$postid')";
+    VALUES ('$message', '$member', '$postid')";
 
     if(mysqli_query($con, $sql)){
         ?>

@@ -58,7 +58,7 @@ if (isset($_POST['post'])){
 
     if(mysqli_query($con, $sql)){
         ?>
-<script type="text/javascript">
+<script type="text/javascript"> 
 alert("Your post has been submitted"); 
 window.location.href = "notice-board.php";
 </script>
