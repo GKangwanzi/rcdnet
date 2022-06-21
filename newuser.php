@@ -18,43 +18,7 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-<?php
-//Create new user
-if (isset($_POST['post'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $key   = $_POST['password'];
-    $user  = $_POST['username'];
 
-    $fullname = $fname." ".$lname;
-
-    include "includes/connection.php";
-
-    $sql = "INSERT INTO users (username, password, fullname, email, phone)
-    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript">
-alert("review your answer");
-window.location.href = "users.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-    echo "Something went wrong";
-}
-
-?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -73,7 +37,49 @@ window.location.href = "users.php";
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>New User</h3>
-                <p class="text-subtitle text-muted">Use this form to create a new user.</p>
+
+                <?php
+//Create new user
+if (isset($_POST['post'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $key   = $_POST['password'];
+    $role   = $_POST['role'];
+    $member  = $_POST['username'];
+
+    $fullname = $fname." ".$lname;
+
+    include "includes/connection.php";
+
+    $sql = "INSERT INTO users (username, password, fullname, email, phone, role)
+    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role' )";
+
+    if(mysqli_query($con, $sql)){
+        ?>
+<script type="text/javascript">
+
+alert("Your post has been submitted"); 
+window.location.href = "users.php";
+
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+    echo "<p class='text-subtitle text-muted'>"."Use this form to create a new user."."</p>";
+
+}
+
+?>
+                
             </div>
 
         </div>
@@ -110,6 +116,15 @@ window.location.href = "users.php";
                         <div class="form-group">
 
                             <input type="password" class="form-control" name="password" placeholder="Assign Password">
+                        </div>
+
+                        <div class="form-group">
+
+                            <select class="form-control" name="role">
+                                <option>Select User ROle</option>
+                                <option value="admin">Admin</option>
+                                <option value="staff">Staff</option>
+                            </select>
                         </div>
                         <br>
                         <input type="submit" class="btn btn-primary" name="post" value="Add User">

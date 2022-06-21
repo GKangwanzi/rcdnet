@@ -109,7 +109,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['phone'] . "</td>";
                 echo "<td>" . $row['role'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> ". "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";

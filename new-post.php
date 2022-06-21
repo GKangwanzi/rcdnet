@@ -18,41 +18,7 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-<?php
-//Create new user
-if (isset($_POST['post'])){
-    $subject = $_POST['subject'];
-    $category = $_POST['category'];
-    $notice = $_POST['notice'];
-    $phone = $_POST['phone'];
-    $user = $_SESSION['name'];
 
-
-    include "includes/connection.php";
-
-    $sql = "INSERT INTO notice (category, title, message, user)
-    VALUES ('$category', '$subject', '$notice', '$user')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript">
-alert("review your answer"); 
-window.location.href = "notice-board.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-    echo "Something went wrong";
-}
-
-?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -70,8 +36,48 @@ window.location.href = "notice-board.php";
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Post</h3>
-                <p class="text-subtitle text-muted">Use this form to make posts to the general notice board.</p>
+                <h3>New Post <?php echo $_SESSION['name']; ?></h3>
+
+                <?php
+//Create new user
+if (isset($_POST['post'])){
+    $subject = $_POST['subject'];
+    $category = $_POST['category'];
+    $notice = $_POST['notice'];
+    $phone = $_POST['phone'];
+
+    $member = $_SESSION['name'];
+
+
+
+
+    include "includes/connection.php";
+
+    $sql = "INSERT INTO notice (category, title, message, user)
+    VALUES ('$category', '$subject', '$notice', '$member')";
+
+    if(mysqli_query($con, $sql)){
+        ?>
+<script type="text/javascript">
+alert("Your post has been submitted"); 
+window.location.href = "notice-board.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+   echo "<p class='text-subtitle text-muted'>"."Use this form to make posts to the general notice board."."</p>";
+
+}
+
+?>
+                
             </div>
 
         </div>
