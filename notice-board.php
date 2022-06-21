@@ -48,31 +48,59 @@
                 <div class="card">
                      <div class="card-body">
 
-                        <?php
-include "includes/connection.php";
+                <?php
+                    include "includes/connection.php";
 
-$sql = "SELECT * FROM notice ORDER BY noticeid DESC LIMIT 5 ";
-if($result = mysqli_query($con, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        while($row = mysqli_fetch_array($result)){
-            echo "<a href='post.php?id=".$row['noticeid']."'".">";
-            echo "<div class='alert alert-success alert-dismissible show fade'>";
-                echo "<h4>".$row['title']."</h4>";
-                echo "<p style='color: #000;'>" ."Posted By ".$row['user']." | ".substr($row['date'], 0, -10);"</p>";
-                echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
-            echo "</div>";
-            echo "</a>";
-        } 
-        echo "</table>";
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
-?>
+                    $sql = "SELECT * FROM notice WHERE category = 'Urgent Notice' ORDER BY noticeid DESC LIMIT 5 ";
+                    if($result = mysqli_query($con, $sql)){
+                    if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_array($result)){
+                        echo "<a href='post.php?id=".$row['noticeid']."'".">";
+                        echo "<div class='alert alert-danger alert-dismissible show fade'>";
+                            echo "<h4 style='color: #fff;'>".$row['title']."</h4>";
+                            echo "<p style='color: #fff;'>" ."Posted By ".$row['user']." | ".substr($row['date'], 0, -10);"</p>";
+                            echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
+                        echo "</div>";
+                        echo "</a>";
+                    } 
+                    echo "</table>";
+                    // Free result set
+                    mysqli_free_result($result);
+                    } else{
+                    echo "No urgent notices found.";
+                    }
+                    } else{
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+                ?>
+
+
+
+                <?php
+                    include "includes/connection.php";
+
+                    $sql = "SELECT * FROM notice WHERE category in ('Opportunity', 'General Annoucement', 'Upcoming Event') ORDER BY noticeid DESC LIMIT 5 ";
+                    if($result = mysqli_query($con, $sql)){
+                    if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_array($result)){
+                        echo "<a href='post.php?id=".$row['noticeid']."'".">";
+                        echo "<div class='alert alert-success alert-dismissible show fade'>";
+                            echo "<h4 style='color: #fff;'>".$row['title']."</h4>";
+                            echo "<p style='color: #fff;'>" ."Posted By ".$row['user']." | ".substr($row['date'], 0, -10);"</p>";
+                            echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>";
+                        echo "</div>";
+                        echo "</a>";
+                    } 
+                    echo "</table>";
+                    // Free result set
+                    mysqli_free_result($result);
+                    } else{
+                    echo "No records matching your query were found.";
+                    }
+                    } else{
+                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                    }
+                ?>
 
                     </div>
                 </div>
