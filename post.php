@@ -119,8 +119,8 @@ if($result = mysqli_query($con, $sql)){
                     <div class="card-body">
                         <div class="form-floating">
                             <form method="POST" action="">
-                            <textarea class="form-control" placeholder="Leave a comment here" name="message"></textarea>
-                            <input style="margin-top: 12px;" type="submit" class="btn btn-primary" name="comment" value="Comment">
+                            <textarea class="form-control" placeholder="Type your comment here" name="message"></textarea>
+                            <input style="margin-top: 12px;" type="submit" class="btn btn-primary" name="comment" value="Submit Comment">
                     </form>
                         </div>
                     </div>

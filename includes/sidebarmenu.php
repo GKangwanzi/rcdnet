@@ -60,7 +60,30 @@
                     </li>
                 </ul>
             </li>
-
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Beneficiaries</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="./newben.php">New Beneficiary</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./bencategory.php">Categories</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./occupation.php">Occupations</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./parent.php">Parents</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./projects.php">All Beneficiaries</a>
+                    </li>
+                </ul>
+            </li>
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>

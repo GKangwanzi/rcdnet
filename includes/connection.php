@@ -1,7 +1,7 @@
 <?php      
     $host = "localhost";  
-    $user = "admin";  
-    $passw = 'admin';  
+    $user = "root";  
+    $passw = "root";  
     $dbname = "mugisha";  
       
     $con = mysqli_connect($host, $user, $passw, $dbname);  
