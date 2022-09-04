@@ -68,7 +68,7 @@ window.location.href = "occupation.php";
     mysqli_close($con);
 
 }else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to a new occupation/course."."</p>";
+   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new occupation/course."."</p>";
 }
 
 ?>

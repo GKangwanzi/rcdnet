@@ -89,7 +89,7 @@ window.location.href = "parent.php";
     mysqli_close($con);
 
 }else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to make posts to the general notice board."."</p>";
+   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new parent"."</p>";
 
 }
 
