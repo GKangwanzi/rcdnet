@@ -13,12 +13,48 @@
             </div>
         </div>
     </div>
-
-
+ 
+ 
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+<?php
+//Create new user
+if (isset($_POST['post'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $key   = $_POST['password'];
+    $user  = $_POST['username'];
 
+    $fullname = $fname." ".$lname;
+
+    include "includes/connection.php";
+
+    $sql = "INSERT INTO users (username, password, fullname, email, phone)
+    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
+
+    if(mysqli_query($con, $sql)){
+        ?>
+<script type="text/javascript">
+alert("review your answer");
+window.location.href = "users.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+    echo "Something went wrong";
+}
+
+?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -32,90 +68,64 @@
             
 <div class="page-content">
     <section class="row">
-            <div class="page-heading">
-    <div class="page-title">
+            <div class="page-heading"> 
+    <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Parent</h3>
+                <h3>Parents</h3>
+                <a href="newparent.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
             </div>
 
         </div>
     </div>
 
+
     <section class="section">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="basicInput">Full Name</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">NIN</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter NIN">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Date Of Birth</label>
-                                <input type="date" class="form-control" id="basicInput" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Address</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Religion</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Father">
-                                </div>
-                                
-                            </div>
+        <div class="card">
+            <div class="card-header">
+                List Of Users
+            </div>
+            <div class="card-body">
 
+<?php
+include "includes/connection.php";
 
+$sql = "SELECT * FROM parent"; 
+if($result = mysqli_query($con, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        echo "<table class='table table-striped' id='table1'>";
+            echo "<thead>";
+             echo "<tr>";
+                echo "<th>Name</th>";
+                echo "<th>Gender</th>";
+                echo "<th>Occupation</th>";
+                echo "<th>Action</th>";
+            echo "</tr>";
+            echo "</thead>";
+        while($row = mysqli_fetch_array($result)){
+            echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['gender'] . "</td>";
+                echo "<td>" . $row['occupation'] . "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+?>
 
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="basicInput">Gender</label>
-                                    <select class="form-control" id="basicInput">
-                                        <option>Select Gender</option>
-                                        <option>Female</option>
-                                        <option>Male</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Marital Status</label>
-                                    <select class="form-control" id="basicInput">
-                                        <option>Select Status</option>
-                                        <option>Married</option>
-                                        <option>Single</option>
-                                        <option>Divorced</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Sub County</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Sub County">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Disability</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Name disability">
-                                </div>
-                                <div class="form-group">
-                                <label for="basicInput">Parent's Photo</label>
-                                <input type="file" class="form-control" id="basicInput" placeholder="Father">
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <input type="submit" class="btn btn-primary" name="post" value="Submit Now">
-                    </form>
-                    </div> 
-                </div>
             </div>
         </div>
+
     </section>
+
 
 
 </div>

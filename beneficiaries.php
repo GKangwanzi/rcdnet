@@ -72,8 +72,8 @@ window.location.href = "users.php";
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Beneficiary Occupations</h3>
-                <a href="newoccupation.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
+                <h3>Beneficiaries</h3>
+                <a href="newben.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
             </div>
 
         </div>
@@ -83,29 +83,33 @@ window.location.href = "users.php";
     <section class="section">
         <div class="card">
             <div class="card-header">
-                List Of Occupations
+                List Of Users
             </div>
             <div class="card-body">
 
 <?php
 include "includes/connection.php";
 
-$sql = "SELECT * FROM occupation"; 
+$sql = "SELECT * FROM beneficiary"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Description</th>";
+                echo "<th>Gender</th>";
+                echo "<th>Category</th>";
+                echo "<th>Occupation</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['description'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Edit</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
+                echo "<td>" . $row['gender'] . "</td>";
+                echo "<td>" . $row['category'] . "</td>";
+                echo "<td>" . $row['occupation'] . "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";

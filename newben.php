@@ -41,38 +41,107 @@
 
         </div>
     </div>
+<?php
+//Create new beneficiary
+if (isset($_POST['post'])){
+    $category = $_POST['category'];
+    $name = $_POST['name'];
+    $nin = $_POST['nin'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $marital = $_POST['marital'];
+    $disability = $_POST['disability'];
+    $religion = $_POST['religion'];
+    $occupation = $_POST['occupation'];
+    $father = $_POST['father'];
+    $mother = $_POST['mother'];
+    $village = $_POST['village'];
+    $subcounty = $_POST['subcounty'];
+    $district = $_POST['district'];
+    $orphan = $_POST['orphan'];
+    $deadparent = $_POST['deadparent'];
+    $photo = $_POST['photo'];
 
+
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "photos/" . $filename;
+
+
+
+
+    include "includes/connection.php";
+
+    $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, father, mother, village, subcounty, district, orphan, deadparent, photo)
+    VALUES ('$category', '$name', '$nin', '$dob', '$gender', '$marital', '$disability', '$religion', '$occupation', '$father', '$mother', '$village', '$subcounty', '$district', '$orphan', '$deadparent', '$filename')";
+
+    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
+        ?>
+<script type="text/javascript"> 
+alert("Beneficiary successfully created"); 
+window.location.href = "beneficiaries.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+   echo "<p class='text-subtitle text-muted'>"."Use this form to make posts to the general notice board."."</p>";
+
+}
+
+?>
     <section class="section">
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <form>
+                    <form method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <p>Beneficiary Particulars</p>
                                 <div class="form-group">
                                     <label for="basicInput">Cetgory</label>
-                                    <select class="form-control" id="basicInput">
+                                    <select class="form-control" name="category" id="basicInput">
                                         <option>Select Category</option>
+                                        <?php
+                                        include "includes/connection.php";
+                                        $sql = "SELECT * FROM bencategory";
+                                        if($result = mysqli_query($con, $sql)){
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($row = mysqli_fetch_array($result)){
+                                                        echo '<option value='.$row['bid'].'>' . $row['name'] . '</option>';
+                                                }
+                                                mysqli_free_result($result);
+                                            } else{
+                                                echo "No records found.";
+                                            }
+                                        }
+                                        ?>
+                                        
                                     </select>
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Full Name</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
+                                <input type="text" name="name" class="form-control" id="basicInput" placeholder="Enter full name">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">NIN</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter NIN">
+                                <input type="text" class="form-control" id="basicInput" name="nin" placeholder="Enter NIN">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Date Of Birth</label>
-                                <input type="date" class="form-control" id="basicInput" placeholder="Enter email">
+                                <input type="date" class="form-control" id="basicInput" name="dob">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="basicInput">Gender</label>
-                                    <select class="form-control" id="basicInput">
+                                    <select class="form-control" name="gender" id="basicInput">
                                         <option>Select Gender</option>
                                         <option>Female</option>
                                         <option>Male</option>
@@ -80,7 +149,7 @@
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Marital Status</label>
-                                    <select class="form-control" id="basicInput">
+                                    <select class="form-control" name="marital" id="basicInput">
                                         <option>Select Status</option>
                                         <option>Married</option>
                                         <option>Single</option>
@@ -89,48 +158,116 @@
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Disability</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Name disability">
+                                <input type="text" class="form-control" id="basicInput" name="disability" placeholder="Name disability">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Religion</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Father">
+                                <input type="text" class="form-control" id="basicInput" name="religion" placeholder="Religion">
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="basicInput">Occupation/Course</label>
+                                    <select class="form-control" name="occupation" id="basicInput">
+                                        <option>Select Occupation</option>
+                                        <?php
+                                        include "includes/connection.php";
+                                        $sql = "SELECT * FROM occupation";
+                                        if($result = mysqli_query($con, $sql)){
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($row = mysqli_fetch_array($result)){
+                                                        echo "<option>" . $row['name'] . "</option>";
+                                                }
+                                                mysqli_free_result($result);
+                                            } else{
+                                                echo "No records found.";
+                                            }
+                                        }
+                                        ?>
+                                        
+                                    </select>
+                                </div>
                             </div>
 
 
 
                             <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="basicInput">Occupation/Course</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter Occupation here">
-                                </div>
+                                
                                 <p>Parent's/Guardian's Particulars</p>
                                 <div class="form-group">
-                                <label for="basicInput">Father's Name</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Father">
+                                    <label for="basicInput">Father's Name</label>
+                                    <select class="form-control" name="father" id="basicInput">
+                                        <option>Select Father</option>
+                                        <?php
+                                        include "includes/connection.php";
+                                        $sql = "SELECT * FROM parent WHERE gender = 'Male' ";
+                                        if($result = mysqli_query($con, $sql)){
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($row = mysqli_fetch_array($result)){
+                                                        echo '<option value='.$row['pid'].'>' . $row['name'] . '</option>';
+                                                }
+                                                mysqli_free_result($result);
+                                            } else{
+                                                echo "No records found.";
+                                            }
+                                        }
+                                        ?>
+                                        
+                                    </select>
                                 </div>
                                 
                                 <div class="form-group">
-                                <label for="basicInput">Mother's Name</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Mother">
+                                    <label for="basicInput">Mother's Name</label>
+                                    <select class="form-control" name="mother" id="basicInput">
+                                        <option>Select Mother</option>
+                                        <?php
+                                        include "includes/connection.php";
+                                        $sql = "SELECT * FROM parent WHERE gender = 'Female' ";
+                                        if($result = mysqli_query($con, $sql)){
+                                            if(mysqli_num_rows($result) > 0){
+                                                while($row = mysqli_fetch_array($result)){
+                                                        echo '<option value='.$row['pid'].'>' . $row['name'] . '</option>';
+                                                }
+                                                mysqli_free_result($result);
+                                            } else{
+                                                echo "No records found.";
+                                            }
+                                        }
+                                        ?>
+                                        
+                                    </select>
                                 </div>
                                 <p>Address</p>
                                 <div class="form-group">
                                 <label for="basicInput">Village/Cell</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Enter Village">
+                                <input type="text" class="form-control" id="basicInput" name="village" placeholder="Enter Village">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Sub County/Division</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="Sub County">
+                                <input type="text" class="form-control" id="basicInput" name="subcounty" placeholder="Sub County">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">District</label>
-                                <input type="text" class="form-control" id="basicInput" placeholder="District">
+                                <input type="text" class="form-control" id="basicInput" name="district" placeholder="District">
+                                </div>
+                                <div class="form-group">
+                                <label for="basicInput">Are both parents alive</label>
+                                    <select class="form-control" name="orphan" id="basicInput">
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                <label for="basicInput">Select lost parent</label>
+                                    <select class="form-control" name="deadparent" id="basicInput">
+                                        <option>Select Parent</option>
+                                        <option>Mother</option>
+                                        <option>Father</option>
+                                        <option>Both</option>
+                                        <option>None</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Beneficiary Photo</label>
-                                <input type="file" class="form-control" id="basicInput" placeholder="Father">
+                                <input type="file" name="uploadfile" class="form-control" id="basicInput" placeholder="Father">
                                 </div>
                             </div>
                         </div>

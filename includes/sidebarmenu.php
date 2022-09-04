@@ -68,7 +68,7 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="./newben.php">New Beneficiary</a>
+                        <a href="./beneficiaries.php">Beneficiaries</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="./bencategory.php">Categories</a>
