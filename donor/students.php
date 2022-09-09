@@ -54,7 +54,7 @@ $sql = "SELECT * FROM beneficiary";
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
-            echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid'>";
+            echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid student-img'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>".$row['name']."</h5>";
         /*    echo "<p class='card-text'>"."
