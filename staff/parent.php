@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -30,7 +30,7 @@ if (isset($_POST['post'])){
 
     $fullname = $fname." ".$lname;
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO users (username, password, fullname, email, phone)
     VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
@@ -88,7 +88,7 @@ window.location.href = "users.php";
             <div class="card-body">
 
 <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 
 $sql = "SELECT * FROM parent"; 
 if($result = mysqli_query($con, $sql)){

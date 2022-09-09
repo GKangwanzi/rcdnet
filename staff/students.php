@@ -30,7 +30,7 @@ if (isset($_POST['post'])){
 
     $fullname = $fname." ".$lname;
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO users (username, password, fullname, email, phone)
     VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
@@ -85,7 +85,7 @@ window.location.href = "users.php";
                 <div class="card">
                     <div class="card-content">
                         <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 
 $sql = "SELECT * FROM beneficiary"; 
 if($result = mysqli_query($con, $sql)){

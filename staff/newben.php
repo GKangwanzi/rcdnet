@@ -70,7 +70,7 @@ if (isset($_POST['post'])){
 
 
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, father, mother, village, subcounty, district, orphan, deadparent, photo)
     VALUES ('$category', '$name', '$nin', '$dob', '$gender', '$marital', '$disability', '$religion', '$occupation', '$father', '$mother', '$village', '$subcounty', '$district', '$orphan', '$deadparent', '$filename')";
@@ -110,7 +110,7 @@ window.location.href = "beneficiaries.php";
                                     <select class="form-control" name="category" id="basicInput">
                                         <option>Select Category</option>
                                         <?php
-                                        include "includes/connection.php";
+                                        include "../includes/connection.php";
                                         $sql = "SELECT * FROM bencategory";
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){
@@ -169,7 +169,7 @@ window.location.href = "beneficiaries.php";
                                     <select class="form-control" name="occupation" id="basicInput">
                                         <option>Select Occupation</option>
                                         <?php
-                                        include "includes/connection.php";
+                                        include "../includes/connection.php";
                                         $sql = "SELECT * FROM occupation";
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){
@@ -197,7 +197,7 @@ window.location.href = "beneficiaries.php";
                                     <select class="form-control" name="father" id="basicInput">
                                         <option>Select Father</option>
                                         <?php
-                                        include "includes/connection.php";
+                                        include "../includes/connection.php";
                                         $sql = "SELECT * FROM parent WHERE gender = 'Male' ";
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){
@@ -219,7 +219,7 @@ window.location.href = "beneficiaries.php";
                                     <select class="form-control" name="mother" id="basicInput">
                                         <option>Select Mother</option>
                                         <?php
-                                        include "includes/connection.php";
+                                        include "../includes/connection.php";
                                         $sql = "SELECT * FROM parent WHERE gender = 'Female' ";
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){

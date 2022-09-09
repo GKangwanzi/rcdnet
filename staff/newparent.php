@@ -68,7 +68,7 @@ if (isset($_POST['post'])){
 
 
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO parent (name, nin, dob, village, religion, gender, marital, subcounty, disability, occupation, photo)
     VALUES ('$name', '$nin', '$dob', '$village', '$religion', '$gender', '$marital', '$subcounty', '$disability', '$occupation', '$filename')";
