@@ -49,7 +49,7 @@
                      <div class="card-body">
 
                 <?php
-                    include "includes/connection.php";
+                    include "../includes/connection.php";
 
                     $sql = "SELECT * FROM notice WHERE category = 'Urgent Notice' ORDER BY noticeid DESC LIMIT 5 ";
                     if($result = mysqli_query($con, $sql)){
@@ -77,7 +77,7 @@
 
 
                 <?php
-                    include "includes/connection.php";
+                    include "../includes/connection.php";
 
                     $sql = "SELECT * FROM notice WHERE category in ('Opportunity', 'General Annoucement', 'Upcoming Event') ORDER BY noticeid DESC LIMIT 5 ";
                     if($result = mysqli_query($con, $sql)){
@@ -113,7 +113,7 @@
                                 <li class="list-group-item active">CATEGORIES</li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice  WHERE category='General Annoucement' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -134,7 +134,7 @@
                               </li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Upcoming Event' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -154,7 +154,7 @@
                                 </li> 
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Opportunity' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -174,7 +174,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Urgent Notice' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){

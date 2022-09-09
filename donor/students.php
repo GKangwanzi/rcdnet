@@ -48,7 +48,7 @@
                 <div class="card">
                     <div class="card-content">
                         <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 
 $sql = "SELECT * FROM beneficiary"; 
 if($result = mysqli_query($con, $sql)){

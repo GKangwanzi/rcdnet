@@ -51,7 +51,7 @@ if (isset($_POST['post'])){
 
 
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO notice (category, title, message, user)
     VALUES ('$category', '$subject', '$notice', '$member')";

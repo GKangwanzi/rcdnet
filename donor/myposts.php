@@ -30,7 +30,7 @@ if (isset($_POST['post'])){
 
     $fullname = $fname." ".$lname;
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO users (username, password, fullname, email, phone)
     VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
@@ -50,8 +50,6 @@ window.location.href = "users.php";
     // Close connection
     mysqli_close($con);
 
-}else{
-    echo "Something went wrong";
 }
 
 ?>
@@ -88,7 +86,7 @@ window.location.href = "users.php";
             <div class="card-body">
 
 <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 $member = $_SESSION['name'];
 
 $sql = "SELECT * FROM notice WHERE user = '$member' ";
