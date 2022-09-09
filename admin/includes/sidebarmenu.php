@@ -79,9 +79,6 @@
                     <li class="submenu-item ">
                         <a href="./parent.php">Parents</a>
                     </li>
-                    <li class="submenu-item ">
-                        <a href="./projects.php">All Beneficiaries</a>
-                    </li>
                 </ul>
             </li>
             <li

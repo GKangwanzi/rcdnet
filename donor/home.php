@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -127,7 +127,7 @@
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/2.jpg">
+                                                        <img src="../assets/images/faces/2.jpg">
                                                     </div>
                                                     <p class="font-bold ms-3 mb-0">Si Cantik</p>
                                                 </div>
@@ -140,7 +140,7 @@
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/2.jpg">
+                                                        <img src="../assets/images/faces/2.jpg">
                                                     </div>
                                                     <p class="font-bold ms-3 mb-0">Si Ganteng</p>
                                                 </div>

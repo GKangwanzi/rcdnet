@@ -65,7 +65,7 @@ if (isset($_POST['post'])){
 
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "photos/" . $filename;
+    $folder = "../photos/" . $filename;
 
 
 

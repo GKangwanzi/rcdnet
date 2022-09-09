@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <div class="col-6 col-lg-3 col-md-6">
                     <div class="card">
                         <div class="card-body px-3 py-4-5">
@@ -127,7 +127,7 @@
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/2.jpg">
+                                                        <img src="../assets/images/faces/2.jpg">
                                                     </div>
                                                     <p class="font-bold ms-3 mb-0">Si Cantik</p>
                                                 </div>
@@ -140,7 +140,7 @@
                                             <td class="col-3">
                                                 <div class="d-flex align-items-center">
                                                     <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/2.jpg">
+                                                        <img src="../assets/images/faces/2.jpg">
                                                     </div>
                                                     <p class="font-bold ms-3 mb-0">Si Ganteng</p>
                                                 </div>
@@ -157,34 +157,22 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Reports Performance</h4>
-                        </div>
-                        <div class="card-body">
-                            <div id="chart-profile-visit"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; RCDNET</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
-                    </div>
-                </div>
-            </footer>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>2021 &copy; RCDNET</p>
+            </div>
+            <div class="float-end">
+                <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
+            </div>
         </div>
-    </div>
+    </footer>
+</div>
+</div>
 <?php include "includes/scripts.php"; ?>
 </body>
 

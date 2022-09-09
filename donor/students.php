@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -54,7 +54,7 @@ $sql = "SELECT * FROM beneficiary";
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         while($row = mysqli_fetch_array($result)){
-            echo "<img src='"."photos"."/".$row['photo']."' class='card-img-top img-fluid'>";
+            echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid'>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title'>".$row['name']."</h5>";
         /*    echo "<p class='card-text'>"."
