@@ -97,7 +97,7 @@ window.location.href = "occupation.php";
 
 </div>
     </section>
-</div>
+</div> 
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
