@@ -51,7 +51,7 @@ if (isset($_POST['post'])){
 
     $fullname = $fname." ".$lname;
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO users (username, password, fullname, email, phone, role)
     VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role' )";

@@ -39,7 +39,7 @@
                 <h3>New Post <?php echo $_SESSION['name']; ?></h3>
 
 <?php
-//Create new user
+//Create new post
 if (isset($_POST['post'])){
     $subject = $_POST['subject'];
     $category = $_POST['category'];
@@ -51,7 +51,7 @@ if (isset($_POST['post'])){
 
 
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO notice (category, title, message, user)
     VALUES ('$category', '$subject', '$notice', '$member')";

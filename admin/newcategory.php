@@ -47,7 +47,7 @@ if (isset($_POST['post'])){
     $name = $_POST['name'];
     $description = $_POST['description'];
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO bencategory (name, description)
     VALUES ('$name', '$description')";
