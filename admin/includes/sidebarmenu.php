@@ -79,6 +79,9 @@
                     <li class="submenu-item ">
                         <a href="./parent.php">Parents</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./students.php">Students</a>
+                    </li>
                 </ul>
             </li>
             <li
