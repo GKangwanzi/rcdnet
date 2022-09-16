@@ -83,7 +83,7 @@
                         <a href="./students.php">Students</a>
                     </li>
                 </ul>
-            </li>
+            </li> 
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
