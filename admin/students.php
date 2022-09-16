@@ -35,35 +35,46 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Beneficiaries</h3>
-            </div> 
+                <h3>Students</h3>
+                <a href="students.php" style="margin-bottom: 10px;" class="btn btn-success">All Students</a><a href="album.php" style="margin-bottom: 10px; margin-left: 10px;" class="btn btn-success">Students Album</a>
+            </div>
 
         </div>
     </div>
 
 
     <section class="section">
-        <div class="row">
-         <div class="col-xl-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="card-content">
+        <div class="card">
+            <div class="card-header">
+                List Of Users
+            </div>
+            <div class="card-body">
+
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary"; 
+$sql = "SELECT * FROM beneficiary where student=1"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
+        echo "<table class='table table-striped' id='table1'>";
+            echo "<thead>";
+             echo "<tr>";
+                echo "<th>Name</th>";
+                echo "<th>Gender</th>";
+                echo "<th>Category</th>";
+                echo "<th>Occupation</th>";
+                echo "<th>Action</th>";
+            echo "</tr>";
+            echo "</thead>";
         while($row = mysqli_fetch_array($result)){
-            echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid'>";
-            echo "<div class='card-body'>";
-            echo "<h5 class='card-title'>".$row['name']."</h5>";
-        /*    echo "<p class='card-text'>"."
-                                Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
-                                bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.".
-                            "</p>";*/
-                    echo"</div>";
-                    echo"</div>";
-                    echo "<a href='"."newben.php?"."' class='btn btn-success mybtn'>Sponsor Me</a>";
+            echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['gender'] . "</td>";
+                echo "<td>" . $row['category'] . "</td>";
+                echo "<td>" . $row['occupation'] . "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>".$row['sponsored']."</a> </td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
+            echo "</tr>";
         }
         echo "</table>";
         // Free result set
@@ -75,15 +86,9 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
-                        
-                            
-                       
-                </div>
+
             </div>
         </div>
-
-
-
 
     </section>
 

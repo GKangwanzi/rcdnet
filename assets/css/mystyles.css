@@ -48,7 +48,17 @@
 }
 .student-img{
     width: 100%; 
-height: 300px; 
-object-fit: cover;
-object-position: 50% 0%; 
+    height: 300px; 
+    object-fit: cover;
+    object-position: 50% 0%; 
+}
+
+.avatar.avatar-lg img {
+    font-size: 1.2rem;
+    height: 120px !important;
+    width: 120px !important;
+}
+.student-name{
+    text-align: center !important;
+    font-size: 1em !important;
 }
