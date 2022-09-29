@@ -67,9 +67,6 @@ if (isset($_POST['post'])){
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "../photos/" . $filename;
 
-
-
-
     include "../includes/connection.php";
 
     $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, father, mother, village, subcounty, district, orphan, deadparent, photo)
@@ -77,25 +74,24 @@ if (isset($_POST['post'])){
 
     if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
         ?>
-<script type="text/javascript"> 
-alert("Beneficiary successfully created"); 
-window.location.href = "beneficiaries.php";
-</script>
-<?php
+    <script type="text/javascript"> 
+    alert("Beneficiary successfully created"); 
+    window.location.href = "beneficiaries.php";
+    </script>
+    <?php
 
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        }
+         
+        // Close connection
+        mysqli_close($con);
+
+    }else{
+       echo "<p class='text-subtitle text-muted'>"."Use this form to add a new beneficiary"."</p>";
     }
-     
-    // Close connection
-    mysqli_close($con);
+    ?>
 
-}else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new beneficiary"."</p>";
-
-}
-
-?>
     <section class="section">
         <div class="row">
             <div class="col">
@@ -267,7 +263,7 @@ window.location.href = "beneficiaries.php";
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Beneficiary Photo</label>
-                                <input type="file" name="uploadfile" class="form-control" id="basicInput" placeholder="Father">
+                                <input type="file" name="uploadfile" class="form-control" id="basicInput" >
                                 </div>
                             </div>
                         </div>

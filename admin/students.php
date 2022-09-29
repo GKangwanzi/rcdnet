@@ -53,7 +53,7 @@
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary where student=1"; 
+$sql = "SELECT * FROM beneficiary where occupation ='student' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
@@ -61,8 +61,8 @@ if($result = mysqli_query($con, $sql)){
              echo "<tr>";
                 echo "<th>Name</th>";
                 echo "<th>Gender</th>";
-                echo "<th>Category</th>";
-                echo "<th>Occupation</th>";
+                 echo "<th>Occupation</th>";
+                echo "<th>Status</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
@@ -70,10 +70,9 @@ if($result = mysqli_query($con, $sql)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['gender'] . "</td>";
-                echo "<td>" . $row['category'] . "</td>";
                 echo "<td>" . $row['occupation'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>".$row['sponsored']."</a> </td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
+                echo "<td>" . "<span class='badge bg-info'>".$row['sponsored']."</span> </td>";
+                echo "<td>" . "<a href='studentprofile.php?id=".$row['benid']."' class='badge bg-success'>View Details</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";

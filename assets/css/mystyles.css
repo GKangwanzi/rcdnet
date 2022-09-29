@@ -40,7 +40,7 @@
     text-transform: uppercase;
     margin-right: 10px;
 }
-.mycomment{
+.mycomment{ 
     margin-
 }
 .mybtn{
@@ -61,4 +61,15 @@
 .student-name{
     text-align: center !important;
     font-size: 1em !important;
+}
+.mt-5 {
+    margin-top: 0rem !important;
+}
+.btn-primary {
+    background-color: #385622;
+    border-color: #385622;
+    color: #fff;
+}
+.sidebar-wrapper .menu .sidebar-item.active>.sidebar-link {
+    background-color: #385622 !important;
 }

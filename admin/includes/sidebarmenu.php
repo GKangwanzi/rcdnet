@@ -113,6 +113,9 @@
                     <li class="submenu-item ">
                         <a href="./users.php">Manage Users</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./donors.php">Donors</a>
+                    </li>
                 </ul>
             </li>
 

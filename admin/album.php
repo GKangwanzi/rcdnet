@@ -64,14 +64,14 @@ if($result = mysqli_query($con, $sql)){
                 echo "</div>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title student-name'>".$row['name']."</h5>";
-            echo "<h5 class='card-title student-name'>"."Sponsored By".$row['name']."</h5>";
+            echo "<h5 class='card-title student-name'>"."Sponsored By"."</br>".$row['donor']."</h5>";
         /*    echo "<p class='card-text'>"."
                                 Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
                                 bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.".
                             "</p>";*/
                     echo"</div>";
                     echo"</div>";
-                    echo "<a href='"."#"."' class='btn btn-success mybtn'>Sponsor Me</a>";
+                    echo "<a href='"."#"."' class='btn btn-success mybtn'>View Profile</a>";
                     echo"</div>";
             echo"</div>";
         

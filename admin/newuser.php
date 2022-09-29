@@ -39,8 +39,8 @@
                 <h3>New User</h3>
 
                 <?php
-//Create new user
-if (isset($_POST['post'])){
+//Create new beneficiary
+if (isset($_POST['posta'])){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $email = $_POST['email'];
@@ -48,21 +48,27 @@ if (isset($_POST['post'])){
     $key   = $_POST['password'];
     $role   = $_POST['role'];
     $member  = $_POST['username'];
-
     $fullname = $fname." ".$lname;
+    $photo = $_POST['uploadfile'];
+
+
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "photos/" . $filename;
+
+
+
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO users (username, password, fullname, email, phone, role)
-    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role' )";
+    $sql = "INSERT INTO users (username, password, fullname, email, phone, role, photo)
+    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role', '$photo' )";
 
-    if(mysqli_query($con, $sql)){
+    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
         ?>
-<script type="text/javascript">
-
-alert("Your post has been submitted"); 
-window.location.href = "users.php";
-
+<script type="text/javascript"> 
+alert("Parent successfully created"); 
+window.location.href = "parent.php";
 </script>
 <?php
 
@@ -74,7 +80,48 @@ window.location.href = "users.php";
     mysqli_close($con);
 
 }else{
-    echo "<p class='text-subtitle text-muted'>"."Use this form to create a new user."."</p>";
+   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new parent"."</p>";
+
+}
+
+?>
+
+                <?php 
+//Create new user
+if (isset($_POST['post'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $key   = $_POST['password'];
+    $role   = $_POST['role'];
+    $member  = $_POST['username'];
+    $fullname = $fname." ".$lname;
+    $photo = $_POST['photo'];
+
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./photos/" . $photo;
+
+    include "../includes/connection.php";
+
+    $sql = "INSERT INTO users (username, password, fullname, email, phone, role, photo)
+    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role', '$filename' )";
+
+    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
+        ?>
+<script type="text/javascript"> 
+alert("Beneficiary successfully created"); 
+window.location.href = "beneficiaries.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
 
 }
 
@@ -104,34 +151,35 @@ window.location.href = "users.php";
                             <input type="email" class="form-control" name="email" placeholder="Enter Email Address">
                         </div>
                         <div class="form-group">
-
                             <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number">
                         </div>
 
                         <div class="form-group">
-
                             <input type="text" class="form-control" name="username" placeholder="Assign Username">
                         </div>
 
                         <div class="form-group">
-
                             <input type="password" class="form-control" name="password" placeholder="Assign Password">
                         </div>
 
                         <div class="form-group">
-
+                            <input type="file" class="form-control" name="uploadfile">
+                        </div>
+                        <div class="form-group">
+ 
                             <select class="form-control" name="role">
                                 <option>Select User ROle</option>
                                 <option value="admin">Admin</option>
                                 <option value="staff">Staff</option>
+                                <option value="donor">Donor</option>
                             </select>
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-primary" name="post" value="Add User">
+                        <input type="submit" class="btn btn-primary" name="posta" value="Add User">
                     </form>
                     </div> 
                 </div>
-            </div>
+            </div> 
         </div>
     </section>
 
