@@ -45,6 +45,8 @@ if (isset($_POST['post'])){
     $lname = $_POST['lname'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
+    $address = $_POST['address'];
+    $nationality = $_POST['nationality'];
     $key   = $_POST['password'];
     $role   = $_POST['role'];
     $member  = $_POST['username'];
@@ -53,13 +55,13 @@ if (isset($_POST['post'])){
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO users (username, password, fullname, email, phone, role)
-    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role' )";
+    $sql = "INSERT INTO users (username, password, fullname, email, phone, Address, Nationality, role)
+    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$address', '$nationality', '$role' )";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("Beneficiary successfully created"); 
+alert("User successfully created"); 
 window.location.href = "users.php";
 </script>
 <?php
@@ -99,9 +101,14 @@ window.location.href = "users.php";
                             <input type="email" class="form-control" name="email" placeholder="Enter Email Address">
                         </div>
                         <div class="form-group">
+                            <input type="text" class="form-control" name="address" placeholder="Enter Address">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="nationality" placeholder="Enter Nationality">
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number">
                         </div>
-
                         <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Assign Username">
                         </div>
@@ -110,9 +117,6 @@ window.location.href = "users.php";
                             <input type="password" class="form-control" name="password" placeholder="Assign Password">
                         </div>
 
-                        <div class="form-group">
-                            <input type="file" class="form-control" name="uploadfile">
-                        </div>
                         <div class="form-group">
  
                             <select class="form-control" name="role">

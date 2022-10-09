@@ -53,7 +53,7 @@
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary where occupation ='student' "; 
+$sql = "SELECT * FROM beneficiary where occupation ='Student' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";

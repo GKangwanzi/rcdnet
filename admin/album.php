@@ -64,7 +64,13 @@ if($result = mysqli_query($con, $sql)){
                 echo "</div>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title student-name'>".$row['name']."</h5>";
-            echo "<h5 class='card-title student-name'>"."Sponsored By"."</br>".$row['donor']."</h5>";
+             if ($row['sponsored']=="Not Sponsored") {
+                            // code...
+                           echo "<div style='text-align: center; margin-top: 20px !important; color: #fff;' class=' bg-danger'>Not Sponsored</div>";
+                        }elseif ($row['sponsored']=="Sponsored") {
+                            // code...
+                            echo "<div style='text-align: center; margin-top: 20px !important; color: #fff;' class=' bg-info'>Sponsored</div>";
+                        }
         /*    echo "<p class='card-text'>"."
                                 Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
                                 bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.".

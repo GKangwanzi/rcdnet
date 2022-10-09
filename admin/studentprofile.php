@@ -52,7 +52,7 @@ if (isset($_POST['newdonor'])){
 
     include "../includes/connection.php";
 
-    $sql = "UPDATE beneficiary SET donor='$newdona', sponsored='Sponsored' WHERE benid=2";
+    $sql = "UPDATE beneficiary SET donor='$newdona', sponsored='Sponsored' WHERE benid='$ben' ";
 
     if(mysqli_query($con, $sql)){
         ?>
