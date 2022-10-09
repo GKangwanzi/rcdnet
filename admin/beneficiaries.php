@@ -72,7 +72,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['gender'] . "</td>";
                 echo "<td>" . $row['category'] . "</td>";
                 echo "<td>" . $row['occupation'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
+                echo "<td>" . "<a href='beneficiary.php?id=".$row['benid']."&parent=".$row['parent']."' class='badge bg-success'>View Details</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";

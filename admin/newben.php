@@ -53,8 +53,7 @@ if (isset($_POST['post'])){
     $disability = $_POST['disability'];
     $religion = $_POST['religion'];
     $occupation = $_POST['occupation'];
-    $father = $_POST['father'];
-    $mother = $_POST['mother'];
+    $parent = $_POST['parent'];
     $village = $_POST['village'];
     $subcounty = $_POST['subcounty'];
     $district = $_POST['district'];
@@ -69,8 +68,8 @@ if (isset($_POST['post'])){
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, father, mother, village, subcounty, district, orphan, deadparent, photo)
-    VALUES ('$category', '$name', '$nin', '$dob', '$gender', '$marital', '$disability', '$religion', '$occupation', '$father', '$mother', '$village', '$subcounty', '$district', '$orphan', '$deadparent', '$filename')";
+    $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, parent, village, subcounty, district, orphan, deadparent, photo)
+    VALUES ('$category', '$name', '$nin', '$dob', '$gender', '$marital', '$disability', '$religion', '$occupation', '$parent', '$village', '$subcounty', '$district', '$orphan', '$deadparent', '$filename')";
 
     if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
         ?>
@@ -97,6 +96,8 @@ if (isset($_POST['post'])){
             <div class="col">
                 <div class="card">
                     <div class="card-body">
+
+
                     <form method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
@@ -189,12 +190,12 @@ if (isset($_POST['post'])){
                                 
                                 <p>Parent's/Guardian's Particulars</p>
                                 <div class="form-group">
-                                    <label for="basicInput">Father's Name</label>
-                                    <select class="form-control" name="father" id="basicInput">
-                                        <option>Select Father</option>
+                                    <label for="basicInput">Parent/Guardian's Name</label>
+                                    <select class="form-control" name="parent" id="basicInput">
+                                        <option>Select Parent</option>
                                         <?php
                                         include "../includes/connection.php";
-                                        $sql = "SELECT * FROM parent WHERE gender = 'Male' ";
+                                        $sql = "SELECT * FROM parent";
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){
                                                 while($row = mysqli_fetch_array($result)){
@@ -210,27 +211,6 @@ if (isset($_POST['post'])){
                                     </select>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="basicInput">Mother's Name</label>
-                                    <select class="form-control" name="mother" id="basicInput">
-                                        <option>Select Mother</option>
-                                        <?php
-                                        include "../includes/connection.php";
-                                        $sql = "SELECT * FROM parent WHERE gender = 'Female' ";
-                                        if($result = mysqli_query($con, $sql)){
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($row = mysqli_fetch_array($result)){
-                                                        echo '<option value='.$row['pid'].'>' . $row['name'] . '</option>';
-                                                }
-                                                mysqli_free_result($result);
-                                            } else{
-                                                echo "No records found.";
-                                            }
-                                        }
-                                        ?>
-                                        
-                                    </select>
-                                </div>
                                 <p>Address</p>
                                 <div class="form-group">
                                 <label for="basicInput">Village/Cell</label>

@@ -45,7 +45,7 @@
 
     <section class="section">
         <div class="row">
-         
+          
                         <?php
 include "../includes/connection.php";
 
@@ -60,7 +60,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid student-img'>";
                 echo "</div>";
                 echo "<div class='avatar avatar-lg me-3' style='margin-right: 0rem!important; margin-left: -40px; border-style: solid; border-width: 5px; border-color: #fff;'>"; 
-                echo "<img src='"."../photos"."/".$row['photo']."' class='card-img-top img-fluid student-img'>";
+                echo "<img src='"."../photos/avatar.jpeg"."' class='card-img-top img-fluid student-img'>";
                 echo "</div>";
             echo "<div class='card-body'>";
             echo "<h5 class='card-title student-name'>".$row['name']."</h5>";
@@ -69,9 +69,9 @@ if($result = mysqli_query($con, $sql)){
                                 Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
                                 bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.".
                             "</p>";*/
+                    echo"</div>"; 
                     echo"</div>";
-                    echo"</div>";
-                    echo "<a href='"."#"."' class='btn btn-success mybtn'>View Profile</a>";
+                    echo "<a href='studentprofile.php?id=".$row['benid']."&donor=".$row['donor']."' class='btn btn-success mybtn'>View Profile</a>";
                     echo"</div>";
             echo"</div>";
         

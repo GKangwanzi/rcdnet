@@ -38,54 +38,6 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>New User</h3>
 
-                <?php
-//Create new beneficiary
-if (isset($_POST['posta'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $key   = $_POST['password'];
-    $role   = $_POST['role'];
-    $member  = $_POST['username'];
-    $fullname = $fname." ".$lname;
-    $photo = $_POST['uploadfile'];
-
-
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "photos/" . $filename;
-
-
-
-
-    include "../includes/connection.php";
-
-    $sql = "INSERT INTO users (username, password, fullname, email, phone, role, photo)
-    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role', '$photo' )";
-
-    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
-        ?>
-<script type="text/javascript"> 
-alert("Parent successfully created"); 
-window.location.href = "parent.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new parent"."</p>";
-
-}
-
-?>
-
                 <?php 
 //Create new user
 if (isset($_POST['post'])){
@@ -97,22 +49,18 @@ if (isset($_POST['post'])){
     $role   = $_POST['role'];
     $member  = $_POST['username'];
     $fullname = $fname." ".$lname;
-    $photo = $_POST['photo'];
 
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "./photos/" . $photo;
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO users (username, password, fullname, email, phone, role, photo)
-    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role', '$filename' )";
+    $sql = "INSERT INTO users (username, password, fullname, email, phone, role)
+    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$role' )";
 
-    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
+    if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
 alert("Beneficiary successfully created"); 
-window.location.href = "beneficiaries.php";
+window.location.href = "users.php";
 </script>
 <?php
 
@@ -175,7 +123,7 @@ window.location.href = "beneficiaries.php";
                             </select>
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-primary" name="posta" value="Add User">
+                        <input type="submit" class="btn btn-primary" name="post" value="Add User">
                     </form>
                     </div> 
                 </div>

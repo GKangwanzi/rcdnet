@@ -73,3 +73,31 @@
 .sidebar-wrapper .menu .sidebar-item.active>.sidebar-link {
     background-color: #198754 !important;
 }
+.myavatar img {
+    border-radius: 5px !important;
+    height: 200px !important;
+    display: block;
+    border-width: 4px;
+    border-style: solid;
+    margin-left: auto;
+  margin-right: auto;
+}
+.student-img-profile {
+    width: 50% !important;
+    height: 100px !important;
+    object-fit: cover;
+    object-position: 50% 0%;
+}
+.greyform{
+    background: #D9EEE1 !important;
+    padding: 20px;
+    border-radius: 5px;
+}
+.headingg{
+    width: 40% !important;
+    font-weight: 600;
+}
+.headingvalue{
+    width: 50% !important;
+    float: right;
+}

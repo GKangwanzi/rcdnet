@@ -60,8 +60,6 @@ if($result = mysqli_query($con, $sql)){
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Email Address</th>";
-                echo "<th>Phone Number</th>";
                 echo "<th>User Role</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
@@ -69,8 +67,6 @@ if($result = mysqli_query($con, $sql)){
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
                 echo "<td>" . $row['role'] . "</td>";
                 echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
             echo "</tr>";
