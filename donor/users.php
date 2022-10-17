@@ -18,43 +18,6 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-<?php
-//Create new user
-if (isset($_POST['post'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $key   = $_POST['password'];
-    $user  = $_POST['username'];
-
-    $fullname = $fname." ".$lname;
-
-    include "includes/connection.php";
-
-    $sql = "INSERT INTO users (username, password, fullname, email, phone)
-    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript">
-alert("review your answer");
-window.location.href = "users.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-    echo "Something went wrong";
-}
-
-?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -88,7 +51,7 @@ window.location.href = "users.php";
             <div class="card-body">
 
 <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 
 $sql = "SELECT * FROM users";
 if($result = mysqli_query($con, $sql)){
@@ -97,8 +60,6 @@ if($result = mysqli_query($con, $sql)){
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Email Address</th>";
-                echo "<th>Phone Number</th>";
                 echo "<th>User Role</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
@@ -106,10 +67,8 @@ if($result = mysqli_query($con, $sql)){
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
                 echo "<td>" . $row['role'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='deleteuser.php?id=".$row['userID']."' class='badge bg-danger' onclick='DeleteConfirm()'>Delete</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -146,4 +105,9 @@ if($result = mysqli_query($con, $sql)){
 <?php include "includes/scripts.php"; ?>
 </body>
 
+<script>
+    function DeleteConfirm() {
+      confirm("Are you sure to delete this user");
+     }
+ </script>
 </html>

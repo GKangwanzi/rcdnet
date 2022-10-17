@@ -1,17 +1,17 @@
 <?php //Create new user
-    $userid = $_GET['id'];
+    $id = $_GET['id'];
 
     include "../includes/connection.php";
 
-    $sql = "DELETE FROM users WHERE userID='$userid' ";
+    $sql = "DELETE FROM beneficiary WHERE benid='$id' ";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("User successfully deleted"); 
-window.location.href = "users.php";
+alert("Beneficiary successfully deleted"); 
+window.location.href = "beneficiaries.php";
 </script>
-<?php
+<?php 
 
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);

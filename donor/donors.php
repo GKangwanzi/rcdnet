@@ -14,6 +14,7 @@
         </div>
     </div>
  
+ 
     <?php 
     include "includes/sidebarmenu.php";
     ?>
@@ -30,52 +31,45 @@
             
 <div class="page-content">
     <section class="row">
-            <div class="page-heading"> 
-    <div class="page-title"> 
+            <div class="page-heading">
+    <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Beneficiaries</h3>
-                <a href="newben.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
+                <h3>Manage Donors</h3>
+                <p class="text-subtitle text-muted">Use this form to manage donor accounts.</p>
             </div>
 
         </div>
     </div>
 
 
-    <section class="section"> 
+    <section class="section">
         <div class="card">
             <div class="card-header">
-                List Of Users
+                List Of Donors
             </div>
             <div class="card-body">
 
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid"; 
+$sql = "SELECT * FROM users WHERE role='donor' ";
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Gender</th>";
-                echo "<th>Category</th>"; 
-                echo "<th>Occupation</th>";
+                echo "<th>Email Address</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['gender'] . "</td>";
-                echo "<td>" . $row['bname'] . "</td>";
-                echo "<td>" . $row['occupation'] . "</td>";
-                echo "<td>" . "<a href='beneficiary.php?id=".$row['benid']."&parent=".$row['parent']."' class='badge bg-info'>View Details</a>
-                               <a href='editben.php?id=".$row['benid']."    ' class='badge bg-success'>Edit</a>
-                               <a href='deleteben.php?id=".$row['benid']."    ' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>
-                ". "</td>";
-            echo "</tr>"; 
+                echo "<td>" . $row['fullname'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-info'>View Profile</a> <a href='#' class='badge bg-success'>Edit Account</a>". "</td>";
+            echo "</tr>";
         }
         echo "</table>";
         // Free result set
@@ -87,7 +81,7 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
- 
+
             </div>
         </div>
 
@@ -110,9 +104,5 @@ if($result = mysqli_query($con, $sql)){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-<script>
-    function DeleteConfirm() {
-      confirm("Are you sure to delete this beneficiary");
-     }
- </script>
+
 </html>

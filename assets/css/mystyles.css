@@ -101,3 +101,12 @@
     width: 50% !important;
     float: right;
 }
+.sidebar-wrapper .menu .submenu .submenu-item a {
+    color: #25396f;
+    display: block;
+    font-size: .85rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    padding: 0.3rem 1rem !important;
+    transition: all .3s;
+}

@@ -14,9 +14,47 @@
         </div>
     </div>
  
+ 
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+<?php
+//Create new user
+if (isset($_POST['post'])){
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $key   = $_POST['password'];
+    $user  = $_POST['username'];
+
+    $fullname = $fname." ".$lname;
+
+    include "../includes/connection.php";
+
+    $sql = "INSERT INTO users (username, password, fullname, email, phone)
+    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
+
+    if(mysqli_query($con, $sql)){
+        ?>
+<script type="text/javascript">
+alert("review your answer");
+window.location.href = "users.php";
+</script>
+<?php
+
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+    }
+     
+    // Close connection
+    mysqli_close($con);
+
+}else{
+    echo "Something went wrong";
+}
+
+?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -34,48 +72,41 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Beneficiaries</h3>
-                <a href="newben.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
+                <h3>Beneficiary Occupations</h3>
+                <a href="newoccupation.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
             </div>
 
         </div>
     </div>
 
 
-    <section class="section"> 
+    <section class="section">
         <div class="card">
             <div class="card-header">
-                List Of Users
+                List Of Occupations
             </div>
             <div class="card-body">
 
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid"; 
+$sql = "SELECT * FROM occupation"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Gender</th>";
-                echo "<th>Category</th>"; 
-                echo "<th>Occupation</th>";
+                echo "<th>Description</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['gender'] . "</td>";
-                echo "<td>" . $row['bname'] . "</td>";
-                echo "<td>" . $row['occupation'] . "</td>";
-                echo "<td>" . "<a href='beneficiary.php?id=".$row['benid']."&parent=".$row['parent']."' class='badge bg-info'>View Details</a>
-                               <a href='editben.php?id=".$row['benid']."    ' class='badge bg-success'>Edit</a>
-                               <a href='deleteben.php?id=".$row['benid']."    ' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>
-                ". "</td>";
-            echo "</tr>"; 
+                echo "<td>" . $row['description'] . "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>Edit</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
+            echo "</tr>";
         }
         echo "</table>";
         // Free result set
@@ -87,7 +118,7 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
- 
+
             </div>
         </div>
 
@@ -110,9 +141,5 @@ if($result = mysqli_query($con, $sql)){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-<script>
-    function DeleteConfirm() {
-      confirm("Are you sure to delete this beneficiary");
-     }
- </script>
+
 </html>

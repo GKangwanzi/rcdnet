@@ -49,7 +49,7 @@ if (isset($_POST['post'])){
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO bencategory (bname, description)
+    $sql = "INSERT INTO bencategory (name, description)
     VALUES ('$name', '$description')";
 
     if(mysqli_query($con, $sql)){

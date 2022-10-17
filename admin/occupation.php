@@ -105,7 +105,7 @@ if($result = mysqli_query($con, $sql)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['description'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Edit</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
+                echo "<td>" . "<a href='editocc.php?id=".$row['oid']."' class='badge bg-success'>Edit</a> <a href='deleteocc.php?id=".$row['oid']."' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -141,5 +141,9 @@ if($result = mysqli_query($con, $sql)){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    function DeleteConfirm() {
+      confirm("Are you sure you want to delete this occupation record?");
+     }
+ </script>
 </html>

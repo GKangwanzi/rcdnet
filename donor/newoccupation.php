@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
- 
- 
+
+
     <?php 
     include "includes/sidebarmenu.php";
     ?>
@@ -41,22 +41,23 @@
 
         </div>
     </div>
+
 <?php
-//Create new beneficiary category
-if (isset($_POST['post'])){ 
+//Create new occupation
+if (isset($_POST['post'])){
     $name = $_POST['name'];
     $description = $_POST['description'];
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO bencategory (bname, description)
+    $sql = "INSERT INTO occupation (name, description)
     VALUES ('$name', '$description')";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("Your category has been successfully created"); 
-window.location.href = "bencategory.php";
+alert("Your occupation has been successfully created"); 
+window.location.href = "occupation.php";
 </script>
 <?php
 
@@ -67,23 +68,23 @@ window.location.href = "bencategory.php";
     mysqli_close($con);
 
 }else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to a new beneficiary category."."</p>";
+   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new occupation/course."."</p>";
 }
 
 ?>
     <section class="section">
         <div class="row">
-            <div class="col">
+            <div class="col"> 
                 <div class="card">
                     <div class="card-body">
-                    <form method="POST" >
+                    <form method="POST">
                         <div class="form-group">
-                            <label for="basicInput">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="basicInput" placeholder="Enter Category">
+                            <label for="basicInput">Occupation/Course Name</label>
+                            <input type="text" class="form-control" id="basicInput" placeholder="Enter Occupation" name="name">
                         </div>
                         <div class="form-group mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="6"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="description"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" name="post" value="Create Now">
                     </form>

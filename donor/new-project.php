@@ -13,8 +13,8 @@
             </div>
         </div>
     </div>
- 
- 
+
+
     <?php 
     include "includes/sidebarmenu.php";
     ?>
@@ -36,54 +36,34 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Beneficiary Category</h3>
+                <h3>New Project</h3>
             </div>
 
         </div>
     </div>
-<?php
-//Create new beneficiary category
-if (isset($_POST['post'])){ 
-    $name = $_POST['name'];
-    $description = $_POST['description'];
 
-    include "../includes/connection.php";
-
-    $sql = "INSERT INTO bencategory (bname, description)
-    VALUES ('$name', '$description')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript"> 
-alert("Your category has been successfully created"); 
-window.location.href = "bencategory.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-    // Close connection
-    mysqli_close($con);
-
-}else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to a new beneficiary category."."</p>";
-}
-
-?>
     <section class="section">
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <form method="POST" >
+                    <form>
                         <div class="form-group">
-                            <label for="basicInput">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="basicInput" placeholder="Enter Category">
+                            <label for="basicInput">Project Name</label>
+                            <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
                         </div>
+                        <div class="form-group">
+                            <label for="basicInput">Start Date</label>
+                            <input type="date" class="form-control" id="basicInput" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="basicInput">End Date</label>
+                            <input type="date" class="form-control" id="basicInput" placeholder="Enter email">
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="6"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
                         </div>
                         <input type="submit" class="btn btn-primary" name="post" value="Create Now">
                     </form>

@@ -1,17 +1,17 @@
 <?php //Create new user
-    $userid = $_GET['id'];
+    $id = $_GET['id'];
 
     include "../includes/connection.php";
 
-    $sql = "DELETE FROM users WHERE userID='$userid' ";
+    $sql = "DELETE FROM occupation WHERE oid='$id' ";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("User successfully deleted"); 
-window.location.href = "users.php";
+alert("Occupation record successfully deleted"); 
+window.location.href = "occupation.php";
 </script>
-<?php
+<?php 
 
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
@@ -20,4 +20,4 @@ window.location.href = "users.php";
     // Close connection
     mysqli_close($con);
 ?>
-?>
+?> 

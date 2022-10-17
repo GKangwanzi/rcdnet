@@ -19,5 +19,7 @@ window.location.href = "users.php";
      
     // Close connection
     mysqli_close($con);
+
+
 ?>
 ?>

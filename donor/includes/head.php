@@ -3,11 +3,11 @@ session_start();
 
 if (!isset($_SESSION['name'])) {
     // code...
-    header("Location: ../index.php");
+    header("Location: ./index.php");
 }
 ?>
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">  
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@ if (!isset($_SESSION['name'])) {
     <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon"> 
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">

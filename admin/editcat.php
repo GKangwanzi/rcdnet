@@ -1,4 +1,4 @@
-<?php include "includes/head.php"; ?>
+ <?php include "includes/head.php"; ?>
 
     <div id="app">
         <div id="sidebar" class="active">
@@ -49,13 +49,12 @@ if (isset($_POST['post'])){
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO bencategory (bname, description)
-    VALUES ('$name', '$description')";
+    $sql = "UPDATE bencategory SET bname='$name', description='$description'";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("Your category has been successfully created"); 
+alert("Your category has been successfully updated	"); 
 window.location.href = "bencategory.php";
 </script>
 <?php
@@ -77,22 +76,28 @@ window.location.href = "bencategory.php";
                 <div class="card">
                     <div class="card-body">
                     <form method="POST" >
+                    	<?php
+                        $id = $_GET['id'];
+                        include "../includes/connection.php";
+                        $sql = "SELECT * FROM bencategory WHERE bid='$id' ";
+                        $result = mysqli_query($con, $sql);
+                        $row = mysqli_fetch_array($result);
+                        ?>
                         <div class="form-group">
                             <label for="basicInput">Category Name</label>
-                            <input type="text" name="name" class="form-control" id="basicInput" placeholder="Enter Category">
+                            <input type="text" value="<?php echo  $row['bname'];?>" name="name" class="form-control" id="basicInput" placeholder="Enter Category">
                         </div>
                         <div class="form-group mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="6"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="6"><?php echo  $row['description'];?></textarea>
                         </div>
-                        <input type="submit" class="btn btn-primary" name="post" value="Create Now">
+                        <input type="submit" class="btn btn-primary" name="post" value="Update Now">
                     </form>
                     </div> 
                 </div>
             </div>
         </div>
     </section>
-
 
 </div>
     </section>

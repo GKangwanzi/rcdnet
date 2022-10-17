@@ -52,7 +52,7 @@
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary"; 
+$sql = "SELECT beneficiary.name, beneficiary.gender, beneficiary.category, beneficiary.occupation, beneficiary.donor, bencategory.bid, bencategory.bname FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
@@ -69,9 +69,9 @@ if($result = mysqli_query($con, $sql)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['gender'] . "</td>";
-                echo "<td>" . $row['category'] . "</td>";
+                echo "<td>" . $row['bname'] . "</td>";
                 echo "<td>" . $row['occupation'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>View Details</a>". "</td>";
+                echo "<td>" . "<a href='beneficiary.php?id=".$row['benid']."&parent=".$row['parent']."' class='badge bg-success'>View Details</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";

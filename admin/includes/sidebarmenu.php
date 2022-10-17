@@ -82,6 +82,9 @@
                     <li class="submenu-item ">
                         <a href="./students.php">Students</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./interests.php">Sponsorship Interests</a>
+                    </li>
                 </ul>
             </li> 
             <li

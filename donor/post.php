@@ -19,14 +19,14 @@
     include "includes/sidebarmenu.php";
     ?>
 <?php
-//Create new user
+//Create new comment
 if (isset($_POST['comment'])){
     $message = $_POST['message'];
     $postid = $_GET['id'];
     $member = $_SESSION['name'];
 
 
-    include "includes/connection.php";
+    include "../includes/connection.php";
 
     $sql = "INSERT INTO comment (message, user, post)
     VALUES ('$message', '$member', '$postid')";
@@ -81,7 +81,7 @@ window.location.href = "post.php?id=<?php echo $_GET['id'];?>";
                      <div class="card-body">
 
                         <?php
-include "includes/connection.php";
+include "../includes/connection.php";
 
 $postid = $_GET['id'];
 
@@ -129,7 +129,7 @@ if($result = mysqli_query($con, $sql)){
 
                     <div class="list-group">
                         <?php
-                        include "includes/connection.php"; 
+                        include "../includes/connection.php"; 
                         $postid = $_GET['id'];
                         $sql = "SELECT *  FROM comment  WHERE post= $postid ORDER BY commentid DESC";
                         if($result = mysqli_query($con, $sql)){ 
@@ -163,7 +163,7 @@ if($result = mysqli_query($con, $sql)){
                                 <li class="list-group-item active">CATEGORIES</li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice  WHERE category='General Annoucement' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -184,7 +184,7 @@ if($result = mysqli_query($con, $sql)){
                               </li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Upcoming Event' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -204,7 +204,7 @@ if($result = mysqli_query($con, $sql)){
                                 </li> 
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Opportunity' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
@@ -224,7 +224,7 @@ if($result = mysqli_query($con, $sql)){
                                 </li>
                                 <li class="list-group-item">
                                     <?php
-                                    include "includes/connection.php"; 
+                                    include "../includes/connection.php"; 
                                     $sql = "SELECT COUNT(category) AS namba FROM notice WHERE category='Urgent Notice' ";
                                     if($result = mysqli_query($con, $sql)){ 
                                         if(mysqli_num_rows($result) > 0){
