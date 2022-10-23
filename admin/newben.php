@@ -112,7 +112,7 @@ if (isset($_POST['post'])){
                                         if($result = mysqli_query($con, $sql)){
                                             if(mysqli_num_rows($result) > 0){
                                                 while($row = mysqli_fetch_array($result)){
-                                                        echo '<option value='.$row['bid'].'>' . $row['name'] . '</option>';
+                                                        echo '<option value='.$row['bid'].'>' . $row['bname'] . '</option>';
                                                 }
                                                 mysqli_free_result($result);
                                             } else{
@@ -225,7 +225,7 @@ if (isset($_POST['post'])){
                                 <input type="text" class="form-control" id="basicInput" name="district" placeholder="District">
                                 </div>
                                 <div class="form-group">
-                                <label for="basicInput">Are both parents alive</label>
+                                <label for="basicInput">Is beneficiary an orphan?</label>
                                     <select class="form-control" name="orphan" id="basicInput">
                                         <option>Yes</option>
                                         <option>No</option>
