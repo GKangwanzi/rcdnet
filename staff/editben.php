@@ -36,7 +36,7 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Beneficiary</h3>
+                <h3>Edit Beneficiary</h3>
             </div>
 
         </div>
@@ -245,7 +245,7 @@ if (isset($_POST['post'])){
                                 <input type="text" value="<?php echo $row['district'];?>" class="form-control" id="basicInput" name="district" placeholder="District">
                                 </div>
                                 <div class="form-group">
-                                <label for="basicInput">Are both parents alive</label>
+                                <label for="basicInput">Is beneficiary an orphan?</label>
                                     <select class="form-control" name="orphan" id="basicInput">
                                         <option><?php echo $row['orphan'];?></option>
                                         <option>Yes</option>

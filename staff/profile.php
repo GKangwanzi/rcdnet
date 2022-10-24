@@ -37,45 +37,44 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3><?php echo $_SESSION['userid']."'s Profile"; ?> </h3>
-
                 <?php 
-//Create new user
-if (isset($_POST['post'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
-    $nationality = $_POST['nationality'];
-    $key   = $_POST['password'];
-    $role   = $_POST['role'];
-    $member  = $_POST['username'];
-    $fullname = $fname." ".$lname;
- 
+                //Create new user
+                if (isset($_POST['post'])){
+                    $fname = $_POST['fname'];
+                    $lname = $_POST['lname'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $address = $_POST['address'];
+                    $nationality = $_POST['nationality'];
+                    $key   = $_POST['password'];
+                    $role   = $_POST['role'];
+                    $member  = $_POST['username'];
+                    $fullname = $fname." ".$lname;
+                 
 
-    include "../includes/connection.php";
+                    include "../includes/connection.php";
 
-    $sql = "INSERT INTO users (username, password, fullname, email, phone, Address, Nationality, role)
-    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$address', '$nationality', '$role' )";
+                    $sql = "INSERT INTO users (username, password, fullname, email, phone, Address, Nationality, role)
+                    VALUES ('$member', '$key', '$fullname', '$email', '$phone', '$address', '$nationality', '$role' )";
 
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript"> 
-alert("User successfully created"); 
-window.location.href = "users.php";
-</script>
-<?php
+                    if(mysqli_query($con, $sql)){
+                        ?>
+                <script type="text/javascript"> 
+                alert("User successfully created"); 
+                window.location.href = "users.php";
+                </script>
+                <?php
 
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+                    }
+                     
+                    // Close connection
+                    mysqli_close($con);
 
-}
+                }
 
-?>
+                ?>
                 
             </div>
 
