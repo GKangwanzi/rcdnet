@@ -245,7 +245,7 @@ if (isset($_POST['post'])){
                                 <input type="text" value="<?php echo $row['district'];?>" class="form-control" id="basicInput" name="district" placeholder="District">
                                 </div>
                                 <div class="form-group">
-                                <label for="basicInput">Are both parents alive</label>
+                                <label for="basicInput">Is beneficiary an orphan?</label>
                                     <select class="form-control" name="orphan" id="basicInput">
                                         <option><?php echo $row['orphan'];?></option>
                                         <option>Yes</option>
