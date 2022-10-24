@@ -36,79 +36,57 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Post <?php echo $_SESSION['name']; ?></h3>
+                <h3>New Beneficiary Category</h3>
+            </div>
+
+        </div>
+    </div>
 
 <?php
-//Create new post
+//Create new occupation
 if (isset($_POST['post'])){
-    $subject = $_POST['subject'];
-    $category = $_POST['category'];
-    $notice = $_POST['notice'];
-    $phone = $_POST['phone'];
-
-    $member = $_SESSION['name'];
-
-
-
+    $name = $_POST['name'];
+    $description = $_POST['description'];
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO notice (category, title, message, user)
-    VALUES ('$category', '$subject', '$notice', '$member')";
+    $sql = "INSERT INTO occupation (name, description)
+    VALUES ('$name', '$description')";
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("Your post has been submitted"); 
-window.location.href = "notice-board.php";
+alert("Your occupation has been successfully created"); 
+window.location.href = "occupation.php";
 </script>
 <?php
 
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
     }
-     
     // Close connection
     mysqli_close($con);
 
 }else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to make posts to the general notice board."."</p>";
-
+   echo "<p class='text-subtitle text-muted'>"."Use this form to add a new occupation/course."."</p>";
 }
 
 ?>
-                
-            </div>
-
-        </div>
-    </div>
-
     <section class="section">
         <div class="row">
-            <div class="col">
+            <div class="col"> 
                 <div class="card">
                     <div class="card-body">
-                    <form method="POST" action="">
-                        
-                        <p>Select Category</p>
-                            <fieldset class="form-group">
-                                <select class="form-select" name="category">
-                                     <option>Select Category</option>
-                                    <option>Urgent Notice</option>
-                                    <option>General Annoucement</option>
-                                    <option>Opportunity</option>
-                                    <option>Upcoming Event</option>
-                                </select>
-                            </fieldset>
+                    <form method="POST">
                         <div class="form-group">
-                            <label for="basicInput">Subject</label>
-                            <input type="text" class="form-control" name="subject" placeholder="Enter email">
+                            <label for="basicInput">Occupation/Course Name</label>
+                            <input type="text" class="form-control" id="basicInput" placeholder="Enter Occupation" name="name">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Your Notice</label>
-                            <textarea class="form-control" name="notice" rows="6"></textarea>
+                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="description"></textarea>
                         </div>
-                        <input type="submit" class="btn btn-primary" name="post" value="Post Now">
+                        <input type="submit" class="btn btn-primary" name="post" value="Create Now">
                     </form>
                     </div> 
                 </div>

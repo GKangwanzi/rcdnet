@@ -59,22 +59,16 @@ if (isset($_POST['post'])){
     $district = $_POST['district'];
     $orphan = $_POST['orphan'];
     $deadparent = $_POST['deadparent'];
-    $photo = $_POST['photo'];
-
-
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "../photos/" . $filename;
+    $benid = $_GET['id'];
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO beneficiary (category, name, nin, dob, gender, marital, disability, religion, occupation, parent, village, subcounty, district, orphan, deadparent, photo)
-    VALUES ('$category', '$name', '$nin', '$dob', '$gender', '$marital', '$disability', '$religion', '$occupation', '$parent', '$village', '$subcounty', '$district', '$orphan', '$deadparent', '$filename')";
+    $sql = "UPDATE beneficiary SET category='$category', name='$name', nin='$nin', dob='$dob', gender='$gender', marital='$marital', disability='$disability', religion='$religion', occupation='$occupation', parent='$parent', village='$village', subcounty='$subcounty', district='$district', orphan='$orphan', deadparent='$deadparent' WHERE benid='$benid' ";
 
-    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
+    if(mysqli_query($con, $sql)){
         ?>
     <script type="text/javascript"> 
-    alert("Beneficiary successfully created"); 
+    alert("Beneficiary successfully edited"); 
     window.location.href = "beneficiaries.php";
     </script>
     <?php
@@ -102,10 +96,17 @@ if (isset($_POST['post'])){
                         <div class="row">
                             <div class="col-md-6">
                                 <p>Beneficiary Particulars</p>
+                                <?php 
+                                        $id = $_GET['id'];
+                                        include "../includes/connection.php";
+                                        $sql = "SELECT * FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid WHERE benid='$id' ";
+                                        $result = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_array($result);
+                                        ?>
                                 <div class="form-group">
                                     <label for="basicInput">Cetgory</label>
                                     <select class="form-control" name="category" id="basicInput">
-                                        <option>Select Category</option>
+                                        <?php echo '<option value='.$row['bid'].'>' . $row['name'] . '</option>';?>
                                         <?php
                                         include "../includes/connection.php";
                                         $sql = "SELECT * FROM bencategory";
@@ -124,30 +125,37 @@ if (isset($_POST['post'])){
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <?php
+                                        $id = $_GET['id'];
+                                        include "../includes/connection.php";
+                                        $sql = "SELECT * FROM beneficiary WHERE benid='$id' ";
+                                        $result = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_array($result);
+                                        ?>
                                 <label for="basicInput">Full Name</label>
-                                <input type="text" name="name" class="form-control" id="basicInput" placeholder="Enter full name">
+                                <input type="text" value="<?php echo  $row['name'];?>" name="name" class="form-control"  placeholder="Enter full name">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">NIN</label>
-                                <input type="text" class="form-control" id="basicInput" name="nin" placeholder="Enter NIN">
+                                <input type="text" value="<?php echo $row['nin'];?>" class="form-control" id="basicInput" name="nin">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Date Of Birth</label>
-                                <input type="date" class="form-control" id="basicInput" name="dob">
+                                <input type="text" value="<?php echo $row['dob'];?>"  class="form-control" id="basicInput" name="dob">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="basicInput">Gender</label>
-                                    <select class="form-control" name="gender" id="basicInput">
-                                        <option>Select Gender</option>
+                                    <select class="form-control" name="gender" required id="basicInput">
+                                        <option><?php echo $row['gender'];?></option>
                                         <option>Female</option>
                                         <option>Male</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Marital Status</label>
-                                    <select class="form-control" name="marital" id="basicInput">
-                                        <option>Select Status</option>
+                                    <select class="form-control" name="marital" required id="basicInput">
+                                        <option><?php echo $row['marital'];?></option>
                                         <option>Married</option>
                                         <option>Single</option>
                                         <option>Divorced</option>
@@ -155,16 +163,16 @@ if (isset($_POST['post'])){
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Disability</label>
-                                <input type="text" class="form-control" id="basicInput" name="disability" placeholder="Name disability">
+                                <input type="text" value="<?php echo $row['disability'];?>"  class="form-control" id="basicInput" name="disability" placeholder="Name disability">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Religion</label>
-                                <input type="text" class="form-control" id="basicInput" name="religion" placeholder="Religion">
+                                <input type="text" value="<?php echo $row['religion'];?>"  class="form-control" id="basicInput" name="religion" placeholder="Religion">
                                 </div>
                                 <div class="form-group">
                                     <label for="basicInput">Occupation/Course</label>
                                     <select class="form-control" name="occupation" id="basicInput">
-                                        <option>Select Occupation</option>
+                                        <option><?php echo $row['occupation'];?></option>
                                         <?php
                                         include "../includes/connection.php";
                                         $sql = "SELECT * FROM occupation";
@@ -187,12 +195,18 @@ if (isset($_POST['post'])){
 
 
                             <div class="col-md-6">
-                                
                                 <p>Parent's/Guardian's Particulars</p>
+                                <?php 
+                                        $id = $_GET['id'];
+                                        include "../includes/connection.php";
+                                        $sql = "SELECT * FROM beneficiary INNER JOIN parent ON beneficiary.parent=parent.pid WHERE benid='$id' ";
+                                        $result = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_array($result);
+                                        ?>
                                 <div class="form-group">
                                     <label for="basicInput">Parent/Guardian's Name</label>
                                     <select class="form-control" name="parent" id="basicInput">
-                                        <option>Select Parent</option>
+                                        <?php echo '<option value='.$row['pid'].'>' . $row['name'] . '</option>';?>
                                         <?php
                                         include "../includes/connection.php";
                                         $sql = "SELECT * FROM parent";
@@ -210,23 +224,30 @@ if (isset($_POST['post'])){
                                         
                                     </select>
                                 </div>
-                                
-                                <p>Address</p>
+
+                                 <?php
+                                        $id = $_GET['id'];
+                                        include "../includes/connection.php";
+                                        $sql = "SELECT * FROM beneficiary WHERE benid='$id' ";
+                                        $result = mysqli_query($con, $sql);
+                                        $row = mysqli_fetch_array($result);
+                                        ?>
                                 <div class="form-group">
                                 <label for="basicInput">Village/Cell</label>
-                                <input type="text" class="form-control" id="basicInput" name="village" placeholder="Enter Village">
+                                <input type="text" value="<?php echo $row['village'];?>" class="form-control" id="basicInput" name="village" placeholder="Enter Village">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">Sub County/Division</label>
-                                <input type="text" class="form-control" id="basicInput" name="subcounty" placeholder="Sub County">
+                                <input type="text" value="<?php echo $row['subcounty'];?>" class="form-control" id="basicInput" name="subcounty" placeholder="Sub County">
                                 </div>
                                 <div class="form-group">
                                 <label for="basicInput">District</label>
-                                <input type="text" class="form-control" id="basicInput" name="district" placeholder="District">
+                                <input type="text" value="<?php echo $row['district'];?>" class="form-control" id="basicInput" name="district" placeholder="District">
                                 </div>
                                 <div class="form-group">
-                                <label for="basicInput">Is beneficiary an orphan?</label>
+                                <label for="basicInput">Are both parents alive</label>
                                     <select class="form-control" name="orphan" id="basicInput">
+                                        <option><?php echo $row['orphan'];?></option>
                                         <option>Yes</option>
                                         <option>No</option>
                                     </select>
@@ -234,22 +255,18 @@ if (isset($_POST['post'])){
                                 <div class="form-group">
                                 <label for="basicInput">Select lost parent</label>
                                     <select class="form-control" name="deadparent" id="basicInput">
-                                        <option>Select Parent</option>
+                                        <option><?php echo $row['deadparent'];?></option>
                                         <option>Mother</option>
                                         <option>Father</option>
                                         <option>Both</option>
                                         <option>None</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                <label for="basicInput">Beneficiary Photo</label>
-                                <input type="file" name="uploadfile" class="form-control" id="basicInput" >
-                                </div>
                             </div>
                         </div>
                         
 
-                        <input type="submit" class="btn btn-primary" name="post" value="Submit Now">
+                        <input type="submit" class="btn btn-primary" name="post" value="Update Now">
                     </form>
                     </div> 
                 </div>

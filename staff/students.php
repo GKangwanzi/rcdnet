@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -18,43 +18,6 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-<?php
-//Create new user
-if (isset($_POST['post'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $key   = $_POST['password'];
-    $user  = $_POST['username'];
-
-    $fullname = $fname." ".$lname;
-
-    include "../includes/connection.php";
-
-    $sql = "INSERT INTO users (username, password, fullname, email, phone)
-    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript">
-alert("review your answer");
-window.location.href = "users.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-    echo "Something went wrong";
-}
-
-?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -72,35 +35,45 @@ window.location.href = "users.php";
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Beneficiaries</h3>
-            </div> 
+                <h3>Students</h3>
+                <a href="album.php" style="margin-bottom: 10px; margin-left: 10px;" class="btn btn-success">Students Album</a>
+            </div>
 
         </div>
     </div>
 
 
     <section class="section">
-        <div class="row">
-         <div class="col-xl-4 col-md-6 col-sm-12">
-                <div class="card">
-                    <div class="card-content">
-                        <?php
+        <div class="card">
+            <div class="card-header">
+                List Of Users
+            </div>
+            <div class="card-body">
+
+<?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM beneficiary"; 
+$sql = "SELECT * FROM beneficiary where occupation ='Student' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
+        echo "<table class='table table-striped' id='table1'>";
+            echo "<thead>";
+             echo "<tr>";
+                echo "<th>Name</th>";
+                echo "<th>Gender</th>";
+                 echo "<th>Occupation</th>";
+                echo "<th>Status</th>";
+                echo "<th>Action</th>";
+            echo "</tr>";
+            echo "</thead>";
         while($row = mysqli_fetch_array($result)){
-            echo "<img src='"."photos"."/".$row['photo']."' class='card-img-top img-fluid'>";
-            echo "<div class='card-body'>";
-            echo "<h5 class='card-title'>".$row['name']."</h5>";
-        /*    echo "<p class='card-text'>"."
-                                Chocolate sesame snaps apple pie danish cupcake sweet roll jujubes tiramisu.Gummies
-                                bonbon apple pie fruitcake icing biscuit apple pie jelly-o sweet roll.".
-                            "</p>";*/
-                    echo"</div>";
-                    echo"</div>";
-                    echo "<a href='"."newben.php?"."' class='btn btn-success mybtn'>Sponsor Me</a>";
+            echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['gender'] . "</td>";
+                echo "<td>" . $row['occupation'] . "</td>";
+                echo "<td>" . "<span class='badge bg-info'>".$row['sponsored']."</span> </td>";
+                echo "<td>" . "<a href='studentprofile.php?id=".$row['benid']."&donor=".$row['donor']."' class='badge bg-success'>View Details</a>". "</td>";
+            echo "</tr>";
         }
         echo "</table>";
         // Free result set
@@ -112,15 +85,9 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
-                        
-                            
-                       
-                </div>
+
             </div>
         </div>
-
-
-
 
     </section>
 

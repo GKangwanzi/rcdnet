@@ -6,7 +6,7 @@
     <div class="sidebar-header">
         <div class="d-flex justify-content-between">
             <div class="logo">
-                <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
+                <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
             </div>
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -14,47 +14,9 @@
         </div>
     </div>
  
- 
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-<?php
-//Create new user
-if (isset($_POST['post'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $key   = $_POST['password'];
-    $user  = $_POST['username'];
-
-    $fullname = $fname." ".$lname;
-
-    include "../includes/connection.php";
-
-    $sql = "INSERT INTO users (username, password, fullname, email, phone)
-    VALUES ('$user', '$key', '$fullname', '$email', '$phone')";
-
-    if(mysqli_query($con, $sql)){
-        ?>
-<script type="text/javascript">
-alert("review your answer");
-window.location.href = "users.php";
-</script>
-<?php
-
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
-    }
-     
-    // Close connection
-    mysqli_close($con);
-
-}else{
-    echo "Something went wrong";
-}
-
-?>
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -68,48 +30,40 @@ window.location.href = "users.php";
             
 <div class="page-content">
     <section class="row">
-            <div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Manage Users</h3>
-                <p class="text-subtitle text-muted">Use this form to manage user accounts.</p>
-            </div>
-
-        </div>
-    </div>
+            <div class="page-heading"> 
 
 
     <section class="section">
         <div class="card">
             <div class="card-header">
-                List Of Users
+                Pending Sponsorships
             </div>
             <div class="card-body">
 
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid INNER JOIN users ON beneficiary.donor=users.userID WHERE interest = 'YES' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Email Address</th>";
-                echo "<th>Phone Number</th>";
-                echo "<th>User Role</th>";
-                echo "<th>Action</th>";
+                echo "<th>Category</th>";
+                echo "<th>Donor</th>";
+                echo "<th></th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
+                echo "<td>" . ucwords($row['name']) . "</td>";
+                echo "<td>" . $row['bname'] . "</td>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
-                echo "<td>" . $row['role'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='#' class='badge bg-danger'>Delete</a>". "</td>";
+                echo "<td>" . "<a href='approvesponsor.php?id=".$row['benid']."' class='badge bg-success'>Approve</a>
+                                <a href='note.php?id=".$row['benid']."' class='badge bg-info'>View Note</a>
+                                <a href='note.php?id=".$row['benid']."' class='badge bg-danger'>Decline</a> 
+                                ". "</td>";
             echo "</tr>";
         }
         echo "</table>";
