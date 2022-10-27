@@ -11,23 +11,12 @@
             </li>
             
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item  ">
                 <a href="#" class='sidebar-link'>
-                    <i class="bi bi-collection-fill"></i>
-                    <span>Notice Board</span>
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Messaging</span>
                 </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="./notice-board.php">View Posts</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./new-post.php">New Post</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./myposts.php">My Posts</a>
-                    </li>
-                </ul>
-            </li> 
+            </li>
             
             <li
                 class="sidebar-item ">

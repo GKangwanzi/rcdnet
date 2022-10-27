@@ -11,22 +11,11 @@
             </li>
             
             <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item">
+                <a href="./notice-board.php" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
                     <span>Notice Board</span>
                 </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="./notice-board.php">View Posts</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./new-post.php">New Post</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./myposts.php">My Posts</a>
-                    </li>
-                </ul>
             </li>
             
             <li
@@ -45,21 +34,7 @@
             </li>
             
             <li class="sidebar-title">Projects &amp; Reports</li>
-            <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-stack"></i>
-                    <span>Projects</span>
-                </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="./new-project.php">New Project</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./projects.php">All Projects</a>
-                    </li>
-                </ul>
-            </li>
+            
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -74,19 +49,20 @@
                         <a href="./bencategory.php">Categories</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="./occupation.php">Occupations</a>
-                    </li>
-                    <li class="submenu-item ">
                         <a href="./parent.php">Parents</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="./students.php">Students</a>
                     </li>
-                    <li class="submenu-item ">
-                        <a href="./interests.php">Sponsorship Interests</a>
-                    </li>
                 </ul>
-            </li> 
+            </li>
+            <li
+                class="sidebar-item">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-stack"></i>
+                    <span>Projects</span>
+                </a>
+            </li>  
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
@@ -94,9 +70,6 @@
                     <span>Project Reports</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="#">New Report</a>
-                    </li>
                     <li class="submenu-item ">
                         <a href="#">My Reports</a>
                     </li>

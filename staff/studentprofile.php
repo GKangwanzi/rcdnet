@@ -197,34 +197,7 @@ if (isset($_POST['newdonor'])){
                         // Free result set
                         mysqli_free_result($result);
                         ?>
-                        <hr>
-                          <form class="greyform" method="POST" enctype="multipart/form-data">
 
-                                <div class="form-group">
-                                    <label for="basicInput">New Donor</label>
-                                    <select class="form-control" name="dname" id="basicInput">
-                                        <option>Select Donor</option>
-                                        <?php
-                                        include "../includes/connection.php";
-                                        $sql = "SELECT * FROM users WHERE role = 'donor' ";
-                                        if($result = mysqli_query($con, $sql)){
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($row = mysqli_fetch_array($result)){
-                                                        echo '<option value='.$row['userID'].'>' . $row['fullname'] . '</option>';
-                                                }
-                                                mysqli_free_result($result);
-                                            } else{
-                                                echo "No records found.";
-                                            }
-                                        }
-                                        ?>
-                                        
-                                    </select>
-                                </div>
-
-
-                        <input type="submit" class="btn btn-primary" name="newdonor" value="Assign New Donor">
-                    </form>
                     </div>
                 </div>
             </div>

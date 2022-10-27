@@ -71,8 +71,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['bname'] . "</td>";
                 echo "<td>" . $row['occupation'] . "</td>";
                 echo "<td>" . "<a href='beneficiary.php?id=".$row['benid']."&parent=".$row['parent']."' class='badge bg-info'>View Details</a>
-                               <a href='editben.php?id=".$row['benid']."    ' class='badge bg-success'>Edit</a>
-                               <a href='deleteben.php?id=".$row['benid']."    ' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>
+                               
                 ". "</td>";
             echo "</tr>"; 
         }
