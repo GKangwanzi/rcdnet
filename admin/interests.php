@@ -46,7 +46,7 @@ include "../includes/connection.php";
 $sql = "SELECT * FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid INNER JOIN users ON beneficiary.donor=users.userID WHERE interest = 'YES' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
-        echo "<table class='table table-striped' id='table1'>";
+        echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
@@ -99,5 +99,9 @@ if($result = mysqli_query($con, $sql)){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    // Simple Datatable
+    let table5 = document.querySelector('#table5');
+    let dataTable = new simpleDatatables.DataTable(table5);
+</script>
 </html>

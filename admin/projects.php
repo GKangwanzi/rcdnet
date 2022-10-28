@@ -51,7 +51,7 @@
                         <br>
                         <!-- table hover -->
                         <div class="table-responsive" style="padding-right: 20px; padding-left: 20px;">
-                            <table class="table table-striped" id="table1">
+                            <table class="table table-striped" id="table5">
                     <thead>
                         <tr>
                             <th>PROJECT NAME</th>
@@ -117,16 +117,20 @@
     </section>
 </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
-                    </div>
-                </div>
-            </footer>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
+            </div>
         </div>
+    </footer>
+</div>
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    // Simple Datatable
+    let table5 = document.querySelector('#table5');
+    let dataTable = new simpleDatatables.DataTable(table5);
+</script>
 </html>

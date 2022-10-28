@@ -106,8 +106,8 @@ if($result = mysqli_query($con, $sql)){
             </footer>
         </div>
     </div>
-<?php include "includes/scripts.php"; ?>
 </body>
+<?php include "includes/scripts.php"; ?>
 <script>
     function DeleteConfirm() {
       confirm("Are you sure to delete this beneficiary");

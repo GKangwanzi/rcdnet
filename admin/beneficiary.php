@@ -1,4 +1,4 @@
-<?php include "includes/head.php"; ?>
+    <?php include "includes/head.php"; ?>
 
     <div id="app">
         <div id="sidebar" class="active">
@@ -13,7 +13,6 @@
             </div>
         </div>
     </div>
- 
  
     <?php 
     include "includes/sidebarmenu.php";

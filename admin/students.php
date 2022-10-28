@@ -56,7 +56,7 @@ include "../includes/connection.php";
 $sql = "SELECT * FROM beneficiary where occupation ='Student' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
-        echo "<table class='table table-striped' id='table1'>";
+        echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
@@ -97,16 +97,20 @@ if($result = mysqli_query($con, $sql)){
     </section>
 </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
-                    </div>
-                </div>
-            </footer>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
+            </div>
         </div>
+    </footer>
+</div>
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    // Simple Datatable
+    let table5 = document.querySelector('#table5');
+    let dataTable = new simpleDatatables.DataTable(table5);
+</script>
 </html>
