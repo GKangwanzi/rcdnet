@@ -63,46 +63,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>ICT For Girls</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>John</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>ICT For Girls</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>Agnes</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>Sanitary Pads for all</td>
-                            <td>2/03/2003</td>
-                            <td>16/04/2020</td>
-                            <td>Mugisha</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tree Planting in Schools</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>Agnes</td>
-                            <td>
-                                <span class="badge bg-info">Paused</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
+                        
 
                     </tbody>
                 </table>
