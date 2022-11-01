@@ -14,12 +14,9 @@
         </div>
     </div>
 
-
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-
-
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
         </div>
@@ -51,61 +48,44 @@
                         <br>
                         <!-- table hover -->
                         <div class="table-responsive" style="padding-right: 20px; padding-left: 20px;">
-                            <table class="table table-striped" id="table5">
-                    <thead>
-                        <tr>
-                            <th>PROJECT NAME</th>
-                            <th>START</th>
-                            <th>END</th>
-                            <th>OFFICER</th>
-                            <th>STATUS</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ICT For Girls</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>John</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>ICT For Girls</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>Agnes</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>Sanitary Pads for all</td>
-                            <td>2/03/2003</td>
-                            <td>16/04/2020</td>
-                            <td>Mugisha</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
-                        <tr>
-                            <td>Tree Planting in Schools</td>
-                            <td>12/03/2022</td>
-                            <td>12/03/2024</td>
-                            <td>Agnes</td>
-                            <td>
-                                <span class="badge bg-info">Paused</span>
-                            </td>
-                            <td><a class="btn btn-primary">VIEW DETAILS</a></td>
-                        </tr>
+                            <?php
+include "../includes/connection.php";
 
-                    </tbody>
-                </table>
+$sql = "SELECT * FROM project"; 
+if($result = mysqli_query($con, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        echo "<table class='table table-striped' id='table5'>";
+            echo "<thead>";
+             echo "<tr>";
+                echo "<th>Name</th>";
+                echo "<th>Start Date</th>"; 
+                echo "<th>End Date</th>";
+                echo "<th>Status</th>";
+                echo "<th>Action</th>";
+            echo "</tr>";
+            echo "</thead>";
+        while($row = mysqli_fetch_array($result)){
+            echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['startdate'] . "</td>";
+                echo "<td>" . $row['stopdate'] . "</td>";
+                echo "<td>" . $row['Status'] . "</td>";
+                echo "<td>" . "<a href='projectdetail.php?id=".$row['prID']."' class='badge bg-info'>View Details</a>
+                               <a href='editpro.php?id=".$row['prID']."' class='badge bg-success'>Edit</a>
+                               <a href='deletepro.php?id=".$row['prID']."' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>
+                ". "</td>";
+            echo "</tr>"; 
+        }
+        echo "</table>";
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+?>
                         </div>
                     </div>
                 </div>

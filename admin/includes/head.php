@@ -7,7 +7,7 @@ if (!isset($_SESSION['name'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,7 @@ if (!isset($_SESSION['name'])) {
     <link rel="stylesheet" href="../assets/css/mystyles.css">
     <link rel="stylesheet" href="../assets/vendors/iconly/bold.css">
     <link rel="stylesheet" href="../assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="../assets/css/pages/email.css">
 
     <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -28,7 +29,5 @@ if (!isset($_SESSION['name'])) {
     <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
     
 <!-- <link rel="stylesheet" href="assets/vendors/tinymce/summernote-lite.min.css"> -->
-
-
 </head>
 <body>
