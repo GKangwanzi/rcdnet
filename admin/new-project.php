@@ -82,7 +82,7 @@ if (isset($_POST['post'])){
         mysqli_close($con);
 
     }else{
-       echo "<p class='text-subtitle text-muted'>"."Use this form to add a new beneficiary"."</p>";
+       echo "<p class='text-subtitle text-muted'>"."Use this form to add a new project"."</p>";
     }
     ?>
 
