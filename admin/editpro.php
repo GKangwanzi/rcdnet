@@ -175,7 +175,7 @@ if (isset($_POST['post'])){
                                 </div> 
                         </div>
                          <div class="form-group">
-                                    <label for="basicInput">Cetgory</label>
+                                    <label for="basicInput">Project Status</label>
                                     <select class="form-control" name="status">
                                         <option value="<?php echo  $row['status'];?>"><?php echo  $row['status'];?></option>
                                         <option value="Ongoing">Ongoing</option>
