@@ -55,12 +55,12 @@ if (isset($_POST['post'])){
     $target = $_POST['target'];
     $budget = $_POST['budget'];
     $description = $_POST['description'];
-    $category = $_POST['category'];
+    $status = $_POST['status'];
 
 
     include "../includes/connection.php";
 
-    $sql = "UPDATE project SET name='$name', fundsource='$fund', donor='$donor', startdate='$start', stopdate='$stop', targetgroup='$target', budget='$budget', description='$description', status='$category' WHERE prID='$id'" ;
+    $sql = "UPDATE project SET name='$name', fundsource='$fund', donor='$donor', startdate='$start', stopdate='$stop', targetgroup='$target', budget='$budget', description='$description', status='$status' WHERE prID='$id'" ;
 
     if(mysqli_query($con, $sql)){
         ?>
@@ -176,8 +176,8 @@ if (isset($_POST['post'])){
                         </div>
                          <div class="form-group">
                                     <label for="basicInput">Cetgory</label>
-                                    <select class="form-control" name="category">
-                                        <option value=""><?php echo  $row['status'];?></option>
+                                    <select class="form-control" name="status">
+                                        <option value="<?php echo  $row['status'];?>"><?php echo  $row['status'];?></option>
                                         <option value="Ongoing">Ongoing</option>
                                         <option value="Paused">Paused</option>
                                         <option value="Completed">Completed</option>
