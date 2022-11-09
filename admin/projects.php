@@ -58,8 +58,6 @@ if($result = mysqli_query($con, $sql)){
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Start Date</th>"; 
-                echo "<th>End Date</th>";
                 echo "<th>Status</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
@@ -67,9 +65,7 @@ if($result = mysqli_query($con, $sql)){
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['startdate'] . "</td>";
-                echo "<td>" . $row['stopdate'] . "</td>";
-                echo "<td>" . $row['Status'] . "</td>";
+                echo "<td>" . $row['status'] . "</td>";
                 echo "<td>" . "<a href='projectdetail.php?id=".$row['prID']."' class='badge bg-info'>View Details</a>
                                <a href='editpro.php?id=".$row['prID']."' class='badge bg-success'>Edit</a>
                                <a onclick='return DeleteConfirm()' href='deletepro.php?id=".$row['prID']."' class='badge bg-danger' >Trash</a>

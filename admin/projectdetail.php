@@ -81,15 +81,6 @@
                         </div>";
 
                         echo "<p>".$row['name']."</p>";
-                        if ($row['sponsored']=="Not Sponsored") {
-                            // code...
-                           echo "<div style='text-align: center; margin-top: 20px !important; color: #fff;' class=' bg-danger'>Not Sponsored</div>";
-                        }elseif ($row['sponsored']=="Sponsored") {
-                            // code...
-                            echo "<div style='text-align: center; margin-top: 20px !important; color: #fff;' class=' bg-success'>Sponsored</div>";
-                        }
-
-                        
 
                         // Free result set
                         mysqli_free_result($result);
