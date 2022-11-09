@@ -68,7 +68,7 @@ if($result = mysqli_query($con, $sql)){
             echo "<tr>";
                 echo "<td>" . $row['fullname'] . "</td>";
                 echo "<td>" . $row['role'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='deleteuser.php?id=".$row['userID']."' class='badge bg-danger' onclick='DeleteConfirm()'>Delete</a>". "</td>";
+                echo "<td>" . "<a href='#' class='badge bg-success'>Manage</a> <a href='deleteuser.php?id=".$row['userID']."' class='badge bg-danger' onclick='return DeleteConfirm()'>Delete</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -107,7 +107,7 @@ if($result = mysqli_query($con, $sql)){
 
 <script>
     function DeleteConfirm() {
-      confirm("Are you sure to delete this user");
+      return confirm("Are you sure to delete this user");
      }
  </script>
 </html>

@@ -14,7 +14,7 @@
         </div>
     </div>
 
- 
+
     <?php 
     include "includes/sidebarmenu.php";
     ?>
@@ -46,6 +46,7 @@
 <?php
 //Create new beneficiary
 if (isset($_POST['post'])){
+    $id = $_GET['id'];
     $name = $_POST['name'];
     $fund = $_POST['fundsource'];
     $donor = $_POST['donor'];
@@ -54,17 +55,12 @@ if (isset($_POST['post'])){
     $target = $_POST['target'];
     $budget = $_POST['budget'];
     $description = $_POST['description'];
-    $statas = $_POST['category'];
- 
+    $category = $_POST['category'];
 
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "../photos/" . $filename;
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO project (name, fundsource, donor, startdate, stopdate, targetgroup, budget, description, status)
-    VALUES ('$name', '$fund', '$donor', '$start', '$stop', '$target', '$budget', '$description', '$statas')";
+    $sql = "UPDATE project SET name='$name', fundsource='$fund', donor='$donor', startdate='$start', stopdate='$stop', targetgroup='$target', budget='$budget', description='$description', status='$category' WHERE prID='$id'" ;
 
     if(mysqli_query($con, $sql)){
         ?>
@@ -95,18 +91,33 @@ if (isset($_POST['post'])){
                 <div class="card">
                     <div class="card-body">
                     <form action="" method="POST">
+                          <?php 
+                            $id = $_GET['id'];
+                            include "../includes/connection.php";
+                            $sql = "SELECT * FROM project INNER JOIN users ON project.donor=users.userID where prID='$id' "; 
+                            $result = mysqli_query($con, $sql);
+                            $row = mysqli_fetch_array($result);
+                            ?>
+                        <div class="row">
+                        <div class="col-lg-6 mb-1">
                         <div class="form-group">
                             <label for="basicInput">Project Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Enter project name">
+                            <input type="text" name="name" class="form-control" value="<?php echo  $row['name'];?>">
                         </div>
+                        </div>
+                        <div class="col-lg-6 mb-1">
                         <div class="form-group">
                             <label for="basicInput">Source of Funds</label>
-                            <input type="text" class="form-control" name="fundsource" placeholder="Enter source">
+                            <input type="text" class="form-control" name="fundsource" value="<?php echo  $row['fundsource'];?>">
                         </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-lg-6 mb-1">
                         <div class="form-group">
                             <label for="basicInput">Project Donor</label>
                             <select class="form-control" name="donor" id="basicInput">
-                                <option>Select Donor</option>
+                                <option value="<?php echo  $row['donor'];?>"> <?php echo  $row['fullname'];?></option>
                                 <?php
                                 include "../includes/connection.php";
                                 $sql = "SELECT * FROM users WHERE role='donor'";
@@ -120,41 +131,53 @@ if (isset($_POST['post'])){
                                         echo "No records found.";
                                     }
                                 }
-                                ?> 
+                                ?>
                             </select>
+                        </div>
+                        </div>
+                        <?php 
+                            $id = $_GET['id'];
+                            include "../includes/connection.php";
+                            $sql = "SELECT * FROM project INNER JOIN users ON project.donor=users.userID where prID='$id' "; 
+                            $result = mysqli_query($con, $sql);
+                            $row = mysqli_fetch_array($result);
+                            ?>
+                            <div class="col-lg-6 mb-1">
+                            <div class="form-group">
+                            <label for="basicInput">Target Group</label>
+                            <input type="text" class="form-control" name="target" value="<?php echo  $row['targetgroup'];?>">
+                        </div>
+                        </div>
                         </div>
                         <div class="row">
                                 <div class="col-lg-6 mb-1">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Start Date</span>
-                                        <input type="date" class="form-control" name="startdate" placeholder="Enter email">
+                                        <span class="input-group-text" >Start Date</span>
+                                        <input type="text" class="form-control" value="<?php echo  $row['startdate'];?>" name="startdate">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-1">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">End Date</span>
-                                        <input type="date" class="form-control" name="stopdate" placeholder="Enter email">
+                                        <input type="text" class="form-control" value="<?php echo  $row['stopdate'];?>" name="stopdate">
                                     </div>
                                 </div>
                             </div>
 
-                        <div class="form-group">
-                            <label for="basicInput">Target Group</label>
-                            <input type="text" class="form-control" name="target" placeholder="Enter project name">
-                        </div>
+                        
                         <div class="row">
                                 <div class="col-lg-12 mb-1">
                                     <label for="basicInput">Project Budget</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Ugx</span>
-                                        <input type="number" class="form-control" name="budget" placeholder="Budget Amount">
+                                        <input type="number" class="form-control" name="budget" value="<?php echo  $row['budget'];?>">
                                     </div>
                                 </div> 
                         </div>
                          <div class="form-group">
                                     <label for="basicInput">Cetgory</label>
-                                    <select class="form-control" name="category" name="statas">
-                                        <option value="">Select Category</option>
+                                    <select class="form-control" name="category">
+                                        <option value=""><?php echo  $row['status'];?></option>
                                         <option value="Ongoing">Ongoing</option>
                                         <option value="Paused">Paused</option>
                                         <option value="Completed">Completed</option>
@@ -163,9 +186,9 @@ if (isset($_POST['post'])){
                         </div>
                         <div class="form-group">
                             <label for="basicInput">Description</label>
-                            <textarea class="form-control" name="description" rows="5"></textarea>
+                            <textarea class="form-control" name="description" rows="5"><?php echo  $row['description'];?></textarea>
                         </div>
-                        <input type="submit" class="btn btn-primary" name="post" value="Add Now">
+                        <input type="submit" class="btn btn-primary" name="post" value="Update Now">
                     </form>
                     </div> 
                 </div>

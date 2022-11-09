@@ -49,11 +49,14 @@
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
-                    <span>Projects</span>
+                    <span>Projects</span> 
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="./new-project.php">New Project</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./assignments.php">Projects Assignments</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="./projects.php">All Projects</a>

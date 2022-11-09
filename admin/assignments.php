@@ -1,4 +1,4 @@
-<?php include "includes/head.php"; ?>
+ <?php include "includes/head.php"; ?>
 
     <div id="app">
         <div id="sidebar" class="active">
@@ -33,13 +33,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Projects</h3>
+                <h3>Project Assignments</h3>
+                <a href="assign-project.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
             </div>
 
         </div>
     </div>
 
-       <!-- Hoverable rows start -->
+       <!-- Hoverable rows start --> 
     <section class="section">
         <div class="row" id="table-hover-row">
             <div class="col-12">
@@ -51,28 +52,24 @@
                             <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM project"; 
+$sql = "SELECT * FROM projectassign INNER JOIN project ON projectassign.project=project.prID INNER JOIN users ON projectassign.manager=users.userID"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
-                echo "<th>Name</th>";
-                echo "<th>Start Date</th>"; 
-                echo "<th>End Date</th>";
-                echo "<th>Status</th>";
+                echo "<th>Project Name</th>";
+                echo "<th>Project Manager</th>"; 
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['startdate'] . "</td>";
-                echo "<td>" . $row['stopdate'] . "</td>";
-                echo "<td>" . $row['Status'] . "</td>";
-                echo "<td>" . "<a href='projectdetail.php?id=".$row['prID']."' class='badge bg-info'>View Details</a>
-                               <a href='editpro.php?id=".$row['prID']."' class='badge bg-success'>Edit</a>
-                               <a onclick='return DeleteConfirm()' href='deletepro.php?id=".$row['prID']."' class='badge bg-danger' >Trash</a>
+                echo "<td>" . $row['fullname'] . "</td>";
+                echo "<td>" . "
+                               <a href='editpro.php?id=".$row['paID']."' class='badge bg-success'>Edit</a>
+                               <a onclick='return DeleteConfirm()' href='deletepro.php?id=".$row['paID']."' class='badge bg-danger' >Trash</a>
                 ". "</td>";
             echo "</tr>"; 
         }

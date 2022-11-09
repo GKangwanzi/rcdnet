@@ -68,7 +68,7 @@ if($result = mysqli_query($con, $sql)){
             echo "<tr>";
                 echo "<td>" . $row['bname'] . "</td>";
                 echo "<td>" . $row['description'] . "</td>";
-                echo "<td>" . "<a href='editcat.php?id=".$row['bid']."    ' class='badge bg-success'>Edit</a> <a href='deletecat.php?id=".$row['bid']."' class='badge bg-danger' onclick='DeleteConfirm()'>Trash</a>". "</td>";
+                echo "<td>" . "<a href='editcat.php?id=".$row['bid']."    ' class='badge bg-success'>Edit</a> <a href='deletecat.php?id=".$row['bid']."' class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>". "</td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -111,7 +111,7 @@ if($result = mysqli_query($con, $sql)){
 </script>
 <script>
     function DeleteConfirm() {
-      confirm("Are you sure you want to delete this category?");
+      return confirm("Are you sure you want to delete this category?");
      }
  </script>
 </html>
