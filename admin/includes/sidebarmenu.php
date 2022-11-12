@@ -43,7 +43,13 @@
                     <span>Direct Message</span>
                 </a>
             </li>
-            
+             <li
+                class="sidebar-item  ">
+                <a href="https://www.rwenzori-development.org/webmail" class='sidebar-link'>
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <span>Email</span>
+                </a>
+            </li>
             <li class="sidebar-title">Projects &amp; Reports</li>
             <li
                 class="sidebar-item  has-sub">
