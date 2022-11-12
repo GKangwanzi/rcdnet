@@ -34,7 +34,7 @@
             </li>
             <li
                 class="sidebar-item  ">
-                <a href="https://www.rwenzori-development.org/webmail" class='sidebar-link'>
+                <a href="https://webspace24.do.de/roundcube" class='sidebar-link'>
                     <i class="bi bi-chat-dots-fill"></i>
                     <span>Email</span>
                 </a>
