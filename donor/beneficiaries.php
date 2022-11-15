@@ -52,7 +52,7 @@
 <?php
 include "../includes/connection.php";
 
-$sql = "SELECT beneficiary.name, beneficiary.gender, beneficiary.category, beneficiary.occupation, beneficiary.donor, bencategory.bid, bencategory.bname FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid"; 
+$sql = "SELECT beneficiary.benid, beneficiary.parent, beneficiary.name, beneficiary.gender, beneficiary.category, beneficiary.occupation, beneficiary.donor, bencategory.bid, bencategory.bname FROM beneficiary INNER JOIN bencategory ON beneficiary.category=bencategory.bid"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table1'>";
