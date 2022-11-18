@@ -76,7 +76,7 @@ if (isset($_POST['post'])){
     if(mysqli_query($con, $sql)){
         ?>
     <script type="text/javascript"> 
-    alert("Beneficiary successfully created"); 
+    alert("Report successfully created"); 
     window.location.href = "myreports.php";
     </script>
     <?php
