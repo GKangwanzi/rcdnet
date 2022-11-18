@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['name'])) {
     // code...
-    header("Location: ./index.php");
+    header("Location: ../index.php");
 }
 ?>
 <!DOCTYPE html>

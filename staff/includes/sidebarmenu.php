@@ -61,14 +61,22 @@
                         <a href="./students.php">Students</a>
                     </li>
                 </ul>
-            </li>
+            </li> 
             <li
-                class="sidebar-item">
+                class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
-                    <span>Projects</span>
-                </a>
-            </li>  
+                    <span>Projects</span> 
+                </a> 
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="./assignments.php">My Projects</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./projects.php">All Projects</a>
+                    </li>
+                </ul>
+            </li>
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
