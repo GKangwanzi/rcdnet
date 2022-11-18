@@ -105,7 +105,7 @@ if (isset($_POST['post'])){
                         </div>
                         <div class="form-group">
                             <label for="basicInput">Project Donor</label>
-                            <select class="form-control" name="donor" id="basicInput">
+                            <select class="choices form-select" name="donor">
                                 <option>Select Donor</option>
                                 <?php
                                 include "../includes/connection.php";
@@ -171,7 +171,7 @@ if (isset($_POST['post'])){
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
 
 
 </div>

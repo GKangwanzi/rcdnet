@@ -110,3 +110,10 @@
     padding: 0.3rem 1rem !important;
     transition: all .3s;
 }
+.report-wrapper{
+    height: 200px;
+    border-style: solid;
+    border-width: 8px;
+    border-color: #e6e6e6;
+
+}

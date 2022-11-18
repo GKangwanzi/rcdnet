@@ -20,6 +20,7 @@
         if($count == 1 and $role == 'admin'){  
             session_start();
             $_SESSION['name'] = $fullname;
+            $_SESSION['userid'] = $userid;
             header("Location: admin/home.php"); 
         } elseif($count == 1 and $role == 'donor'){  
             session_start();

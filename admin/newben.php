@@ -104,7 +104,7 @@ if (isset($_POST['post'])){
                                 <p>Beneficiary Particulars</p>
                                 <div class="form-group">
                                     <label for="basicInput">Cetgory</label>
-                                    <select class="form-control" name="category" id="basicInput">
+                                    <select class="choices form-select" name="category">
                                         <option>Select Category</option>
                                         <?php
                                         include "../includes/connection.php";
@@ -163,7 +163,7 @@ if (isset($_POST['post'])){
                                 </div>
                                 <div class="form-group">
                                     <label for="basicInput">Occupation/Course</label>
-                                    <select class="form-control" name="occupation" id="basicInput">
+                                    <select class="choices form-select" name="occupation" id="basicInput">
                                         <option>Select Occupation</option>
                                         <?php
                                         include "../includes/connection.php";
@@ -191,7 +191,7 @@ if (isset($_POST['post'])){
                                 <p>Parent's/Guardian's Particulars</p>
                                 <div class="form-group">
                                     <label for="basicInput">Parent/Guardian's Name</label>
-                                    <select class="form-control" name="parent" id="basicInput">
+                                    <select class="choices form-select" name="parent" id="basicInput">
                                         <option>Select Parent</option>
                                         <?php
                                         include "../includes/connection.php";

@@ -104,10 +104,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">New Report</a>
+                        <a href="newreport.php">New Report</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="#">My Reports</a>
+                        <a href="myreports.php">My Reports</a>
                     </li>
                 </ul>
             </li>

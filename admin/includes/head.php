@@ -22,6 +22,7 @@ if (!isset($_SESSION['name'])) {
     <link rel="stylesheet" href="../assets/vendors/iconly/bold.css">
     <link rel="stylesheet" href="../assets/vendors/simple-datatables/style.css">
     <link rel="stylesheet" href="../assets/css/pages/email.css">
+    <link rel="stylesheet" href="../assets/vendors/choices.js/choices.min.css" />
 
     <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">

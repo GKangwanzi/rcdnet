@@ -7,3 +7,5 @@
 <script src="../assets/js/pages/dashboard.js"></script>
 <script src="../assets/js/sweetalert2.min.js"></script>
 <script src="../assets/js/jquery.js"></script>
+<script src="../assets/vendors/choices.js/choices.min.js"></script>
+<script src="../assets/js/pages/form-element-select.js"></script>
