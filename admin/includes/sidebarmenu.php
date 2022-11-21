@@ -72,6 +72,21 @@
             <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
+                    <i class="bi bi-file-earmark-medical-fill"></i>
+                    <span>Project Reports</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="newreport.php">New Report</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="myreports.php">My Reports</a>
+                    </li>
+                </ul>
+            </li>
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
                     <span>Beneficiaries</span>
                 </a>
