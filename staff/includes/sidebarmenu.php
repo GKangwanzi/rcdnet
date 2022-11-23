@@ -70,10 +70,10 @@
                 </a> 
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="./assignments.php">My Projects</a>
+                        <a href="./assignments.php">My Activities</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="./projects.php">All Projects</a>
+                        <a href="./myreports.php">My Projects</a>
                     </li>
                 </ul>
             </li>

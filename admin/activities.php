@@ -26,15 +26,15 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            
+             
 <div class="page-content">
     <section class="row">
             <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Projects</h3>
-                <a href="new-project.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
+                <h3>Activities</h3>
+                <a href="new-activity.php" style="margin-bottom: 10px;" class="btn btn-success">Add New</a>
             </div>
 
         </div>
@@ -52,24 +52,26 @@
                             <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM project"; 
+$sql = "SELECT * FROM activity INNER JOIN project on activity.project=project.prID INNER JOIN users ON activity.staff=users.userID"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
-                echo "<th>Status</th>";
+                echo "<th>Project</th>";
+                echo "<th>Assigned to</th>";
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
+                echo "<td>" . $row['activeName'] . "</td>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['status'] . "</td>";
-                echo "<td>" . "<a href='projectdetail.php?id=".$row['prID']."' class='badge bg-info'>View Details</a>
-                               <a href='editpro.php?id=".$row['prID']."' class='badge bg-success'>Edit</a>
-                               <a onclick='return DeleteConfirm()' href='deletepro.php?id=".$row['prID']."' class='badge bg-danger' >Trash</a>
+                echo "<td>" . $row['fullname'] . "</td>";
+                echo "<td>" . "<a href='#?id=".$row['prID']."' class='badge bg-info'>View Details</a>
+                               <a href='#?id=".$row['prID']."' class='badge bg-success'>Edit</a>
+                               <a onclick='return DeleteConfirm()' href='#?id=".$row['prID']."' class='badge bg-danger' >Trash</a>
                 ". "</td>";
             echo "</tr>"; 
         }

@@ -56,17 +56,18 @@
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
                     <span>Projects</span> 
-                </a>
+                </a> 
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="./new-project.php">New Project</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./assignments.php">Projects Assignments</a>
+                        <a href="./activities.php">Activities</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="./projects.php">All Projects</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./assignments.php">Projects Assignments</a>
+                    </li>
+                    
                 </ul>
             </li>
             <li

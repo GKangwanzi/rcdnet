@@ -29,6 +29,7 @@
             header("Location: donor/home.php"); 
         }  elseif($count == 1 and $role == 'staff'){  
             session_start();
+            $_SESSION['userid'] = $userid;
             $_SESSION['name'] = $fullname;
             header("Location: staff/home.php");} 
         else{  
