@@ -1,4 +1,3 @@
-<div class="sidebar-menu">
         <ul class="menu">
             <li class="sidebar-title">Welcome <?php echo $_SESSION['name']; ?></li>
             
@@ -79,6 +78,9 @@
                 <ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="newreport.php">New Report</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="reports.php">All Reports</a>
                     </li>
                     <li class="submenu-item ">
                         <a href="myreports.php">My Reports</a>
