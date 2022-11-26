@@ -70,10 +70,13 @@
                 </a> 
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="./assignments.php">My Activities</a>
+                        <a href="./activities.php">Activities</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="./myreports.php">My Projects</a>
+                        <a href="./assignments.php">My Activities</a>
+                    </li>
+                     <li class="submenu-item ">
+                        <a href="./projects.php">Projects</a>
                     </li>
                 </ul>
             </li>
@@ -85,7 +88,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="#">My Reports</a>
+                        <a href="./newreport.php">New Activity Reports</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="./myreports.php">My Reports</a>
                     </li>
                 </ul> 
             </li>

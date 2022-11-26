@@ -51,21 +51,25 @@
                             <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM project"; 
+$sql = "SELECT * FROM projectassign INNER JOIN project ON projectassign.project = project.prID INNER JOIN users ON projectassign.manager=users.userID"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Name</th>";
+                echo "<th>Project Officer</th>";
                 echo "<th>Status</th>";
+                
                 echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['fullname'] . "</td>";
                 echo "<td>" . $row['status'] . "</td>";
+                
                 echo "<td>" . "<a href='projectdetail.php?id=".$row['prID']."' class='badge bg-info'>View Details</a>
                 ". "</td>";
             echo "</tr>"; 
