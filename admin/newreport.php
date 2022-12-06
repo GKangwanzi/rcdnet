@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="logo">
                 <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
-            </div>
+            </div> 
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
             </div>
@@ -293,7 +293,7 @@ if (isset($_POST['post'])){
         </div>
     </section>
 
-
+ 
 </div>
     </section>
 </div>

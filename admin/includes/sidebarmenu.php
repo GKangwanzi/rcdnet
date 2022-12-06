@@ -8,40 +8,29 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            
             <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item  ">
+                <a href="./notice-board.php" class='sidebar-link'>
                     <i class="bi bi-collection-fill"></i>
                     <span>Notice Board</span>
                 </a>
-                <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="./notice-board.php">View Posts</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./new-post.php">New Post</a>
-                    </li>
-                    <li class="submenu-item ">
-                        <a href="./myposts.php">My Posts</a>
-                    </li>
-                </ul>
             </li>
+
             
-            <li
+           <!--  <li
                 class="sidebar-item  ">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-chat-dots-fill"></i>
                     <span>Chat Application</span>
                 </a>
-            </li>
-            <li
+            </li> -->
+            <!-- <li
                 class="sidebar-item  ">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-chat-dots-fill"></i>
                     <span>Direct Message</span>
                 </a>
-            </li>
+            </li> -->
              <li
                 class="sidebar-item  ">
                 <a href="https://webspace24.do.de/roundcube" class='sidebar-link'>

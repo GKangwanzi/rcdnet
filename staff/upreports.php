@@ -74,8 +74,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['name'] . "</td>";
                 echo "<td>" . $row['type'] . "</td>";
                 echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-info'>". $row['status'] ."</a>". "</td>";
-                echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>";
+                echo "<td>" . "<a style='margin-right: 10px;' href='#' class='badge bg-info'>". $row['status'] ."</a><a target='_blank' href='../docs/".$row['doc']."' class='badge bg-success'>Download</a>";
             echo "</tr>";
         } 
         echo "</table>";

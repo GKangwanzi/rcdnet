@@ -16,7 +16,7 @@
 
 
     <?php 
-    include "includes/sidebarmenu.php";
+    include "includes/sidebarmenu.php"; 
     ?>
 
 
@@ -38,7 +38,9 @@
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Notice Board</h3>
             </div>
-            
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <a style="float: right; margin-right: 10px;" href="new-post.php" style="margin-bottom: 20px;" class="btn btn-success">My Posts</a><a style="float: right; margin-right: 10px;" href="myposts.php" style="margin-bottom: 20px;" class="btn btn-success">Make A Post</a>
+            </div>
         </div> 
     </div>
 
