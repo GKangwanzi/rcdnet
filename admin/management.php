@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-between">
             <div class="logo">
                 <a href="index.html"><img src="../assets/images/logo/rcdnetlogo.png" alt="Logo" srcset=""></a>
-            </div>
+            </div> 
             <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
             </div>
@@ -33,113 +33,68 @@
 <div class="page-content">
     <section class="row">
             <div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>New Document Report </h3>
-            </div>
 
-        </div>
-    </div> 
 <?php
 //Create new beneficiary
 if (isset($_POST['post'])){
+    $management = $_POST['management'];
     $name = $_POST['name'];
-    $category = $_POST['category'];
-    $comment = $_POST['comment'];
-    $userid = $_SESSION['userid'];
-    $type = $_POST['type'];
     $month = $_POST['month'];
-    $year = $_SESSION['year'];
-    $photo = $_POST['file']; 
-    $date  = date('d/m/Y');
-
-
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "../docs/" . $filename;
+    $year = $_POST['year'];
+    $date =  date("d/m/Y");
 
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO reportdoc (name, category, doc, date, user, type, month, year)
-    VALUES ('$name',  '$category', '$filename', '$date', '$userid', '$type', '$month', '$year')";
+    $sql = "INSERT INTO management (reportNote, date, magName, month, year)
+    VALUES ('$management', '$date', '$name', '$month', '$year')";
 
-    if(move_uploaded_file($tempname, $folder) && mysqli_query($con, $sql) ){
+    if(mysqli_query($con, $sql)){
         ?>
-<script type="text/javascript"> 
-alert("Report successfully uploaded"); 
-window.location.href = "upreports.php";
-</script>
-<?php
+    <script type="text/javascript"> 
+    alert("Report successfully saved"); 
+    window.location.href = "managementreports.php";
+    </script>
+    <?php 
 
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        } else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        }
+         
+        // Close connection
+        mysqli_close($con);
+
+    }else{
+       echo "<p style='display: none;'  class='text-subtitle text-muted'>"."Use this form to make a project report"."</p>";
     }
-     
-    // Close connection 
-    mysqli_close($con);
-
-}else{
-   echo "<p class='text-subtitle text-muted'>"."Use this form to upload already made reports in .PDF"."</p>";
-
-}
-
-?>
+    ?>
 
     <section class="section">
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
+
+
                     <form method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-6">
+                        <section class="section">
+                            <div class="row">
+                            <div class="col-md-12">
                                  <div class="form-group">
-                                <label for="basicInput">Report name *</label>
-                                <input type="text" class="form-control" name="name" placeholder="Male">
+                                <label for="basicInput">Report Name *</label>
+                                <input type="text" class="form-control" name="name" required>
                                 </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="basicInput">Select Category</label>
-                                <select class="choices form-select" name="category">
-                                        <?php
-                                        include "../includes/connection.php";
-                                        $sql = "SELECT * FROM bencategory";
-                                        if($result = mysqli_query($con, $sql)){
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($row = mysqli_fetch_array($result)){
-                                                        echo '<option value='.$row['bid'].'>' . $row['bname'] . '</option>';
-                                                }
-                                                mysqli_free_result($result);
-                                            } else{
-                                                echo "No records found.";
-                                            }
-                                        }
-                                        ?>
-                                        
-                                    </select>
-                                </div>
-
                             </div>
                         </div>
-
-                         <div class="row">
-                            <div class="col-md-4">
-                                 <div class="form-group">
-                                <label for="basicInput">Report Type</label>
-                                <select class="choices form-select" name="type">
-                                        <option value='Activity' >Activity Report</option>
-                                        <option value='Monthly' >Monthly Report</option>
-                                        <option value='Quaterly' >Quaterly Report</option>
-                                        <option value='Annual' >Annual Report</option>
-
-                                    </select>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="management" id="default"  rows="30"></textarea>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                        <div class="row">
+                            <div class="col-md-6">
                                  <div class="form-group">
                                 <label for="basicInput">Month * <span style="font-weight: 300 !important; font-size: 0.8em;">(End month for periodic reports)</span></label>
                                 <select class="choices form-select" required name="month">
@@ -158,7 +113,7 @@ window.location.href = "upreports.php";
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Year *</label>
                                 <select class="choices form-select" required name="year">
@@ -169,23 +124,18 @@ window.location.href = "upreports.php";
                                 </div>
                             </div>
                         </div>
-                         <div class="row">
-                                <div class="form-group">
-                                <label for="basicInput">Attach report document(.PDF) *</label>
-                                <input type="file" required class="form-control" name="uploadfile">
-                                </div>
-                        </div>
+                        </section>
+
                         
-                        
-                        <input type="submit" class="btn btn-primary" name="post" value="Submit Report">
+                        <input type="submit" class="btn btn-primary" name="post" value="Save Report">
                     </form>
                     </div> 
-                </div>
+                </div> 
             </div>
         </div>
     </section>
 
-
+ 
 </div>
     </section>
 </div>
@@ -201,5 +151,8 @@ window.location.href = "upreports.php";
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    tinymce.init({ selector: '#default' });
+    tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
+</script>
 </html>
