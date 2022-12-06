@@ -80,6 +80,9 @@
                         <a href="newreport.php">New Report</a>
                     </li>
                     <li class="submenu-item ">
+                        <a href="upreports.php">Report Upload</a>
+                    </li> 
+                    <li class="submenu-item ">
                         <a href="reports.php">All Reports</a>
                     </li>
                     <li class="submenu-item ">

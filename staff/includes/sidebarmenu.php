@@ -17,21 +17,7 @@
                     <span>Notice Board</span>
                 </a>
             </li>
-            
-            <li
-                class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-chat-dots-fill"></i>
-                    <span>Chat Application</span>
-                </a>
-            </li>
-            <li
-                class="sidebar-item  ">
-                <a href="#" class='sidebar-link'>
-                    <i class="bi bi-chat-dots-fill"></i>
-                    <span>Direct Message</span>
-                </a>
-            </li>
+
             <li
                 class="sidebar-item  ">
                 <a href="https://webspace24.do.de/roundcube" class='sidebar-link'>
@@ -90,6 +76,9 @@
                     <li class="submenu-item ">
                         <a href="./newreport.php">New Activity Reports</a>
                     </li>
+                    <li class="submenu-item ">
+                        <a href="./upreports.php">Report Uploads</a>
+                    </li> 
                     <li class="submenu-item ">
                         <a href="./myreports.php">My Reports</a>
                     </li>
