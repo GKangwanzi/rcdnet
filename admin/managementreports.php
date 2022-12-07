@@ -33,16 +33,16 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>My Reports</h3>
-            </div>
+                <h3>Management</h3>
+            </div> 
             <div class="col-12 col-md-9 order-md-1 order-last">
                 <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-info">Management Reports</a>
-                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
-                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
-                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
+                <a style="float: right; margin-right: 5px;" href="annualreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
+                <a style="float: right; margin-right: 5px;" href="monthlyreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
+                <a style="float: right; margin-right: 5px;" href="reports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
             </div>
 
-        </div>
+        </div> 
     </div>
 
     <section class="section"> 
@@ -50,7 +50,6 @@
             <div class="card-body">
 
 <?php
-include "../includes/connection.php";
 $myid = $_SESSION['userid'];
 
 
@@ -72,12 +71,16 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['magName'] . "</td>";
                 echo "<td>" . $row['month'] . "</td>";
                 echo "<td>" . $row['year'] . "</td>";
-                echo "<td>" . "<a href='report.php?id=".$row['reportid']."  'class='badge bg-info'> Details</a>
+                echo "<td>" . "<a href='magreport.php?id=".$row['magID']."  'class='badge bg-info'> Details</a>
                                <a href='#?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-success' onclick='return DeleteConfirm()'>Submit</a>
-                ". "</td>";
-            echo "</tr>"; 
+                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>";
+                               if($row['status'] == 'NotApproved'){
+                                    echo "<a style='margin-left: 4px;' href='approve.php?id=".$row['magID']."&table=management&tableid=magID  'class='badge bg-success' onclick='return ApproveConfirm()'>Approve</a>";
+                               }elseif ($row['status'] == 'Approved') {
+                               echo "";
+                               }
+                echo "</td>";
+            echo "</tr>";  
         }
         echo "</table>";
         // Free result set
@@ -120,6 +123,11 @@ if($result = mysqli_query($con, $sql)){
 <script>
     function DeleteConfirm() {
       return confirm("Are you sure to delete this beneficiary");
+     }
+ </script>
+ <script>
+    function ApproveConfirm() {
+      return confirm("Are you sure you want to approve this report for donors to view?");
      }
  </script>
 </html>

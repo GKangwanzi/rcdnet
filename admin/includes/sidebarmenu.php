@@ -1,5 +1,5 @@
         <ul class="menu">
-            <li class="sidebar-title">Welcome <?php echo $_SESSION['name']; ?></li>
+            <li style="padding-bottom: -20px !important;" class="sidebar-title">Welcome <?php echo $_SESSION['name']; ?></li>
             
             <li
                 class="sidebar-item active ">
@@ -111,7 +111,7 @@
             </li> 
             <li
                 class="sidebar-item ">
-                <a href="myreports.php" class='sidebar-link'>
+                <a href="reports.php" class='sidebar-link'>
                     <i class="bi bi-file-earmark-medical-fill"></i>
                     <span>Reports</span>
                 </a>

@@ -17,10 +17,9 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
-        </div> 
+        </div>
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
@@ -33,28 +32,28 @@
             <div class="page-heading"> 
     <div class="page-title"> 
         <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Report Documents</h3>
-                
+            <div class="col-12 col-md-3 order-md-1 order-last">
+                <h3>Monthly</h3>
+            </div> 
+            <div class="col-12 col-md-9 order-md-1 order-last">
+                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-info">Management Reports</a>
+                <a style="float: right; margin-right: 5px;" href="annualreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
+                <a style="float: right; margin-right: 5px;" href="monthlyreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
+                <a style="float: right; margin-right: 5px;" href="reports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
             </div>
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <a style="float: right;" href="uploadreport.php" style="margin-bottom: 10px;" class="btn btn-success">Add New Report</a>
-            </div>
-        </div>
+
+        </div> 
     </div>
 
-
-    <section class="section">
+    <section class="section"> 
         <div class="card">
-            <div class="card-header">
-                List Of Users
-            </div>
             <div class="card-body">
 
 <?php
-include "../includes/connection.php";
+$myid = $_SESSION['userid'];
 
-$sql = "SELECT * FROM reportdoc INNER JOIN users ON reportdoc.user=users.userID"; 
+
+$sql = "SELECT * FROM reportdoc WHERE type='Monthly' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
@@ -62,23 +61,27 @@ if($result = mysqli_query($con, $sql)){
              echo "<tr>";
                 echo "<th>Date</th>";
                 echo "<th>Name</th>";
-                echo "<th>Type</th>";
-                echo "<th>Submitted By</th>"; 
-                echo "<th>Status</th>"; 
+                echo "<th>Month</th>";
+                echo "<th>Year</th>"; 
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['date'] . "</td>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['type'] . "</td>";
-                echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . "<a href='#' class='badge bg-info'>". $row['status'] ."</a>". "</td>";
+                echo "<td>" . $row['month'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
                 echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>
-                    <a href='approve.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-success'>Approve</a>
-                    <a href='delete.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-danger' onclick='return DeleteConfirm()'>Delete</a>";
-            echo "</tr>";
-        } 
+                               <a href='delete.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-danger' onclick='return DeleteConfirm()'>Delete</a>
+                               ";
+                               if($row['status'] == 'NotApproved'){
+                                    echo "<a style='margin-left: 4px;' href='approve.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-success' onclick='return ApproveConfirm()'>Approve</a>";
+                               }elseif ($row['status'] == 'Approved') {
+                               echo "";
+                               }
+                echo "</td>";
+            echo "</tr>";  
+        }
         echo "</table>";
         // Free result set
         mysqli_free_result($result);
@@ -89,25 +92,25 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
-
+ 
             </div>
         </div>
 
     </section>
 
-
+ 
 
 </div>
     </section>
 </div>
 
-    <footer>
-        <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-                <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
-            </div>
-        </div>
-    </footer>
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 <?php include "includes/scripts.php"; ?>
@@ -120,6 +123,11 @@ if($result = mysqli_query($con, $sql)){
 <script>
     function DeleteConfirm() {
       return confirm("Are you sure to delete this beneficiary");
+     }
+ </script>
+ <script>
+    function ApproveConfirm() {
+      return confirm("Are you sure you want to approve this report for donors to view?");
      }
  </script>
 </html>

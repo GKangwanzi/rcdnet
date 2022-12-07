@@ -46,7 +46,6 @@
                 <div class="report-wrapper">
                     <h3 style="text-align: center; margin-top: 20px; font-size: 2em;">Rwenzori Community Development<br> Network</h3>
                     <?php
-                    include "../includes/connection.php";
                     $myid = $_SESSION['userid'];
                     $reportid  = $_GET['id'];
  

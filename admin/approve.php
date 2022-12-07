@@ -1,16 +1,18 @@
 <?php //Create new user
     $id = $_GET['id'];
+    $table = $_GET['table'];
+    $tableid = $_GET['tableid'];
 
     include "../includes/connection.php";
 
-    $sql = "UPDATE reportdoc SET status='Approved' WHERE docID='$id'" ;
+    $sql = "UPDATE $table SET status='Approved' WHERE $tableid='$id'" ;
 
     if(mysqli_query($con, $sql)){
         ?>
 <script type="text/javascript"> 
-alert("Report successfully approved"); 
-window.location.href = "upreports.php";
-</script> 
+alert("Report Approved, Welldone!!"); 
+window.history.back();
+</script>
 <?php
 
     } else{
@@ -19,5 +21,4 @@ window.location.href = "upreports.php";
      
     // Close connection
     mysqli_close($con);
-?>
 ?>
