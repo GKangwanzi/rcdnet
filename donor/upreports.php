@@ -48,43 +48,40 @@
 
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                List Of Users
-            </div>
             <div class="card-body">
 
-<?php
-include "../includes/connection.php";
+            <?php
+            include "../includes/connection.php";
 
-$sql = "SELECT * FROM reportdoc INNER JOIN users ON reportdoc.user=users.userID WHERE status='Approved' "; 
-if($result = mysqli_query($con, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        echo "<table class='table table-striped' id='table5'>";
-            echo "<thead>";
-             echo "<tr>";
-                echo "<th>Date</th>";
-                echo "<th>Name</th>";
-                echo "<th>Submitted By</th>"; 
-            echo "</tr>";
-            echo "</thead>";
-        while($row = mysqli_fetch_array($result)){
-            echo "<tr>";
-                echo "<td>" . $row['date'] . "</td>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>";
-            echo "</tr>";
-        } 
-        echo "</table>";
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
-?>
+            $sql = "SELECT * FROM reportdoc INNER JOIN users ON reportdoc.user=users.userID WHERE status='Approved' "; 
+            if($result = mysqli_query($con, $sql)){
+                if(mysqli_num_rows($result) > 0){
+                    echo "<table class='table table-striped' id='table5'>";
+                        echo "<thead>";
+                         echo "<tr>";
+                            echo "<th>Date</th>";
+                            echo "<th>Name</th>";
+                            echo "<th>Submitted By</th>"; 
+                        echo "</tr>";
+                        echo "</thead>";
+                    while($row = mysqli_fetch_array($result)){
+                        echo "<tr>";
+                            echo "<td>" . $row['date'] . "</td>";
+                            echo "<td>" . $row['name'] . "</td>";
+                            echo "<td>" . $row['fullname'] . "</td>";
+                            echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>";
+                        echo "</tr>";
+                    }  
+                    echo "</table>";
+                    // Free result set
+                    mysqli_free_result($result);
+                } else{
+                    echo "No records matching your query were found.";
+                }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            }
+            ?>
 
             </div>
         </div>

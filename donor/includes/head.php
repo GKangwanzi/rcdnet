@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "../includes/connection.php";
 if (!isset($_SESSION['name'])) {
     // code...
     header("Location: ./index.php");
@@ -8,7 +8,7 @@ if (!isset($_SESSION['name'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">  
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

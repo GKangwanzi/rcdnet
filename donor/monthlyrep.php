@@ -34,23 +34,20 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <h3>Report Documents</h3>
+                <h3>Monthly</h3>
                 
             </div>
             <div class="col-12 col-md-8 order-md-1 order-last">
-                <a style="float: right; margin-right: 10px;" href="annualrep.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
-                <a style="float: right; margin-right: 10px;" href="monthlyrep.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
-                <a style="float: right; margin-right: 10px;" href="uploadreport.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
-            </div>
+                <a style="float: right; margin-right: 5px;" href="annualrep.php" style="margin-bottom: 10px;" class="btn btn-info">Annual</a>
+                <a style="float: right; margin-right: 5px;" href="management.php" style="margin-bottom: 10px;" class="btn btn-success">Management</a>
+                <a style="float: right; margin-right: 5px;" href="financialrep.php" style="margin-bottom: 10px;" class="btn btn-success">Financial</a>
+                <a style="float: right; margin-right: 5px;" href="activityreports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity</a>
         </div>
     </div>
 
 
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                List Of Users
-            </div>
             <div class="card-body">
 
 <?php

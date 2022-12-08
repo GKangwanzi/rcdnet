@@ -44,9 +44,9 @@
             </li> 
             <li
                 class="sidebar-item">
-                <a href="./upreports.php" class='sidebar-link'>
+                <a href="./reports.php" class='sidebar-link'>
                     <i class="bi bi-file-earmark-medical-fill"></i>
-                    <span>Project Reports</span>
+                    <span>Reports & Documents</span>
                 </a>
             </li>
              
