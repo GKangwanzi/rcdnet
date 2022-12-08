@@ -53,7 +53,7 @@
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM management "; 
+$sql = "SELECT * FROM management WHERE status='Approved' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
