@@ -47,7 +47,7 @@ window.location.href = "post.php?id=<?php echo $_GET['id'];?>";
     mysqli_close($con);
 
 }else{
-    echo "Something went wrong";
+    
 }
 
 ?>

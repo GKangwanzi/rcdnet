@@ -32,7 +32,7 @@ if (isset($_POST['comment'])){
     VALUES ('$message', '$member', '$postid')";
 
     if(mysqli_query($con, $sql)){
-        ?>
+        ?> 
 <script type="text/javascript">
 alert("Comment submitted successfully"); 
 window.location.href = "post.php?id=<?php echo $_GET['id'];?>";
@@ -47,7 +47,7 @@ window.location.href = "post.php?id=<?php echo $_GET['id'];?>";
     mysqli_close($con);
 
 }else{
-    echo "Something went wrong";
+
 }
 
 ?>
