@@ -53,7 +53,7 @@ include "../includes/connection.php";
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID "; 
+$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID WHERE status='Approved' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
