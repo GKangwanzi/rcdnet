@@ -202,14 +202,14 @@ if (isset($_POST['post'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Project Objectives</label>
-                                <textarea class="form-control" name="objectives"></textarea>
+                                <textarea class="form-control" required name="objectives"></textarea>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Relation to workplan</label>
-                                <textarea class="form-control" name="workplan"></textarea>
+                                <textarea class="form-control" required name="workplan"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -218,14 +218,14 @@ if (isset($_POST['post'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Relevant Indicators</label>
-                                <textarea class="form-control" name="indicators"></textarea>
+                                <textarea class="form-control" required name="indicators"></textarea>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Purpose of Activity</label>
-                                <textarea class="form-control" name="purpose"></textarea>
+                                <textarea class="form-control" required name="purpose"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -234,14 +234,14 @@ if (isset($_POST['post'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Summary of Activity Agenda</label>
-                                <textarea class="form-control" name="summary"></textarea>
+                                <textarea class="form-control" required name="summary"></textarea>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Activity Expectations</label>
-                                <textarea class="form-control" name="expectations"></textarea>
+                                <textarea class="form-control" required name="expectations"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -249,14 +249,14 @@ if (isset($_POST['post'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Key Successes</label>
-                                <textarea class="form-control" name="success"></textarea>
+                                <textarea class="form-control" required name="success"></textarea>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Challenges</label>
-                                <textarea class="form-control" name="challenges"></textarea>
+                                <textarea class="form-control" required name="challenges"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -264,21 +264,21 @@ if (isset($_POST['post'])){
                             <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Outputs achieved</label>
-                                <textarea class="form-control" name="outputs"></textarea>
+                                <textarea class="form-control" required name="outputs"></textarea>
                                 </div>
                             </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
                                 <label for="basicInput">Follow Up Required</label>
-                                <textarea class="form-control" name="followup"></textarea>
+                                <textarea class="form-control" required name="followup"></textarea>
                                 </div>
                             </div>
                         </div>
                          <div class="row">
                                 <div class="form-group">
                                 <label for="basicInput">Record Action Points</label>
-                                <textarea class="form-control" name="actionpoints" rows="5"></textarea>
+                                <textarea class="form-control" required name="actionpoints" rows="5"></textarea>
                                 </div>
                         </div>
                         

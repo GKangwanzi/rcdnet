@@ -97,7 +97,7 @@ window.location.href = "upreports.php";
                             <div class="col-md-6">
                                  <div class="form-group">
                                 <label for="basicInput">Report name *</label>
-                                <input type="text" class="form-control" name="name" placeholder="Male">
+                                <input type="text" class="form-control" name="name" placeholder="Enter report title">
                                 </div>
                             </div>
 
@@ -127,9 +127,13 @@ window.location.href = "upreports.php";
                         </div>
                          <div class="row">
                             <div class="col-md-4">
-                                 <div class="form-group">
-                                <label for="basicInput">Report Type</label>
-                                <input type="text" class="form-control" value="Activity" name="type" placeholder="Male">
+                                <div class="form-group">
+                                <label for="basicInput">Select Category</label>
+                                <select class="choices form-select" name="type">
+                                        <option value='Activity'>Activity Report</option>
+                                        <option value='Accountability'>Accountability Report</option>
+                                        <option value='Monthly'>Monthly Report</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
