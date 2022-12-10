@@ -29,8 +29,8 @@
             header("Location: donor/home.php"); 
         }  elseif($count == 1 and $role == 'staff'){  
             session_start();
-            $_SESSION['userid'] = $userid;
             $_SESSION['name'] = $fullname;
+            $_SESSION['userid'] = $userid;
             header("Location: staff/home.php");} 
         else{  
             echo "<h1> Login failed. Invalid username or password.</h1>";  

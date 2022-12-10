@@ -51,7 +51,7 @@ if (isset($_POST['post'])){
     $female = $_POST['female'];
     $under17 = $_POST['under17'];
     $over18 = $_POST['over18'];
-    $over30 = $_POST['over30'];
+    $over30 = $_POST['over30']; 
     $over35 = $_POST['over35'];
     $objectives = $_POST['objectives'];
     $workplan = $_POST['workplan'];
@@ -66,7 +66,7 @@ if (isset($_POST['post'])){
     $actionpoints = $_POST['actionpoints'];
     $userid = $_SESSION['userid'];
     $date =  date("d-m-Y");
-
+ 
 
     include "../includes/connection.php";
 
@@ -74,15 +74,12 @@ if (isset($_POST['post'])){
     VALUES ('$topic', '$duration', '$category', '$male', '$female', '$under17', '$over18', '$over30', '$over35', '$objectives', '$workplan', '$indicators', '$purpose', '$summary', '$expectations', '$success', '$challenges', '$outputs', '$followup', '$actionpoints', '$date', '$userid')";
 
     if(mysqli_query($con, $sql)){
-        ?>
-    <script type="text/javascript"> 
-    alert("Report successfully created"); 
-    window.location.href = "myreports.php";
-    </script>
-    <?php
+        echo '<div class="alert alert-light-success color-success alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> Your report has been submitted!! Welldone</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 
         } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+
+            echo '<div class="alert alert-light-danger color-danger alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> Your report has not been submitted, Please form fields</strong><br> <i>ERROR: '. mysqli_error($con).'</i><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            
         }
          
         // Close connection
