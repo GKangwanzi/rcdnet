@@ -66,15 +66,10 @@ if (isset($_POST['post'])){
     VALUES ('$name',  '$category', '$filename', '$date', '$userid', '$type', '$month', '$year')";
 
     if(move_uploaded_file($tempname, $folder) && mysqli_query($con, $sql) ){
-        ?>
-<script type="text/javascript"> 
-alert("Report successfully uploaded"); 
-window.location.href = "upreports.php";
-</script>
-<?php
+       echo '<div class="alert alert-light-success color-success alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> Your document has been successfully uploaded!! Welldone</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 
     } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
+        echo '<div class="alert alert-light-danger color-danger alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> Your report has not been submitted, Please form fields</strong><br> <i>ERROR: '. mysqli_error($con).'</i><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
      
     // Close connection 
@@ -86,103 +81,16 @@ window.location.href = "upreports.php";
 }
 
 ?>
-
-    <section class="section">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                            <div class="col-md-6">
-                                 <div class="form-group">
-                                <label for="basicInput">Report name *</label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter report title">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="basicInput">Select Category</label>
-                                <select class="choices form-select" name="category">
-                                        <?php
-                                        include "../includes/connection.php";
-                                        $sql = "SELECT * FROM bencategory";
-                                        if($result = mysqli_query($con, $sql)){
-                                            if(mysqli_num_rows($result) > 0){
-                                                while($row = mysqli_fetch_array($result)){
-                                                        echo '<option value='.$row['bid'].'>' . $row['bname'] . '</option>';
-                                                }
-                                                mysqli_free_result($result);
-                                            } else{
-                                                echo "No records found.";
-                                            }
-                                        }
-                                        ?>
-                                        
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                <label for="basicInput">Select Category</label>
-                                <select class="choices form-select" name="type">
-                                        <option value='Activity'>Activity Report</option>
-                                        <option value='Accountability'>Accountability Report</option>
-                                        <option value='Monthly'>Monthly Report</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="row">
-                            <div class="col-md-6">
-                                 <div class="form-group">
-                                <label for="basicInput">Month * <span style="font-weight: 300 !important; font-size: 0.8em;">(End month for periodic reports)</span></label>
-                                <select class="choices form-select" required name="month">
-                                        <option value='January' >January</option>
-                                        <option value='February' >February</option>
-                                        <option value='March' >March</option>
-                                        <option value='April' >April</option>
-                                        <option value='May' >May</option>
-                                        <option value='June' >June</option>
-                                        <option value='July' >July</option>
-                                        <option value='August' >August</option>
-                                        <option value='September' >September</option>
-                                        <option value='October' >October</option>
-                                        <option value='December' >December</option>
-                                        <option value='December' >December</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                <label for="basicInput">Year *</label>
-                                <select class="choices form-select" required name="category">
-                                        <option value='<?php echo date(Y)-2; ?>' ><?php echo date(Y)-2; ?></option>
-                                        <option value='<?php echo date(Y)-1; ?>' ><?php echo date(Y)-1; ?></option>
-                                        <option value='<?php echo date(Y); ?>' ><?php echo date(Y); ?></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="row">
-                                <div class="form-group">
-                                <label for="basicInput">Attach report document(.PDF) *</label>
-                                <input type="file" required class="form-control" name="uploadfile">
-                                </div>
-                        </div>
-                        
-                        
-                        <input type="submit" class="btn btn-primary" name="post" value="Submit Report">
-                    </form>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php 
+    $day = date(d);
+    $month = date('M-Y'); 
+    if ($day < 27) {
+       include ("uploadEmbed.php");
+    }else{
+        echo '<div class="alert alert-light-danger color-danger alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> You can not submit reports today. Deadline was 27th-'.$month.'</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+    ?>
+    
 
 
 </div>
