@@ -50,10 +50,10 @@
                     $reportid  = $_GET['id'];
  
 
-                    $sql = "SELECT * FROM report INNER JOIN users ON report.manager=users.userID WHERE reportid = '$reportid' "; 
+                    $sql = "SELECT * FROM report INNER JOIN users ON report.manager=users.userID INNER JOIN activity ON report.topic=activity.activeID WHERE reportid = '$reportid' "; 
                     $result = mysqli_query($con, $sql);
                     $row = mysqli_fetch_assoc($result);  
-                    echo '<p class="protitle">'.'Activity Report for '. $row['topic'].' </p>';
+                    echo '<p class="protitle">'.'Activity Report for '. $row['activeName'].' </p>';
                     echo '<p style="text-align: center;">'.'Date: '. $row['date'].' </p>';
 
                     echo "<table class='table table-striped'>";
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </footer>
-    </div>
+    </div> 
 </div>
 <?php include "includes/scripts.php"; ?>
 </body>
