@@ -42,102 +42,77 @@
 
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6">
-                    <a href="management.php"><div class="card" style="background: #9694ff; padding-top: 60px; padding-bottom: 60px;">
+                    <a href="management.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4" >
-                                    <div class="stats-icon purple">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8" >
-                                    <h4 style="margin-top: -10px;">Management Reports</h4>
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Management Reports</h5>
                             </div>
                         </div>
                     </div></a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
-                    <div class="card" style="background: #57caeb; padding-top: 60px; padding-bottom: 30px;">
+                    <div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon blue">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 style="margin-top: -10px;">Audited Financial Statement</h5>
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Audited Financial Reports</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
-                    <div class="card" style="background: #5ddab4; padding-top: 60px; padding-bottom: 60px;">
+                    <a href="accountability.php"><div class="card" style="background: #5ddab4; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon green">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 style="margin-top: -10px;">Accountability Reports</h5>
-
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Accountability Reports</h5>
                             </div>
                         </div>
-                    </div>
+                    </div></a>
                 </div>
             </div>
 
 
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6">
-                    <a href="activityreports.php"><div class="card" style="background: #ff7976; padding-top: 60px; padding-bottom: 60px;">
+                    <a href="activityreports.php"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon red">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 style="margin-top: -10px;">Activity<br> Reports</h5>
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Activity Reports</h5>
                             </div>
                         </div>
                     </div></a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
-                    <a href="monthlyrep.php"><div class="card" style="background: #9694ff; padding-top: 60px; padding-bottom: 60px;">
+                    <a href="monthlyrep.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4" >
-                                    <div class="stats-icon purple">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8" >
-                                    <h5 style="margin-top: -10px;">Monthly<br> Reports</h5>
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Monthly Reports</h5>
                             </div>
                         </div>
                     </div></a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
-                    <a href="annualrep.php"><div class="card" style="background: #57caeb; padding-top: 60px; padding-bottom: 60px;">
+                    <a href="annualrep.php"><div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="stats-icon blue">
-                                        <i class="iconly-boldDocument" style="font-size: 6em;"></i>
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <h5 style="margin-top: -10px;">Annual <br>Reports</h5>
-                                </div>
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center;">Annual Reports</h5>
                             </div>
                         </div>
                     </div></a>

@@ -33,15 +33,15 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>Activity</h3>
+                <h3>Monthly</h3>
+            </div> 
+            <div class="col-12 col-md-9 order-md-1 order-last">
+                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-info">Management Reports</a>
+                <a style="float: right; margin-right: 5px;" href="annualreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
+                <a style="float: right; margin-right: 5px;" href="monthlyreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
+                <a style="float: right; margin-right: 5px;" href="reports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
             </div>
-             <div class="col-12 col-md-9 order-md-1 order-last">
-                <a style="float: right; margin-right: 5px;" href="accountability.php" style="margin-bottom: 10px;" class="btn btn-success">Accountability</a>
-                <a style="float: right; margin-right: 5px;" href="annualrep.php" style="margin-bottom: 10px;" class="btn btn-success">Annual</a>
-                <a style="float: right; margin-right: 5px;" href="monthlyrep.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly</a>
-                <a style="float: right; margin-right: 5px;" href="financialrep.php" style="margin-bottom: 10px;" class="btn btn-success">Financial</a>
-                <a style="float: right; margin-right: 5px;" href="management.php" style="margin-bottom: 10px;" class="btn btn-success">Management</a>
-            </div>
+
         </div> 
     </div>
 
@@ -50,28 +50,37 @@
             <div class="card-body">
 
 <?php
-include "../includes/connection.php";
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID WHERE status='Approved' "; 
+$sql = "SELECT * FROM reportdoc WHERE type='Accountability' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Date</th>";
-                echo "<th>Topic</th>";
-                echo "<th>Action</th>";
+                echo "<th>Name</th>";
+                echo "<th>Month</th>";
+                echo "<th>Year</th>"; 
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['date'] . "</td>";
-                echo "<td>" . $row['activeName'] . "</td>";
-                echo "<td>" . "<a href='activereport.php?id=".$row['reportid']."  'class='badge bg-info'>View Details</a>
-                ". "</td>";
-            echo "</tr>"; 
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['month'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
+                echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>
+                               <a href='delete.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-danger' onclick='return DeleteConfirm()'>Delete</a>
+                               ";
+                               if($row['status'] == 'NotApproved'){
+                                    echo "<a style='margin-left: 4px;' href='approve.php?id=".$row['docID']."&table=reportdoc&tableid=docID' class='badge bg-success' onclick='return ApproveConfirm()'>Approve</a>";
+                               }elseif ($row['status'] == 'Approved') {
+                               echo "";
+                               }
+                echo "</td>";
+            echo "</tr>";  
         }
         echo "</table>";
         // Free result set
@@ -114,6 +123,11 @@ if($result = mysqli_query($con, $sql)){
 <script>
     function DeleteConfirm() {
       return confirm("Are you sure to delete this beneficiary");
+     }
+ </script>
+ <script>
+    function ApproveConfirm() {
+      return confirm("Are you sure you want to approve this report for donors to view?");
      }
  </script>
 </html>
