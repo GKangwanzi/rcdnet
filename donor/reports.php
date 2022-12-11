@@ -38,7 +38,7 @@
     <section class="row">
         <div class="col-12 col-lg-12">
 
-
+ 
 
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6">
@@ -48,19 +48,36 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Management Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Management Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalm'];
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div></a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
-                    <div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
+                    <div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Audited Financial Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Audited Financial Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Financial' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+
+                                </h5>
                             </div>
                         </div>
                     </div>
@@ -72,7 +89,15 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Accountability Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Accountability Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totala FROM reportdoc WHERE type='Accountability' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totala'];
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div></a>
@@ -88,7 +113,15 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Activity Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Activity Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Activity' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div></a>
@@ -100,7 +133,15 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Monthly Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Monthly Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Monthly' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div></a>
@@ -112,7 +153,15 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center;">Annual Reports</h5>
+                                <h5 style="text-align: center; font-size: 1em;">Annual Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Annual' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
                             </div>
                         </div>
                     </div></a>
