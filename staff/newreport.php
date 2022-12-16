@@ -103,7 +103,7 @@ if (isset($_POST['post'])){
 
 
 </div>
-    </section>
+    </section> 
 </div>
 
             <footer>
