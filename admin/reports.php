@@ -70,7 +70,7 @@ if($result = mysqli_query($con, $sql)){
                 echo "<td>" . $row['date'] . "</td>";
                 echo "<td>" . $row['activeName'] . "</td>";
                 echo "<td>" . "<a href='report.php?id=".$row['reportid']."  'class='badge bg-info'>View Details</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
+                               <a href='editreport.php?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
                                <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>
                 ". "</td>";
             echo "</tr>"; 

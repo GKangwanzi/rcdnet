@@ -33,8 +33,7 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <a href="newben.php" style="margin-bottom: 10px;" class="btn btn-warning">Edit Report</a>
-                <a href="newben.php" style="margin-bottom: 10px;" class="btn btn-info">Download</a>
+                <a href="editreport.php?id=<?php $id = $_GET['id']; echo $id; ?>" style="margin-bottom: 10px;" class="btn btn-info">Edit Report</a>
             </div>
 
         </div>
@@ -46,53 +45,45 @@
                 <div class="report-wrapper">
                     <h3 style="text-align: center; margin-top: 20px; font-size: 2em;">Rwenzori Community Development<br> Network</h3>
                     <?php
+                    include "../includes/connection.php";
                     $myid = $_SESSION['userid'];
                     $reportid  = $_GET['id'];
  
 
-                    $sql = "SELECT * FROM report INNER JOIN users ON report.manager=users.userID INNER JOIN activity ON report.topic=activity.activeID WHERE reportid = '$reportid' "; 
+                    $sql = "SELECT * FROM report INNER JOIN users ON report.manager=users.userID WHERE reportid = '$reportid' "; 
                     $result = mysqli_query($con, $sql);
                     $row = mysqli_fetch_assoc($result);  
-                    echo '<p class="protitle">'.'Activity Report for '. $row['activeName'].' </p>';
+                    echo '<p class="protitle">'.'Activity Report for '. $row['topic'].' </p>';
                     echo '<p style="text-align: center;">'.'Date: '. $row['date'].' </p>';
 
                     echo "<table class='table table-striped'>";
 
                     echo "<tr>"; 
-                    echo "<td>"."<strong>Project Objective/Intermediate</strong>"."</td>";
-                    echo "<td>". $row['objectives']."</td>";
+                    echo "<td>"."<strong>Project Objective/Intermediate</strong>".$row['objectives']."</td>";
                     echo "</tr>";
                     echo "<tr>";
-                    echo "<td>"."<strong>Relation to Workplan</strong>"."</td>";
-                    echo "<td>". $row['workplan']."</td>";
+                    echo "<td>"."<strong>Relation to Workplan</strong>".$row['workplan']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Relevant Indicators</strong>"."</td>";
-                    echo "<td>". $row['indicators']."</td>";
+                    echo "<td>"."<strong>Relevant Indicators</strong>". $row['indicators']."</td>";
+                    echo "</tr>";
+                     echo "<tr>"; 
+                    echo "<td>"."<strong>Purpose of Activity</strong>".$row['purpose']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Purpose of Activity</strong>"."</td>";
-                    echo "<td>". $row['purpose']."</td>";
+                    echo "<td>"."<strong>Summary of Activity Agenda</strong>".$row['summary']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Summary of Activity Agenda</strong>"."</td>";
-                    echo "<td>". $row['summary']."</td>";
+                    echo "<td>"."<strong>Key Successes</strong>".$row['success']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Key Successes</strong>"."</td>";
-                    echo "<td>". $row['success']."</td>";
+                    echo "<td>"."<strong>Challenges Encountered</strong>".$row['challenges']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Challenges Encountered</strong>"."</td>";
-                    echo "<td>". $row['challenges']."</td>";
+                    echo "<td>"."<strong>Outputs Achieved</strong>".$row['outputs']."</td>";
                     echo "</tr>";
                      echo "<tr>";
-                    echo "<td>"."<strong>Outputs Achieved</strong>"."</td>";
-                    echo "<td>". $row['outputs']."</td>";
-                    echo "</tr>";
-                     echo "<tr>";
-                    echo "<td>"."<strong>Follow Up Required</strong>"."</td>";
-                    echo "<td>". $row['followup']."</td>";
+                    echo "<td>"."<strong>Follow Up Required</strong>".$row['followup']."</td>";
                     echo "</tr>";
                     echo "</table>";
                     echo "<div class='actionpoints'>"."<p style='font-weight: 600; text-decoration: underline;'>Action Points</p>"."<p>". $row['actionpoints']."<p>"."</div>";
@@ -114,7 +105,7 @@
                 </div>
             </div>
         </footer>
-    </div> 
+    </div>
 </div>
 <?php include "includes/scripts.php"; ?>
 </body>

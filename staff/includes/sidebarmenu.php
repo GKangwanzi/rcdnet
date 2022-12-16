@@ -74,10 +74,10 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="./newreport.php">New Activity Reports</a>
+                        <a href="./newreport.php">Make Report</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="./upreports.php">Report Uploads</a>
+                        <a href="./upreports.php">Upload Report </a>
                     </li> 
                     <li class="submenu-item ">
                         <a href="./myreports.php">My Reports</a>
