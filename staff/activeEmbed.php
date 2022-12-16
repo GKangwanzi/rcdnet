@@ -110,7 +110,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Project Objectives</label>
-                                <textarea class="form-control" id="default" required name="objectives"></textarea>
+                                <textarea class="form-control" id="default"  name="objectives"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Relation to workplan</label>
-                                <textarea class="form-control" id="default2" required name="workplan"></textarea>
+                                <textarea class="form-control" id="default2"  name="workplan"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Relevant Indicators</label>
-                                <textarea class="form-control" id="default3" required name="indicators"></textarea>
+                                <textarea class="form-control" id="default3"  name="indicators"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +135,7 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Purpose of Activity</label>
-                                <textarea class="form-control" id="default4" required name="purpose"></textarea>
+                                <textarea class="form-control" id="default4"  name="purpose"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Summary of Activity Agenda</label>
-                                <textarea class="form-control" id="default5" required name="summary"></textarea>
+                                <textarea class="form-control" id="default5"  name="summary"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Activity Expectations</label>
-                                <textarea class="form-control" id="default6" required name="expectations"></textarea>
+                                <textarea class="form-control" id="default6"  name="expectations"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Key Successes</label>
-                                <textarea class="form-control" id="default7" required name="success"></textarea>
+                                <textarea class="form-control" id="default7"  name="success"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Challenges</label>
-                                <textarea class="form-control" id="default8" required name="challenges"></textarea>
+                                <textarea class="form-control" id="default8"  name="challenges"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +176,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Outputs achieved</label>
-                                <textarea class="form-control" id="default9" required name="outputs"></textarea>
+                                <textarea class="form-control" id="default9"  name="outputs"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -184,14 +184,14 @@
                              <div class="col-md-12">
                                 <div class="form-group">
                                 <label for="basicInput">Follow Up Required</label>
-                                <textarea class="form-control" id="default10" required name="followup"></textarea>
+                                <textarea class="form-control" id="default10"  name="followup"></textarea>
                                 </div>
                             </div> 
                         </div>
                          <div class="row">
                                 <div class="form-group">
                                 <label for="basicInput">Record Action Points</label>
-                                <textarea class="form-control" id="default11" required name="actionpoints" rows="5"></textarea>
+                                <textarea class="form-control" id="default11"  name="actionpoints" rows="5"></textarea>
                                 </div>
                         </div>
                         
