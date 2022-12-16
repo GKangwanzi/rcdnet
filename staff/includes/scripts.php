@@ -9,3 +9,4 @@
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/vendors/choices.js/choices.min.js"></script>
 <script src="../assets/js/pages/form-element-select.js"></script>
+<script src="../assets/vendors/tinymce/tinymce.min.js"></script> 

@@ -67,7 +67,7 @@ if (isset($_POST['post'])){
     }else{
        echo "<p style='display: none;'  class='text-subtitle text-muted'>"."Use this form to make a project report"."</p>";
     }
-    ?>
+    ?> 
 
     <section class="section">
         <div class="row">

@@ -91,7 +91,7 @@ if (isset($_POST['post'])){
     ?>
 
     
-<?php 
+<?php  
     $day = date(d);
     $month = date('M-Y'); 
     if ($day < 27) {
@@ -117,5 +117,19 @@ if (isset($_POST['post'])){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-
+<script>
+    tinymce.init({ selector: '#default' });
+    tinymce.init({ selector: '#default2' });
+    tinymce.init({ selector: '#default3' });
+    tinymce.init({ selector: '#default4' });
+    tinymce.init({ selector: '#default5' });
+    tinymce.init({ selector: '#default6' });
+    tinymce.init({ selector: '#default7' });
+    tinymce.init({ selector: '#default8' });
+    tinymce.init({ selector: '#default9' });
+    tinymce.init({ selector: '#default10' });
+    tinymce.init({ selector: '#default11' });
+    tinymce.init({ selector: '#default12' });
+    tinymce.init({ selector: '#dark', toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', plugins: 'code' });
+</script>
 </html>
