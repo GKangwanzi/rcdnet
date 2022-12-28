@@ -130,12 +130,16 @@ window.location.href = "upreports.php";
                             <div class="col-md-4">
                                  <div class="form-group">
                                 <label for="basicInput">Report Type</label>
-                                <select class="choices form-select" name="type">
-                                        <option value='Activity' >Activity Report</option>
-                                        <option value='Monthly' >Monthly Report</option>
-                                        <option value='Quaterly' >Quaterly Report</option>
-                                        <option value='Annual' >Annual Report</option>
-
+                                 <select class="choices form-select" name="type">
+                                        <option value='Accountability'>Accountability Report</option>
+                                        <option value='Monthly'>Monthly Management Highlights</option>
+                                        <option value='Accountability'>Audited Books of Accounts</option>
+                                        <option value='Monthly'>Accountability Reports</option>
+                                        <option value='Accountability'>Monthly Financial Reports</option>
+                                        <option value='Monthly'>Activity Reports</option>
+                                        <option value='Monthly'>Events and Fundraising Documents</option>
+                                        <option value='Monthly'>Annual Reports</option>
+                                        <option value='Monthly'>Quarterly Reports</option>
                                     </select>
                                 </div>
                             </div>
