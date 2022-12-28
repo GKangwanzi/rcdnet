@@ -82,7 +82,7 @@ if (isset($_POST['post'])){
         }
          
         // Close connection
-        mysqli_close($con);
+        mysqli_close($con); 
 
     }else{
        echo "<p class='text-subtitle text-muted'>"."Use this form to edit existing report"."</p>";

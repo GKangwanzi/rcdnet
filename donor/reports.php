@@ -41,14 +41,14 @@
  
 
             <div class="row">
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="management.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Management Reports
+                                <h5 style="text-align: center; font-size: 1em;">Management Monthly Highlights
                                     <br>
                                     <?php
                                         $sql = "SELECT COUNT(*) as totalm FROM management WHERE status='Approved'"; 
@@ -61,14 +61,14 @@
                         </div>
                     </div></a>
                 </div>
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Audited Financial Reports
+                                <h5 style="text-align: center; font-size: 1em;">Audited Books of Accounts
                                     <br>
                                     <?php
                                         $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Financial' AND status='Approved'"; 
@@ -82,10 +82,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="accountability.php"><div class="card" style="background: #5ddab4; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
-                            <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
@@ -98,18 +97,13 @@
                                         echo $data['totala'];
                                     ?>
                                 </h5>
-                            </div>
                         </div>
                     </div></a>
                 </div>
-            </div>
 
-
-            <div class="row">
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="activityreports.php"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
-                            <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
@@ -122,14 +116,12 @@
                                         echo $data['totalf'];
                                     ?>
                                 </h5>
-                            </div>
                         </div>
                     </div></a>
                 </div>
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="monthlyrep.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
-                            <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
@@ -142,14 +134,12 @@
                                         echo $data['totalf'];
                                     ?>
                                 </h5>
-                            </div>
                         </div>
                     </div></a>
                 </div>
-                <div class="col-6 col-lg-4 col-md-6">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="annualrep.php"><div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
-                            <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
@@ -162,7 +152,6 @@
                                         echo $data['totalf'];
                                     ?>
                                 </h5>
-                            </div>
                         </div>
                     </div></a>
                 </div>

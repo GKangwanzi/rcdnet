@@ -85,7 +85,7 @@ if (isset($_POST['post'])){
     $day = date(d);
     $month = date('M-Y'); 
     if ($day < 27) {
-       include ("uploadEmbed.php");
+       include ("uploadEmbed.php"); 
     }else{
         echo '<div class="alert alert-light-danger color-danger alert-dismissible show fade"><i class="bi bi-exclamation-circle"></i><strong> You can not submit reports today. Deadline was 27th-'.$month.'</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
     }
