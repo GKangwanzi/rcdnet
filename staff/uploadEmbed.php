@@ -41,15 +41,14 @@
                                 <div class="form-group">
                                 <label for="basicInput">Select Category</label>
                                 <select class="choices form-select" name="type">
-                                        <option value='Accountability'>Accountability Report</option>
-                                        <option value='Monthly'>Monthly Management Highlights</option>
-                                        <option value='Accountability'>Audited Books of Accounts</option>
-                                        <option value='Monthly'>Accountability Reports</option>
-                                        <option value='Accountability'>Monthly Financial Reports</option>
-                                        <option value='Monthly'>Activity Reports</option>
-                                        <option value='Monthly'>Events and Fundraising Documents</option>
-                                        <option value='Monthly'>Annual Reports</option>
-                                        <option value='Monthly'>Quarterly Reports</option>
+                                        <option value='Management'>Management Highlights</option>
+                                        <option value='AuditedBooks'>Audited Books of Accounts</option>
+                                        <option value='Accountability'>Accountability Reports</option>
+                                        <option value='Financial'>Monthly Financial Reports</option>
+                                        <option value='Activity'>Activity Reports</option>
+                                        <option value='Events'>Events and Fundraising Documents</option>
+                                        <option value='Annual'>Annual Reports</option>
+                                        <option value='Quarter'>Quarterly Reports</option>
                                     </select>
                                 </div>
                             </div>
