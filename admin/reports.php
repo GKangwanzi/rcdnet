@@ -13,10 +13,13 @@
             </div>
         </div>
     </div>
- 
+
+
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+
+
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
         </div>
@@ -27,79 +30,178 @@
                 </a>
             </header>
             
+<div class="page-heading">
+    <h3>Dashboard</h3>
+</div>
 <div class="page-content">
+
     <section class="row">
-            <div class="page-heading"> 
-    <div class="page-title"> 
-        <div class="row">
-            <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>Activity</h3>
-            </div> 
-             <div class="col-12 col-md-9 order-md-1 order-last">
-                <a style="float: right; margin-right: 5px;" href="accountabilities.php" style="margin-bottom: 10px;" class="btn btn-info">Accountability</a>
-                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-info">Management</a>
-                <a style="float: right; margin-right: 5px;" href="annualreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual</a>
-                <a style="float: right; margin-right: 5px;" href="monthlyreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly</a>
-                <a style="float: right; margin-right: 5px;" href="reports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity</a>
-            </div>
-        </div>
-    </div>
-
-    <section class="section"> 
-        <div class="card">
-            <div class="card-body">
-
-<?php
-include "../includes/connection.php";
-$myid = $_SESSION['userid'];
-
-
-$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID "; 
-if($result = mysqli_query($con, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        echo "<table class='table table-striped' id='table5'>";
-            echo "<thead>";
-             echo "<tr>";
-                echo "<th>Date</th>";
-                echo "<th>Topic</th>";
-                echo "<th>Action</th>";
-            echo "</tr>";
-            echo "</thead>";
-        while($row = mysqli_fetch_array($result)){
-            echo "<tr>";
-                echo "<td>" . $row['date'] . "</td>";
-                echo "<td>" . $row['activeName'] . "</td>";
-                echo "<td>" . "<a href='report.php?id=".$row['reportid']."  'class='badge bg-info'>View Details</a>
-                               <a href='editreport.php?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>
-                ". "</td>";
-            echo "</tr>"; 
-        }
-        echo "</table>";
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-}
-?>
- 
-            </div>
-        </div>
-
-    </section>
+        <div class="col-12 col-lg-12">
 
  
 
-</div>
+            <div class="row">
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="managementreports.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center; font-size: 1em;">Management Highlights
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalm'];
+                                    ?>
+                                </h5>
+                            </div>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="audited.php"><div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <br>
+                                <h5 style="text-align: center; font-size: 1em;">Audited Books of Accounts
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Financial' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+
+                                </h5>
+                            </div>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="accountabilities.php"><div class="card" style="background: #5ddab4; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Accountability Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totala FROM reportdoc WHERE type='Accountability' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totala'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="activityreps.php"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Activity Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Activity' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div> 
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="monthlyreports.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Monthly Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Monthly' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="annualrep.php"><div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Annual Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Annual' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div>
+
+                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="monthlyrep.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Events Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Events' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="quarterly.php"><div class="card" style="background: #57caeb; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">Quarterly Reports
+                                    <br>
+                                    <?php
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Quarter' AND status='Approved'"; 
+                                        $result = mysqli_query($con, $sql);
+                                        $data=mysqli_fetch_assoc($result);
+                                        echo $data['totalf'];
+                                    ?>
+                                </h5>
+                        </div>
+                    </div></a>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
     </section>
-</div>
+</div> 
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
+                        <p>2021 &copy; RCDNET</p>
+                    </div>
+                    <div class="float-end">
                         <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
                     </div>
                 </div>
@@ -108,14 +210,5 @@ if($result = mysqli_query($con, $sql)){
     </div>
 <?php include "includes/scripts.php"; ?>
 </body>
-<script>
-    // Simple Datatable
-    let table5 = document.querySelector('#table5');
-    let dataTable = new simpleDatatables.DataTable(table5);
-</script>
-<script>
-    function DeleteConfirm() {
-      return confirm("Are you sure to delete this beneficiary");
-     }
- </script>
+
 </html>

@@ -34,16 +34,10 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-4 order-md-1 order-last">
-                <h3>Monthly</h3>
+                <h3>Events & Fundraising</h3>
                 
             </div>
-            <div class="col-12 col-md-8 order-md-1 order-last">
-                <a style="float: right; margin-right: 5px;" href="annualrep.php" style="margin-bottom: 10px;" class="btn btn-success">Annual</a>
-                <a style="float: right; margin-right: 5px;" href="monthlyrep.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly</a>
-                <a style="float: right; margin-right: 5px;" href="management.php" style="margin-bottom: 10px;" class="btn btn-success">Management</a>
-                <a style="float: right; margin-right: 5px;" href="financialrep.php" style="margin-bottom: 10px;" class="btn btn-success">Financial</a>
-                <a style="float: right; margin-right: 5px;" href="activityreports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity</a>
-        </div>
+
     </div>
 
  

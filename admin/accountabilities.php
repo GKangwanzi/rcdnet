@@ -33,14 +33,8 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>Monthly</h3>
+                <h3>Accountabilities</h3>
             </div> 
-            <div class="col-12 col-md-9 order-md-1 order-last">
-                <a style="float: right; margin-right: 5px;" href="managementreports.php" style="margin-bottom: 10px;" class="btn btn-info">Management Reports</a>
-                <a style="float: right; margin-right: 5px;" href="annualreports.php" style="margin-bottom: 10px;" class="btn btn-success">Annual Reports</a>
-                <a style="float: right; margin-right: 5px;" href="monthlyreports.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly Reports</a>
-                <a style="float: right; margin-right: 5px;" href="reports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity Reports</a>
-            </div>
 
         </div> 
     </div>

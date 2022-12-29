@@ -35,12 +35,6 @@
             <div class="col-12 col-md-3 order-md-1 order-last">
                 <h3>Management</h3>
             </div> 
-            <div class="col-12 col-md-9 order-md-1 order-last">
-                <a style="float: right; margin-right: 5px;" href="annualrep.php" style="margin-bottom: 10px;" class="btn btn-info">Annual</a>
-                <a style="float: right; margin-right: 5px;" href="monthlyrep.php" style="margin-bottom: 10px;" class="btn btn-success">Monthly</a>
-                <a style="float: right; margin-right: 5px;" href="financialrep.php" style="margin-bottom: 10px;" class="btn btn-success">Financial</a>
-                <a style="float: right; margin-right: 5px;" href="activityreports.php" style="margin-bottom: 10px;" class="btn btn-success">Activity</a>
-            </div>
 
         </div> 
     </div>

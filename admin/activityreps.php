@@ -33,10 +33,9 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>Management</h3>
+                <h3>Activity</h3>
             </div> 
-
-        </div> 
+        </div>
     </div>
 
     <section class="section"> 
@@ -44,37 +43,30 @@
             <div class="card-body">
 
 <?php
+include "../includes/connection.php";
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM management "; 
+$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
                 echo "<th>Date</th>";
-                echo "<th>Name</th>";
-                echo "<th>Month</th>";
-                echo "<th>Year</th>";
+                echo "<th>Topic</th>";
+                echo "<th>Action</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
                 echo "<td>" . $row['date'] . "</td>";
-                echo "<td>" . $row['magName'] . "</td>";
-                echo "<td>" . $row['month'] . "</td>";
-                echo "<td>" . $row['year'] . "</td>";
-                echo "<td>" . "<a href='magreport.php?id=".$row['magID']."  'class='badge bg-info'> Details</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>";
-                               if($row['status'] == 'NotApproved'){
-                                    echo "<a style='margin-left: 4px;' href='approve.php?id=".$row['magID']."&table=management&tableid=magID  'class='badge bg-success' onclick='return ApproveConfirm()'>Approve</a>";
-                               }elseif ($row['status'] == 'Approved') {
-                               echo "";
-                               }
-                echo "</td>";
-            echo "</tr>";  
+                echo "<td>" . $row['activeName'] . "</td>";
+                echo "<td>" . "<a href='report.php?id=".$row['reportid']."  'class='badge bg-info'>View Details</a>
+                               <a href='editreport.php?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
+                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>
+                ". "</td>";
+            echo "</tr>"; 
         }
         echo "</table>";
         // Free result set
@@ -117,11 +109,6 @@ if($result = mysqli_query($con, $sql)){
 <script>
     function DeleteConfirm() {
       return confirm("Are you sure to delete this beneficiary");
-     }
- </script>
- <script>
-    function ApproveConfirm() {
-      return confirm("Are you sure you want to approve this report for donors to view?");
      }
  </script>
 </html>
