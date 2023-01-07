@@ -48,10 +48,10 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Management Highlights
+                                <h5 style="text-align: center; font-size: 1em;">Monthly Management Highlights
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE type='Management' status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalm'];
@@ -71,7 +71,7 @@
                                 <h5 style="text-align: center; font-size: 1em;">Audited Books of Accounts
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Financial' AND status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='AuditedBooks' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalf'];
@@ -105,10 +105,10 @@
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">Activity Reports
+                                <h5 style="text-align: center; font-size: 1em;">Monthly Financial Reports
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Activity' AND status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Financial' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalf'];
@@ -122,10 +122,10 @@
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">Monthly Reports
+                                <h5 style="text-align: center; font-size: 1em;">Activity Reports
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Monthly' AND status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Activity' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalf'];
@@ -139,10 +139,10 @@
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">Annual Reports
+                                <h5 style="text-align: center; font-size: 1em;">Events and Fundraising Documents
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Annual' AND status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Events' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalf'];
@@ -157,10 +157,10 @@
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">Events Reports
+                                <h5 style="text-align: center; font-size: 1em;">Annual Reports
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Events' AND status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalf FROM reportdoc WHERE type='Annual' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalf'];

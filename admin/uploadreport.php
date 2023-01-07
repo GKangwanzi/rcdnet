@@ -131,7 +131,7 @@ window.location.href = "upreports.php";
                                  <div class="form-group">
                                 <label for="basicInput">Report Type</label>
                                  <select class="choices form-select" name="type">
-                                        <option value='Management'>Management Highlights</option>
+                                        <option value='Management'>Monthly Management Highlights</option>
                                         <option value='AuditedBooks'>Audited Books of Accounts</option>
                                         <option value='Accountability'>Accountability Reports</option>
                                         <option value='Financial'>Monthly Financial Reports</option>
