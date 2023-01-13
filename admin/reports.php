@@ -51,7 +51,7 @@
                                 <h5 style="text-align: center; font-size: 1em;">Monthly Management Highlights
                                     <br> 
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalm FROM reportdoc WHERE type='Management' status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalm FROM reportdoc WHERE type='Management' AND status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalm'];
