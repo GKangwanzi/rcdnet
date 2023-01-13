@@ -49,15 +49,15 @@
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
                                 <h5 style="text-align: center; font-size: 1em;">Monthly Management Highlights
-                                    <br>
+                                    <br> 
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE type='Management' status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalm FROM reportdoc WHERE type='Management' status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalm'];
                                     ?>
                                 </h5>
-                            </div>
+                            </div> 
                         </div>
                     </div></a>
                 </div>

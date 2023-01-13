@@ -51,7 +51,7 @@
                                 <h5 style="text-align: center; font-size: 1em;">Monthly Management Highlights
                                     <br>
                                     <?php
-                                        $sql = "SELECT COUNT(*) as totalm FROM management WHERE type='Management' status='Approved'"; 
+                                        $sql = "SELECT COUNT(*) as totalm FROM reportdoc WHERE type='Management' status='Approved'"; 
                                         $result = mysqli_query($con, $sql);
                                         $data=mysqli_fetch_assoc($result);
                                         echo $data['totalm'];
@@ -98,7 +98,7 @@
                                 </h5>
                         </div>
                     </div></a>
-                </div>
+                </div> 
 
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
                     <a href="finance.php"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
