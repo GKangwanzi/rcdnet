@@ -42,7 +42,7 @@
 
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="management.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                    <a href="managementrep.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
