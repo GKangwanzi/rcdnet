@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="#monthlyrep"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
+                    <a href="finance.php"><div class="card" style="background: #ff7976; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
