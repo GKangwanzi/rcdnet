@@ -1,4 +1,4 @@
- <?php include "includes/head.php"; ?>
+<?php include "includes/head.php"; ?>
 
     <div id="app">
         <div id="sidebar" class="active">
@@ -17,6 +17,7 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
         </div>
@@ -32,50 +33,41 @@
             <div class="page-heading"> 
     <div class="page-title"> 
         <div class="row">
-            <div class="col-12 col-md-3 order-md-1 order-last">
-                <h3>Management</h3>
-            </div> 
-
-        </div> 
+            <div class="col-12 col-md-4 order-md-1 order-last">
+                <h3>Audited Books of Accounts</h3>
+                
+            </div>
     </div>
 
-    <section class="section"> 
+ 
+    <section class="section">
         <div class="card">
             <div class="card-body">
 
 <?php
-$myid = $_SESSION['userid'];
+include "../includes/connection.php";
 
-
-$sql = "SELECT * FROM reportdoc WHERE status='Approved' "; 
+$sql = "SELECT * FROM reportdoc INNER JOIN users ON reportdoc.user=users.userID WHERE status='Approved' AND type='Management' "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
-             echo "<tr>";
-                echo "<th>Date</th>";
+             echo "<tr>"; 
+             
+                echo "<th></th>";
+                echo "<th>Date</th>"; 
                 echo "<th>Name</th>";
-                echo "<th>Month</th>";
-                echo "<th>Year</th>";
+                echo "<th>Submitted By</th>"; 
             echo "</tr>";
-            echo "</thead>";
+            echo "</thead>"; 
         while($row = mysqli_fetch_array($result)){
-            echo "<tr>";
+                echo '<td><i style="font-size: 1.2em;" class="bi bi-file-earmark-pdf"></i></td>';
                 echo "<td>" . $row['date'] . "</td>";
-                echo "<td>" . $row['magName'] . "</td>";
-                echo "<td>" . $row['month'] . "</td>";
-                echo "<td>" . $row['year'] . "</td>";
-                echo "<td>" . "<a href='magreport.php?id=".$row['magID']."  'class='badge bg-info'> Details</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-success'>Edit</a>
-                               <a href='#?id=".$row['reportid']."  'class='badge bg-danger' onclick='return DeleteConfirm()'>Trash</a>";
-                               if($row['status'] == 'NotApproved'){
-                                    echo "<a style='margin-left: 4px;' href='approve.php?id=".$row['magID']."&table=management&tableid=magID  'class='badge bg-success' onclick='return ApproveConfirm()'>Approve</a>";
-                               }elseif ($row['status'] == 'Approved') {
-                               echo "";
-                               }
-                echo "</td>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['fullname'] . "</td>";
+                echo "<td>" . "<a target='_blank' href='../docs/".$row['doc']."' class='badge bg-info'>Download</a>";
             echo "</tr>";  
-        }
+        } 
         echo "</table>";
         // Free result set
         mysqli_free_result($result);
@@ -86,25 +78,25 @@ if($result = mysqli_query($con, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 ?>
- 
+
             </div>
         </div>
 
     </section>
 
-  
+
 
 </div>
     </section>
 </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
-                    </div>
-                </div>
-            </footer>
+    <footer>
+        <div class="footer clearfix mb-0 text-muted">
+            <div class="float-start">
+                <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
+            </div>
+        </div>
+    </footer>
         </div>
     </div>
 <?php include "includes/scripts.php"; ?>
@@ -117,11 +109,6 @@ if($result = mysqli_query($con, $sql)){
 <script>
     function DeleteConfirm() {
       return confirm("Are you sure to delete this beneficiary");
-     }
- </script>
- <script>
-    function ApproveConfirm() {
-      return confirm("Are you sure you want to approve this report for donors to view?");
      }
  </script>
 </html>
