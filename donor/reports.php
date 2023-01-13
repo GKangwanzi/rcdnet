@@ -199,7 +199,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; RCDNET</p>
+                        <p>2023 &copy; RCDNET</p>
                     </div>
                     <div class="float-end">
                         <p>Created by <a href="http://julybrands.co.ug">JulyBrands Digital</a></p>
