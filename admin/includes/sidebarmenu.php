@@ -31,12 +31,27 @@
                     <span>Direct Message</span>
                 </a>
             </li> -->
-             <li
-                class="sidebar-item  ">
-                <a href="https://webspace24.do.de/roundcube" class='sidebar-link'>
+
+            <li
+                class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
                     <i class="bi bi-chat-dots-fill"></i>
                     <span>Email</span>
                 </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="compose.php">Compose</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="inbox.php">Inbox</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="sent.php">Sent</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="groups.php">Groups</a>
+                    </li> 
+                </ul>
             </li>
             <li class="sidebar-title">Projects &amp; Reports</li>
             <li
