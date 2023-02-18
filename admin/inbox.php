@@ -51,27 +51,21 @@
                             <?php
 include "../includes/connection.php";
 
-$sql = "SELECT * FROM users"; 
+$sql = "SELECT * FROM mail"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-hover' id='table5'>";
             echo "<thead>";
              echo "<tr>";
-                echo "<th>Name</th>";
-                echo "<th>Project</th>";
-                echo "<th>Assigned to</th>";
-                echo "<th>Action</th>";
+                echo "<th>Subject</th>";
+                echo "<th>Message</th>";
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
+            $str = substr($str, 0, 140);
             echo "<tr>";
-                echo "<td>" . $row['activeName'] . "</td>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['fullname'] . "</td>";
-                echo "<td>" . "<a href='#?id=".$row['prID']."' class='badge bg-info'>View Details</a>
-                               <a href='#?id=".$row['prID']."' class='badge bg-success'>Edit</a>
-                               <a onclick='return DeleteConfirm()' href='#?id=".$row['prID']."' class='badge bg-danger' >Trash</a>
-                ". "</td>";
+                echo "<td style='width: 40%;'>" . "<a href='mail?id=".$row['mailid']."''>". $row['subject'] ."</a>". "</td>";
+                echo "<td>" . substr($row['message'], 0, 100) . "</td>";
             echo "</tr>"; 
         }
         echo "</table>";

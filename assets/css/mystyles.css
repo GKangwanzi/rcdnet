@@ -140,3 +140,6 @@ body{
 .sidebar-wrapper .sidebar-header {
     padding-bottom: 0rem !important;
 }
+.choices__list--dropdown {
+    z-index: 100 !important;
+}

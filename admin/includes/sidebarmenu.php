@@ -40,11 +40,14 @@
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="compose.php">Compose</a>
+                        <a href="compose.php">Compose</a> 
+                    </li>
+                     <li class="submenu-item ">
+                        <a href="group.php">Group Mail</a> 
                     </li>
                     <li class="submenu-item ">
                         <a href="inbox.php">Inbox</a>
-                    </li>
+                    </li> 
                     <li class="submenu-item ">
                         <a href="sent.php">Sent</a>
                     </li>
