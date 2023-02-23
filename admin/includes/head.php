@@ -7,7 +7,7 @@ if (!isset($_SESSION['name'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 
 <head>
     <meta charset="UTF-8">
