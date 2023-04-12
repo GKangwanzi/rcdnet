@@ -2,8 +2,7 @@
         <ul class="menu">
             <li class="sidebar-title">Welcome <?php echo $_SESSION['name']; ?></li>
             
-            <li
-                class="sidebar-item active ">
+            <li class="sidebar-item">
                 <a href="home.php" class='sidebar-link'>
                     <i class="bi bi-grid-fill"></i>
                     <span>Dashboard</span>

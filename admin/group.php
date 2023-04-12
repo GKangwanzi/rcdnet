@@ -17,8 +17,6 @@
     <?php 
     include "includes/sidebarmenu.php";
     ?>
-
-
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
         </div>
@@ -39,27 +37,30 @@
         </div>
 
 <?php
-//Create new beneficiary
+//Create new group email
 if (isset($_POST['post'])){
-    $management = $_POST['management'];
-    $name = $_POST['name'];
-    $month = $_POST['month'];
-    $year = $_POST['year'];
-    $date =  date("d/m/Y");
-
+    $recepient = $_POST['group'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message']; 
+    $sender = $_SESSION['userid'];
+    $n = 12;
+    $thread = bin2hex(random_bytes($n));
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "../photos/" . $filename;
 
     include "../includes/connection.php";
 
-    $sql = "INSERT INTO management (reportNote, date, magName, month, year)
-    VALUES ('$management', '$date', '$name', '$month', '$year')";
+    $sql = "INSERT INTO mail (threadid, mailgroup, subject, message, sender, file)
+    VALUES ('$thread', '$recepient', '$subject', '$message', '$sender', '$filename')";
 
-    if(mysqli_query($con, $sql)){
+    if(mysqli_query($con, $sql) OR move_uploaded_file($tempname, $folder)){
         ?>
     <script type="text/javascript"> 
-    alert("Report successfully saved"); 
-    window.location.href = "managementreports.php";
+    alert("Mail Sent"); 
+    window.location.href = "sent.php";
     </script>
-    <?php 
+    <?php
 
         } else{
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($con);
@@ -69,9 +70,9 @@ if (isset($_POST['post'])){
         mysqli_close($con);
 
     }else{
-       echo "<p style='display: none;'  class='text-subtitle text-muted'>"."Use this form to make a project report"."</p>";
+       echo "<p class='text-subtitle text-muted'>"."Use this form to compose email"."</p>";
     }
-    ?> 
+    ?>
     <section class="section">
         <div class="row"> 
             <div class="col">
@@ -84,14 +85,14 @@ if (isset($_POST['post'])){
                             <div class="col-md-12">
                                  <div class="form-group">
                                 <label for="basicInput">Recipient *</label>
-                                <select class="choices form-select" name="staff" style="z-index: 100 !important;">
+                                <select class="choices form-select" name="group" style="z-index: 100 !important;">
                                 <?php
                                 include "../includes/connection.php";
-                                $sql = "SELECT * FROM users WHERE role!='donor'";
+                                $sql = "SELECT * FROM mailgroup ";
                                 if($result = mysqli_query($con, $sql)){
                                     if(mysqli_num_rows($result) > 0){
                                         while($row = mysqli_fetch_array($result)){
-                                                echo '<option value='.$row['userID'].'>' . $row['fullname'] . '</option>';
+                                                echo '<option value='.$row['groupid'].'>' . $row['name'] . '</option>';
                                         }
                                         mysqli_free_result($result);
                                     } else{
@@ -108,19 +109,24 @@ if (isset($_POST['post'])){
                             <div class="col-md-12">
                                  <div class="form-group">
                                 <label for="basicInput">Subject</label>
-                                <input type="text" class="form-control" name="name" required>
+                                <input type="text" class="form-control" name="subject" required>
                                 </div>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group" >
-                                        <textarea name="management" id="default"  rows="12"></textarea>
+                                        <textarea name="message" id="default"  rows="12"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </section>
-
+                        <div class="col-md-12">
+                                 <div class="form-group">
+                                <label for="basicInput">Attachement</label>
+                                <input type="file" class="form-control" name="uploadfile" >
+                                </div>
+                            </div>
                         
                         <input type="submit" class="btn btn-primary" name="post" value="Send Message">
                     </form>

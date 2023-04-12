@@ -48,10 +48,11 @@
                         <br>
                         <!-- table hover -->
                         <div class="table-responsive" style="padding-right: 20px; padding-left: 20px;">
-                            <?php
+<?php
 include "../includes/connection.php";
+$recepient = $_SESSION['userid'];
 
-$sql = "SELECT * FROM mail"; 
+$sql = "SELECT * FROM mail WHERE recepient=$recepient "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-hover' id='table5'>";
@@ -62,10 +63,9 @@ if($result = mysqli_query($con, $sql)){
             echo "</tr>";
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
-            $str = substr($str, 0, 140);
             echo "<tr>";
-                echo "<td style='width: 40%;'>" . "<a href='mail?id=".$row['mailid']."''>". $row['subject'] ."</a>". "</td>";
-                echo "<td>" . substr($row['message'], 0, 100) . "</td>";
+                echo "<td style='width: 50%; font-size: 0.8em;'>" . "<a href='mail.php?id=".$row['threadid']."''>". $row['subject'] ."</a>". "</td>";
+                echo "<td class='smallpara'>" . substr($row['message'], 0, 100) . "</td>";
             echo "</tr>"; 
         }
         echo "</table>";

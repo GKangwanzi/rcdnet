@@ -16,8 +16,9 @@
 
     <div id="auth">
         
-<div class="row h-100">
-    <div class="col-lg-5 col-12">
+<div class="row h-100" id="auth-right">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" >
         <div id="auth-left">
             <div class="auth-logo">
                 <a href="index.html"><img src="assets/images/logo/rcdnetlogo.png" alt="Logo"></a>
@@ -42,11 +43,7 @@
 
         </div>
     </div>
-    <div class="col-lg-7 d-none d-lg-block">
-        <div id="auth-right">
-
-        </div>
-    </div>
+     <div class="col-md-4"></div>
 </div>
 
     </div>

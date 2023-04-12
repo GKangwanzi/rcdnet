@@ -143,3 +143,23 @@ body{
 .choices__list--dropdown {
     z-index: 100 !important;
 }
+
+#auth #auth-left {
+    padding: 3rem 2rem !important;
+    margin-top: 120px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.96);
+}
+.card {
+    border-radius: 0rem !important;
+}
+.btn {
+    border-radius: 0rem !important;
+}
+.sidebar-wrapper .menu .sidebar-link {
+    border-radius: 0rem !important;
+}
+.smallpara{
+    font-size: 0.75em !important;
+    color: #ababab;
+}

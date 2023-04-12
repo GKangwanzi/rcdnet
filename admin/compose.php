@@ -57,7 +57,7 @@ if (isset($_POST['post'])){
     $sql = "INSERT INTO mail (threadid, recepient, subject, message, sender, file)
     VALUES ('$thread', '$recepient', '$subject', '$message', '$sender', '$filename')";
 
-    if(mysqli_query($con, $sql) and move_uploaded_file($tempname, $folder)){
+    if(mysqli_query($con, $sql) OR move_uploaded_file($tempname, $folder)){
         ?>
     <script type="text/javascript"> 
     alert("Mail Sent"); 
@@ -129,7 +129,7 @@ if (isset($_POST['post'])){
                             <div class="col-md-12">
                                  <div class="form-group">
                                 <label for="basicInput">Attachement</label>
-                                <input type="file" class="form-control" name="uploadfile" required>
+                                <input type="file" class="form-control" name="uploadfile" >
                                 </div>
                             </div>
                         </div>
