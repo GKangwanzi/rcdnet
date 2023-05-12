@@ -51,7 +51,7 @@
                             <?php
 include "../includes/connection.php";
 $sender = $_SESSION['userid'];
-
+ 
 $sql = "SELECT * FROM mail WHERE sender=$sender "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){

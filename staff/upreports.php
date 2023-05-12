@@ -47,7 +47,7 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                List Of Users
+                List Of Uploads
             </div>
             <div class="card-body">
 

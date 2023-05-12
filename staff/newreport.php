@@ -92,7 +92,7 @@ if (isset($_POST['post'])){
 
     
 <?php  
-    $day = date(d);
+    $day = date('d');
     $month = date('M-Y'); 
     if ($day < 27) {
        include ("activeEmbed.php");
