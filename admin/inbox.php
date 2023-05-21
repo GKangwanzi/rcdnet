@@ -52,7 +52,7 @@
 include "../includes/connection.php";
 $recepient = $_SESSION['userid'];
 
-$sql = "SELECT * FROM mail WHERE recepient=$recepient "; 
+$sql = "SELECT * FROM mail WHERE recepient=$recepient GROUP BY threadid"; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-hover' id='table5'>";

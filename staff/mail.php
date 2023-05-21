@@ -53,9 +53,10 @@ if($result = mysqli_query($con, $sql)){
     while($row = mysqli_fetch_array($result)){
             echo "<p class='smallpara'>" .$row['fullname'].' '. '('.substr($row['time'], 0, 16).')'. "</p>";
             echo "<p>" . $row['message']. "</p>";
+            echo "<a href='../photos/".$row['file']."'>".$row['file']."</a>";
             echo "<hr></hr>";
         }
-
+  
     } else{
         echo "No records matching your query were found.";
     }

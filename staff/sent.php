@@ -52,7 +52,7 @@
 include "../includes/connection.php";
 $sender = $_SESSION['userid'];
 
-$sql = "SELECT * FROM mail WHERE sender=$sender "; 
+$sql = "SELECT * FROM mail WHERE sender=$sender GROUP BY threadid "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-hover' id='table5'>";
@@ -64,8 +64,8 @@ if($result = mysqli_query($con, $sql)){
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             
-            echo "<tr>";
-                echo "<td style='width: 50%; font-size: 0.8em;'>" . "<a href='mail.php?id=".$row['threadid']."''>". $row['subject'] ."</a>". "</td>";
+            echo "<tr style='padding: 0px !important;'>";
+                echo "<td style='width: 50%; font-size: 0.8em; padding: 0px !important;'>" . "<a href='mail.php?id=".$row['threadid']."''>". $row['subject'] ."</a>". "</td>";
                 echo "<td class='smallpara'>" . substr($row['message'], 0, 20) . "</td>";
             echo "</tr>"; 
         }
