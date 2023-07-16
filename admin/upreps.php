@@ -34,11 +34,11 @@
     <div class="page-title"> 
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Report Documents</h3>
+                <h3>Uploaded Documents</h3>
                 
             </div>
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <a style="float: right;" href="uploadreport.php" style="margin-bottom: 10px;" class="btn btn-success">Upload New Report</a>
+                
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 include "../includes/connection.php";
 $userid = $_SESSION['userid'];
 
-$sql = "SELECT * FROM reportdoc INNER JOIN users ON reportdoc.user=users.userID WHERE user='$userid' "; 
+$sql = "SELECT * FROM staffdocs INNER JOIN users ON staffdocs.user=users.userID  "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
@@ -73,8 +73,8 @@ if($result = mysqli_query($con, $sql)){
                 echo '<td><i style="font-size: 1.4em;" class="bi bi-file-earmark-text"></i></td>';
                 echo "<td>" . $row['date'] . "</td>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['type'] . "</td>";
-                echo "<td>" . "<a style='margin-right: 10px;' href='#' class='badge bg-info'>". $row['status'] ."</a><a target='_blank' href='../docs/".$row['doc']."' class='badge bg-success'>Download</a>";
+                echo "<td>" . $row['category'] . "</td>";
+                echo "<td>" . "<a target='_blank' href='../docs/".$row['file']."' class='badge bg-success'>Download</a>";
             echo "</tr>";
         } 
         echo "</table>";

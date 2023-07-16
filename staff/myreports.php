@@ -48,12 +48,13 @@ include "../includes/connection.php";
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID"; 
+$sql = "SELECT * FROM report INNER JOIN activity ON report.topic=activity.activeID" WHERE report.manager = $myid; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";
             echo "<thead>";
              echo "<tr>";
+                echo "<th></th>";
                 echo "<th>Date</th>";
                 echo "<th>Topic</th>";
                 echo "<th>Action</th>";
@@ -61,9 +62,10 @@ if($result = mysqli_query($con, $sql)){
             echo "</thead>";
         while($row = mysqli_fetch_array($result)){
             echo "<tr>";
+                echo '<td><i style="font-size: 1.4em;" class="bi bi-file-earmark-text"></i></td>';
                 echo "<td>" . $row['date'] . "</td>";
                 echo "<td>" . $row['activeName'] . "</td>";
-                echo "<td>" . "<a href='report.php?id=".$row['reportid']."  'class='badge bg-info'>Generate Report</a>
+                echo "<td>" . "<a style='padding-top: 10px; padding-bottom: 10px;' href='report.php?id=".$row['reportid']."  'class='badge bg-info'>Open Report</a>
                 ". "</td>";
             echo "</tr>"; 
         }

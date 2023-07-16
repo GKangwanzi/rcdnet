@@ -33,7 +33,9 @@
 <section class="section">
 <div class="row" id="table-hover-row">
 <div class="col-12"> 
-
+    <div class="bd-callout bd-callout-info">
+<strong>This is an info callout.</strong> Example text to show it in action.
+</div>
     <br>
     <!-- table hover -->
 <?php

@@ -14,9 +14,11 @@
         </div>
     </div>
 
+
     <?php 
     include "includes/sidebarmenu.php";
     ?>
+
 
     <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
@@ -29,51 +31,43 @@
             </header>
             
 <div class="page-heading">
-    <h3>Reporting Center</h3>
+    <h3>Dashboard</h3>
 </div>
 <div class="page-content">
 
     <section class="row">
         <div class="col-12 col-lg-12">
 
+ 
+
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="templatereport.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                    <a href="tempreps.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
-                                <i class="bi bi-file-earmark-text" style="font-size: 4em; color: #fff;"></i></div>
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Report using template
+                                <h5 style="text-align: center; font-size: 1em;">Template Reports
                                 </h5>
                             </div> 
                         </div>
-                    </div></a> 
+                    </div></a>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="upreports.php"><div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
+                    <a href="upreps.php"><div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
-                                <i class="bi bi-file-earmark-arrow-up" style="font-size: 4em; color: #fff;"></i></div>
+                                <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Upload Report
-
+                                <h5 style="text-align: center; font-size: 1em;">Uploaded Reports
                                 </h5>
                             </div>
                         </div>
                     </div></a>
                 </div>
-                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="mydocreports.php"><div class="card" style="background: #5ddab4; padding-top: 20px; padding-bottom: 20px;">
-                        <div class="card-body px-3 py-4-5">
-                                <div style="text-align: center;">
-                                <i class="bi bi-folder-symlink" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">My Reports
-                                </h5>
-                        </div> 
-                    </div></a>
-                </div>
+
             </div>
 
 
@@ -85,7 +79,6 @@
 </div> 
 
             <footer>
-
             </footer>
         </div>
     </div>

@@ -20,4 +20,4 @@ window.location.href = "bencategory.php";
     // Close connection
     mysqli_close($con);
 ?>
-?>
+?> 
