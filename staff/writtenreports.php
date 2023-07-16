@@ -47,7 +47,7 @@
 $myid = $_SESSION['userid'];
 
 
-$sql = "SELECT * FROM writtenrep"; 
+$sql = "SELECT * FROM writtenrep WHERE user=$myid "; 
 if($result = mysqli_query($con, $sql)){
     if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-striped' id='table5'>";

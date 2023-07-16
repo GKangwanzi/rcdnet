@@ -37,12 +37,12 @@
                 </ul>
             </li>
             <li
-                class="sidebar-item  has-sub">
-                <a href="#" class='sidebar-link'>
+                class="sidebar-item ">
+                <a href="./newreport.php" class='sidebar-link'>
                     <i class="bi bi-file-earmark-medical-fill"></i>
-                    <span>Project Reports</span>
+                    <span>Reporting Center</span>
                 </a>
-                <ul class="submenu ">
+               <!-- <ul class="submenu ">
                     <li class="submenu-item ">
                         <a href="./newreport.php">Activity Report</a>
                     </li>
@@ -52,7 +52,7 @@
                     <li class="submenu-item ">
                         <a href="./myreports.php">My Reports</a>
                     </li>
-                </ul> 
+                </ul> -->
             </li>
              
             <li

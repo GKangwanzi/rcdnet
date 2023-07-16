@@ -38,20 +38,20 @@
 
             <div class="row">
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="templatereport.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
+                    <a href="written.php"><div class="card" style="background: #9694ff; padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
                                 <i class="bi bi-file-earmark-text" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Report using template
+                                <h5 style="text-align: center; font-size: 1em;">Write Report
                                 </h5>
                             </div> 
                         </div>
                     </div></a> 
                 </div>
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6">
-                    <a href="upreports.php"><div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
+                    <a href="uploadreport.php"><div class="card" style="background: #57caeb;  padding-top: 20px; padding-bottom: 20px;">
                         <div class="card-body px-3 py-4-5">
                             <div class="row">
                                 <div style="text-align: center;">
@@ -69,7 +69,17 @@
                         <div class="card-body px-3 py-4-5">
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-symlink" style="font-size: 4em; color: #fff;"></i></div>
-                                <h5 style="text-align: center; font-size: 1em;">My Reports
+                                <h5 style="text-align: center; font-size: 1em;">My Uploads
+                                </h5>
+                        </div> 
+                    </div></a>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6">
+                    <a href="writtenreports.php"><div class="card" style="background: #5ddab4; padding-top: 20px; padding-bottom: 20px;">
+                        <div class="card-body px-3 py-4-5">
+                                <div style="text-align: center;">
+                                <i class="bi bi-folder-symlink" style="font-size: 4em; color: #fff;"></i></div>
+                                <h5 style="text-align: center; font-size: 1em;">My Writeups
                                 </h5>
                         </div> 
                     </div></a>

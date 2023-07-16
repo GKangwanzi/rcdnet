@@ -65,9 +65,8 @@ if($result = mysqli_query($con, $sql)){
                 echo '<td><i style="font-size: 1.4em;" class="bi bi-file-earmark-text"></i></td>';
                 echo "<td>" . $row['date'] . "</td>";
                 echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . "<a style='padding-top: 10px; padding-bottom: 10px;' href='report.php?id=".$row['repID']."  'class='badge bg-info'>Download Report</a>
-                ". "</td>";
-            echo "</tr>"; 
+                echo "<td>" . "<a target='_blank' href='../docs/".$row['file']."' class='badge bg-success'>Download</a>";
+            echo "</tr>";  
         }
         echo "</table>";
         // Free result set

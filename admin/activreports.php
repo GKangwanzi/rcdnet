@@ -48,7 +48,7 @@
                                 <div style="text-align: center;">
                                 <i class="bi bi-folder-fill" style="font-size: 4em; color: #fff;"></i></div>
                                 <br>
-                                <h5 style="text-align: center; font-size: 1em;">Template Reports
+                                <h5 style="text-align: center; font-size: 1em;">Written Reports
                                 </h5>
                             </div> 
                         </div>
